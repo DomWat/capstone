@@ -1,12 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import BaseLayout from './Components/BaseLayout'
 import reportWebVitals from './reportWebVitals';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import reducer from './store/reducer';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import App from './App';
+import About from './Components/About'
+import Profile from './Components/Profile'
+import Login from './Components/Login'
+import Classes from './Components/Classes'
+
+
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store = {store}>
+      <BrowserRouter>
+        <BaseLayout>
+          <Switch>
+            <Route  path = '/about' component = {About} />
+            <Route  path = '/profile' component = {Profile} />
+            <Route  path = '/login' component = {Login} />
+            <Route  path = '/classes' component = {Classes} />
+            <Route exact path = '/' component = {App} />
+          </Switch>
+        </BaseLayout>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

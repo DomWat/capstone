@@ -1,0 +1,26 @@
+.Nav {
+    width: 40%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: aqua;
+    padding: 0 20px;
+}
+
+.NavLink.Active {
+    height: 100%;
+    color: red;
+}
+
+.NavLink:hover {
+    color: tomato;
+}
+
+.NavLink {
+    color: purple;
+    text-decoration: none;
+}
