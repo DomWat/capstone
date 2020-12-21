@@ -1,7 +1,7 @@
 const { Students } = require("../../models");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-require("dotenv").config(); 
+require("dotenv").config();
 
 module.exports = async (req, res, next) => {
   let email = req.body.email; // obtaining email from form/textbox
@@ -29,9 +29,9 @@ module.exports = async (req, res, next) => {
       const token = jwt.sign({ student_id: student_id }, process.env.JWTKEY);
       res.json({ token: token });
     } else {
-        res.status(500).send({error: 'Something went wrong'})
+      res.status(500).send({ error: "Something went wrong" });
     }
   } else {
-      res.json({ message: "Incorrect username or password"})
+    res.json({ message: "Incorrect username or password" });
   }
 };
