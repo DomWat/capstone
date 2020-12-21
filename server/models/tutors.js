@@ -21,11 +21,32 @@ module.exports = (sequelize, DataTypes) => {
   }
   Tutors.init(
     {
-      first_name: DataTypes.STRING,
-      last_name: DataTypes.STRING,
-      email: DataTypes.STRING,
-      password: DataTypes.STRING,
-      hourly_rate: DataTypes.INTEGER,
+      tutor_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
+      },
+      first_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      last_name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      hourly_rate: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       image: DataTypes.STRING,
     },
     {

@@ -17,14 +17,23 @@ module.exports = (sequelize, DataTypes) => {
       models.Comments.belongsTo(models.Tutors, { foreignKey: "tutor_id" });
     }
   };
-  Comments.init({
-    title: DataTypes.STRING,
-    body: DataTypes.STRING,
-    student_id: DataTypes.INTEGER,
-    tutor_id: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Comments',
-  });
+  Comments.init(
+    {
+      comment_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
+      },
+      title: DataTypes.STRING,
+      body: DataTypes.STRING,
+      student_id: DataTypes.INTEGER,
+      tutor_id: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: "Comments",
+    }
+  );
   return Comments;
 };

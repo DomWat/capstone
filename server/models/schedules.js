@@ -15,6 +15,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   Schedules.init(
     {
+      schedule_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
+      },
       monday: DataTypes.STRING,
       tuesday: DataTypes.STRING,
       wednesday: DataTypes.STRING,

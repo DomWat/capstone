@@ -21,17 +21,26 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   };
-  Appointments.init({
-    subject_id: DataTypes.INTEGER,
-    student_id: DataTypes.INTEGER,
-    tutor_id: DataTypes.INTEGER,
-    start_time: DataTypes.INTEGER,
-    end_time: DataTypes.INTEGER,
-    is_paid: DataTypes.BOOLEAN,
-    total_cost: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Appointments',
-  });
+  Appointments.init(
+    {
+      appointment_id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false,
+      },
+      subject_id: DataTypes.INTEGER,
+      student_id: DataTypes.INTEGER,
+      tutor_id: DataTypes.INTEGER,
+      start_time: DataTypes.INTEGER,
+      end_time: DataTypes.INTEGER,
+      is_paid: DataTypes.BOOLEAN,
+      total_cost: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: "Appointments",
+    }
+  );
   return Appointments;
 };
