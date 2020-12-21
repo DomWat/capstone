@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import LoginForm from './Components/LoginForm'
+
 
 function App() {
   const adminUser ={
@@ -32,6 +31,7 @@ function App() {
   }
 
   return (
+
     <div className="App">
      {(user.email != "") ? (
       <div className="welcome">
@@ -41,6 +41,7 @@ function App() {
      ) : (
        <LoginForm Login={Login} error={error}/>
      )}
+
     </div>
   );
 }
