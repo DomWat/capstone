@@ -1,11 +1,13 @@
 const { Tutors } = require("../../models");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+require("dotenv").config(); 
 
 module.exports = async (req, res, next) => {
   let email = req.body.email; // obtaining email from form/textbox
   let password = req.body.password; // obtaining password from form/textbox
   let tutor_id = ""; // will get from the database once we verify the user exists
+  require("dotenv").config(); 
 
   // checking if tutor already exists
   const tutor = await Tutors.findOne({
@@ -25,7 +27,7 @@ module.exports = async (req, res, next) => {
     if (result) {
       const loggedInUser = tutor.toJSON();
       delete loggedInUser.password;
-      const token = jwt.sign({ tutor_id: tutor_id }, "TUTORAPPKEY");
+      const token = jwt.sign({ tutor_id: tutor_id }, process.env.JWTKEY);
       res.json({ token: token });
     } else {
       res.status(500).send({ error: "Something went wrong" });
