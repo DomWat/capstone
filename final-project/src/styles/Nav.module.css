@@ -9,10 +9,10 @@
     box-sizing: border-box;
     background-color: aqua;
     padding: 0 20px;
+    height: 8%;
 }
 
 .NavLink.Active {
-    height: 100%;
     color: red;
 }
 
