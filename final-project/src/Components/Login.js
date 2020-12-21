@@ -17,7 +17,8 @@ function Login() {
             password: user.password
         })
         const result = response.data
-        return result
+        console.log(result)
+        return result 
     }
 
     const handleLogin =  async () => {
@@ -31,7 +32,7 @@ function Login() {
 
     return (
         <div>
-            <input type="email" name="email" placeholder="Enter email" onChange={handleOnChange}></input>
+            <input type="text" name="email" placeholder="Enter email" onChange={handleOnChange}></input>
             <input type="password" name="password" placeholder="Enter password" onChange={handleOnChange}></input>
             <button onClick={handleLogin}>Login</button>
             
