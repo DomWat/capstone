@@ -14,7 +14,13 @@ import Login from './Components/Login'
 import Classes from './Components/Classes'
 import RegistrationStudent from './Components/RegistrationStudent';
 import RegistrationTutor from './Components/RegistrationTutor'
+import { setAuthenticationHeader } from './utils/authenticate';
 
+
+// resets the token in the default axios authentication headers when user
+// refreshes page
+const token = localStorage.getItem('jsonwebtoken')
+setAuthenticationHeader(token)
 
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
