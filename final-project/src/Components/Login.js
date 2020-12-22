@@ -1,61 +1,191 @@
-import React, { useState  } from 'react'
-import axios from 'axios'
-function Login() {
-    const [user, setUser] = useState({})
+import React, { useState } from "react";
+import axios from "axios";
 
-    const handleOnChange = (e) => {
-        setUser({
-            ...user,
-            [e.target.name]: e.target.value
-        })
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import { purple } from "@material-ui/core/colors";
+import { setAuthenticationHeader } from "../utils/authenticate";
+
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: purple[300],
+  },
+  form: {
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
+export default function SignIn() {
+  const classes = useStyles();
+
+  const [user, setUser] = useState({});
+
+  const handleOnChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const userLoggedIn = async () => {
+    //making fetch call to server
+    const response = await axios.post("http://localhost:3001/login/tutor", {
+      email: user.email,
+      password: user.password,
+    });
+    const result = response.data;
+    console.log(result);
+    return result;
+  };
+
+  const handleLogin = async () => {
+    let userToken = await userLoggedIn();
+
+    if (user) {
+      const token = userToken.token;
+      localStorage.setItem("jsonwebtoken", token);
+      
+      // after getting the token, we can set default authentication headers for axios to include jsonwebtoken 
+      // Will send the token for every request user makes
+      setAuthenticationHeader(token)
+
+
     }
+  };
 
-    const userLoggedIn = async () => {
-        //making fetch call to server
-        const response = await axios.post('http://localhost:3001/login/student', {
-            email: user.email,
-            password: user.password
-        })
-        const result = response.data
-        console.log(result)
-        return result 
-    }
+  return (
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign in as Tutor
+        </Typography>
+        <form className={classes.form} noValidate>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            onChange={handleOnChange}
+            autoFocus
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            onChange={handleOnChange}
+          />
 
-    const handleLogin =  async () => {
-        let userToken = await userLoggedIn()
-
-        if (user) {
-            const token = userToken.token
-            localStorage.setItem('jsonwebtoken', token)
-        }
-    }
-
-    return (
-        <div>
-            <input type="text" name="email" placeholder="Enter email" onChange={handleOnChange}></input>
-            <input type="password" name="password" placeholder="Enter password" onChange={handleOnChange}></input>
-            <button onClick={handleLogin}>Login</button>
-            
-        </div>
-    )
+          <Button
+            // type="submit"
+            fullWidth
+            variant="contained"
+            style={{ backgroundColor: purple[300], color: "white" }}
+            className={classes.submit}
+            onClick={handleLogin}
+          >
+            Sign In
+          </Button>
+          <Grid container>
+            <Grid item xs></Grid>
+            <Grid item>
+              <Link href="#" variant="body2">
+                {"Don't have an account? Sign Up"}
+              </Link>
+            </Grid>
+          </Grid>
+        </form>
+      </div>
+      <Box mt={8}></Box>
+    </Container>
+  );
 }
 
+// function Login() {
+//     const [user, setUser] = useState({})
 
+//     const handleOnChange = (e) => {
+//         setUser({
+//             ...user,
+//             [e.target.name]: e.target.value
+//         })
+//     }
 
+//     const userLoggedIn = async () => {
+//         //making fetch call to server
+//         const response = await axios.post('http://localhost:3001/login/student', {
+//             email: user.email,
+//             password: user.password
+//         })
+//         const result = response.data
+//         console.log(result)
+//         return result
+//     }
 
+//     const handleLogin =  async () => {
+//         let userToken = await userLoggedIn()
+
+//         if (user) {
+//             const token = userToken.token
+//             localStorage.setItem('jsonwebtoken', token)
+//         }
+//     }
+
+//     return (
+//         <div>
+//             <input type="text" name="email" placeholder="Enter email" onChange={handleOnChange}></input>
+//             <input type="password" name="password" placeholder="Enter password" onChange={handleOnChange}></input>
+//             <button onClick={handleLogin}>Login</button>
+
+//         </div>
+//     )
+// }
 
 // function Login() {
 //     const adminUser ={
 //       email: "admin@admin.com",
 //       password: "admin123"
 //     }
-  
+
 //     const [user, setUser] = useState({name: "", email: ""})
 //     const [error, setError]= useState("")
-  
+
 //     const Login = details => {
 //       console.log(details)
-  
+
 //       if (details.email == adminUser.email && details.password == adminUser.password){
 //         console.log("Loggen In")
 //         setUser({
@@ -76,10 +206,9 @@ function Login() {
 
 //       const submitHandler = e => {
 //           e.preventDefault()
-  
+
 //           Login(details)
 //       }
-
 
 //       <form onSubmit={submitHandler}>
 //            <div className= "form-inner">
@@ -101,7 +230,7 @@ function Login() {
 
 //            </div>
 //        </form>
-     
+
 //         // render() {
 //             return (
 //                 <div>
@@ -114,14 +243,11 @@ function Login() {
 //                         ) : (
 //                                 <LoginForm Login={Login} error={error} />
 //                             )}
-    
+
 //                     </div>
 //                 </div>
 //             )
 //         }
 //     }
-    
 
-
-
-export default Login
+//export default Login
