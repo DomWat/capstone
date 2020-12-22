@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { purple } from "@material-ui/core/colors";
+import { setAuthenticationHeader } from "../utils/authenticate";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -63,6 +64,12 @@ export default function SignIn() {
     if (user) {
       const token = userToken.token;
       localStorage.setItem("jsonwebtoken", token);
+      
+      // after getting the token, we can set default authentication headers for axios to include jsonwebtoken 
+      // Will send the token for every request user makes
+      setAuthenticationHeader(token)
+
+
     }
   };
 
