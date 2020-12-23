@@ -9,6 +9,8 @@ module.exports = async (req, res, next) => {
   let password = req.body.password;
   let hourly_rate = req.body.hourly_rate;
   let image = req.body.image;
+  let description = req.body.description
+  let linkedIn_url = req.body.linkedIn_url
   let venmo_handle = req.body.venmo_handle;
   let cashapp_handle = req.body.cashapp_handle;
   let paypal_handle = req.body.paypal_handle;
@@ -35,6 +37,8 @@ module.exports = async (req, res, next) => {
       password: hash,
       hourly_rate: hourly_rate,
       image: image,
+      description: description,
+      linkedIn_url: linkedIn_url,
       venmo_handle: venmo_handle,
       cashapp_handle: cashapp_handle,
       paypal_handle: paypal_handle,

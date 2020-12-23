@@ -48,6 +48,9 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       image: DataTypes.STRING,
+
+      description: DataTypes.TEXT,
+      linkedIn_url: DataTypes.STRING,
     },
     {
       sequelize,
