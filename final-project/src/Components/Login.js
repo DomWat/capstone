@@ -125,6 +125,10 @@ export default function SignIn() {
               <Link href="#" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
+              <br></br>
+              <Link href="/login/student" variant="body2">
+                {"Sign in as a student"}
+              </Link>
             </Grid>
           </Grid>
         </form>
