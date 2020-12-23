@@ -13,6 +13,7 @@ import Profile from './Components/Profile'
 import Login from './Components/Login'
 import Classes from './Components/Classes'
 import { setAuthenticationHeader } from './utils/authenticate';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 // resets the token in the default axios authentication headers when user
