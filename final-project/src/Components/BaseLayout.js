@@ -6,7 +6,7 @@ function baseLayout(props) {
   return (
     <div className="Title">
       <Nav />
-        <h1>Tutes for All</h1>
+       {/* <h1>Website Title</h1> */}
             {props.children}
       <Footer />
     </div>
