@@ -15,6 +15,7 @@ import Classes from './Components/Classes'
 import RegistrationStudent from './Components/RegistrationStudent';
 import RegistrationTutor from './Components/RegistrationTutor'
 import { setAuthenticationHeader } from './utils/authenticate';
+import LoginStudent from './Components/LoginStudent';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
@@ -34,7 +35,8 @@ ReactDOM.render(
           <Switch>
             <Route  path = '/about' component = {About} />
             <Route  path = '/profile' component = {Profile} />
-            <Route  path = '/login' component = {Login} />
+            <Route exact path = '/login' component = {Login} />
+            <Route path = "/login/student" component ={LoginStudent} />
             <Route  path = '/classes' component = {Classes} />
             <Route  path = '/registration-student' component = {RegistrationStudent} />
             <Route  path = '/registration-tutor' component = {RegistrationTutor} />
