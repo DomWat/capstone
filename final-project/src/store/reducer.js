@@ -1,7 +1,7 @@
 
 
 const initialState = {
-
+    // tutors: []
 }
 
 const reducer = (state = initialState, action) => {
