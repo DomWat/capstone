@@ -15,6 +15,7 @@ import Classes from './Components/Classes'
 import RegistrationStudent from './Components/RegistrationStudent';
 import RegistrationTutor from './Components/RegistrationTutor'
 import { setAuthenticationHeader } from './utils/authenticate';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 // resets the token in the default axios authentication headers when user
