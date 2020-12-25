@@ -16,7 +16,7 @@ import RegistrationStudent from './Components/RegistrationStudent';
 import RegistrationTutor from './Components/RegistrationTutor'
 import { setAuthenticationHeader } from './utils/authenticate';
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import requireAuth from './Components/requireAuth'
 
 // resets the token in the default axios authentication headers when user
 // refreshes page
@@ -26,6 +26,12 @@ setAuthenticationHeader(token)
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
+if(token) {
+  store.dispatch({
+    type: 'ON_AUTH'
+  })
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store = {store}>
@@ -33,7 +39,7 @@ ReactDOM.render(
         <BaseLayout>
           <Switch>
             <Route  path = '/about' component = {About} />
-            <Route  path = '/profile' component = {Profile} />
+            <Route  path = '/profile' component = {requireAuth(Profile)} />
             <Route  path = '/login' component = {Login} />
             <Route  path = '/classes' component = {Classes} />
             <Route  path = '/registration-student' component = {RegistrationStudent} />
