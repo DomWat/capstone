@@ -1,0 +1,47 @@
+
+.container{
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
+
+}
+
+h2, p {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.Card, .Card2, .Card3{
+    width: 22%;
+    margin-top: 10%;
+    margin-left: 8%;
+    /*margin-right: 1%;*/
+    margin-bottom: 45px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Card4, .Card5{
+    width: 22%;
+    /*margin-right: 1%;*/
+    margin-left: 18%;
+    margin-bottom: 30px;
+    display: inline-flex;
+    align-content: center;
+    justify-content: center;
+}
+.card-title, .card-text, .button{
+    text-align: center;
+}
+
+
+
+.button {
+    margin-top: 30px;
+
+    
+
+}
+
