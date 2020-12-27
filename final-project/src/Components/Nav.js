@@ -55,14 +55,14 @@ const useStyles = makeStyles((theme) => ({
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Website Title
+            goodtutor
           </Typography>
           <Typography className={classes.root}>
   <NavLink to="/" >
     Home
   </NavLink>
   < NavLink to="/classes"  color="inherit">
-   Find Classes
+   Find Tutors
   </NavLink>
   {props.isAuth ? <NavLink to="/profile"  variant="body2"> 
     Profile
