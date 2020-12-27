@@ -18,6 +18,7 @@ import { setAuthenticationHeader } from './utils/authenticate';
 import LoginStudent from './Components/LoginStudent';
 import "bootstrap/dist/css/bootstrap.min.css";
 import requireAuth from './Components/requireAuth'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // resets the token in the default axios authentication headers when user
 // refreshes page
