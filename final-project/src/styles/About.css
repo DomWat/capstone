@@ -1,14 +1,25 @@
 
-.container{
+.Container{
     display: flex;
     align-items: center;
-    margin-top: 5%;
+    font-family: Futura;
+    background-color: rgb(250, 250, 250) !important;
 
 }
 
-h2, p {
+h2 {
     text-align: center;
-    margin-top: 10%;
+    font-family: Futura;
+    margin-top: 15%;
+}
+
+.aboutParagraph {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+    font-family: Futura;
+    text-align: center;
+
 }
 
 .Card, .Card2, .Card3{
@@ -20,6 +31,7 @@ h2, p {
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    font-family: Futura;
 
 }
 
@@ -31,7 +43,10 @@ h2, p {
     display: inline-flex;
     align-content: center;
     justify-content: center;
+    font-family: Futura;
+
 }
+
 .card-title, .card-text, .button{
     text-align: center;
 }
@@ -41,7 +56,9 @@ h2, p {
 .button {
     margin-top: 30px;
 
-    
-
 }
 
+@font-face {
+    font-family: Futura;
+    src: url(Futura\ Book\ font.ttf);
+  }

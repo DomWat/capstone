@@ -17,6 +17,8 @@ import RegistrationTutor from './Components/RegistrationTutor'
 import { setAuthenticationHeader } from './utils/authenticate';
 import LoginStudent from './Components/LoginStudent';
 import "bootstrap/dist/css/bootstrap.min.css";
+import TutorDetails from './Components/TutorDetails'
+
 import requireAuth from './Components/requireAuth'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -39,6 +41,7 @@ ReactDOM.render(
       <BrowserRouter>
         <BaseLayout>
           <Switch>
+            <Route  path = '/tutor/:tutorId' component = {TutorDetails} />
             <Route  path = '/about' component = {About} /> 
             <Route  path = '/profile' component = {requireAuth(Profile)} />
             <Route exact path = '/login' component = {Login} />

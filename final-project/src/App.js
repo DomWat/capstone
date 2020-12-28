@@ -1,11 +1,12 @@
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
 import Button from "@material-ui/core/Button";
+import './App.css'
 
 
 function App () {
   return (
-    <div>
-      <h1>Home Page</h1>
+    <div className='homeContainer'>
+      {/* <h1>Home Page</h1> */}
       {/* <button>
         <NavLink to="/registration-student">Register as Student</NavLink>
       </button> */}
@@ -17,6 +18,7 @@ function App () {
         variant="contained"
         color="secondary"
         href="/registration-student"
+        className='registerButton'
       >
         Register as Student
       </Button>
@@ -24,6 +26,8 @@ function App () {
         variant="contained"
         color="secondary"
         href="/registration-tutor"
+        className='registerButton'
+
       >
         Register as Tutor
       </Button>
