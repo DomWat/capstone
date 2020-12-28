@@ -1,6 +1,8 @@
 // import { NavLink } from 'react-router-dom'
 import Button from "@material-ui/core/Button";
 import './App.css'
+import Home1 from "./Components/Home1";
+import Home2 from "./Components/Home2";
 
 
 function App () {
@@ -13,6 +15,8 @@ function App () {
       {/* <button>
         <NavLink to="/registration-tutor">Register as Tutor</NavLink>
       </button> */}
+      <Home1 />
+      <Home2 />
 
       <Button
         variant="contained"

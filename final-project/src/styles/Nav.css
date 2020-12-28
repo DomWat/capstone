@@ -3,11 +3,12 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+    width: 100% !important;
     
 }
 
 .titleLogo {
-    width: 500px;
+    width: 300px;
     height: auto;
     /* position: fixed;
     top:0;
@@ -21,6 +22,7 @@
     text-align: center;
     font-family: Futura;
     justify-content: space-between;
+    margin: 0 !important;
 
 }
 
@@ -44,7 +46,18 @@
 
 .linksDiv {
     display: none;
-  
+    margin-bottom: 5px !important;
+}
+
+.navLink:hover {
+    text-decoration: none ;
+    border-top: royalblue;
+    border-width: 3px;
+    border-style: solid;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    padding: 2px;
 
 }
 
@@ -57,7 +70,11 @@
   @media only screen and (min-width: 769px) {
 
     .navMenuIcon {
-        display: none;
+        display: none !important;
+    }
+
+    .topRightMenu {
+        display: none !important;
     }
 
     .linksDiv {
@@ -68,6 +85,13 @@
         margin-top: 40px !important;
     }
 
+    .titleLogo {
+        width: 500px;
+        height: auto;
+        /* position: fixed;
+        top:0;
+      */
+    }
    
     
   }
