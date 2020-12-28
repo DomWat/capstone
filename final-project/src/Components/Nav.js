@@ -15,6 +15,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux'
+import image from '/Users/willfoody/Documents/Repositories/Capstone/final-project/src/Components/goodtutorlogo.jpg';
+import '../styles/Nav.css'
+// import shadows from "@material-ui/core/styles/shadows";
 //import { Grid } from '@material-ui/core'
 //import { checkPropTypes } from "prop-types";
 const useStyles = makeStyles((theme) => ({
@@ -28,6 +31,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
 }));
+
+
 
  function Navbar (props) {
  const classes = useStyles();
@@ -47,36 +52,16 @@ const useStyles = makeStyles((theme) => ({
   };
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} className='navBar'>
      
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
+      <AppBar position="static" style={{ boxShadow: 'none'}}>
+        <Toolbar className='navBar'>
+          <IconButton edge="start" className={classes.menuButton} aria-label="menu" className='navMenuIcon'>
+            <MenuIcon className='navMenuIcon'/>
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            Website Title
-          </Typography>
-          <Typography className={classes.root}>
-  <NavLink to="/" >
-    Home
-  </NavLink>
-  < NavLink to="/classes"  color="inherit">
-   Find Classes
-  </NavLink>
-  {props.isAuth ? <NavLink to="/profile"  variant="body2"> 
-    Profile
-  </NavLink> :null}
-  <NavLink to="/login"  variant="body2" >
-    Login
-  </NavLink> 
- {props.isAuth ? <NavLink to="/"  variant="body2">
-    Logout
-  </NavLink> :null}
-  <NavLink to="/about"  variant="body2">
-    About
-  </NavLink>
-</Typography>
+          {/* <Typography variant="h6" className={classes.title}>
+          </Typography> */}
+          
           {auth && (
             <div>
               <IconButton
@@ -85,6 +70,8 @@ const useStyles = makeStyles((theme) => ({
                 aria-haspopup="true"
                 onClick={handleMenu}
                 color="inherit"
+                className='topRightMenu'
+
               >
                 <AccountCircle />
               </IconButton>
@@ -102,14 +89,38 @@ const useStyles = makeStyles((theme) => ({
                 }}
                 open={open}
                 onClose={handleClose}
+                className='topRightMenu'
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose} className='menuItem'>Profile</MenuItem>
+                <MenuItem onClick={handleClose} className='menuItem'>My account</MenuItem>
+                
               </Menu>
             </div>
           )}
         </Toolbar>
       </AppBar>
+      <NavLink to='/'><img src={image} alt='logo' className='titleLogo'/></NavLink>
+      <Typography className={classes.root} className='linksDiv'>
+  <NavLink to="/" >
+    Home
+  </NavLink>
+  < NavLink to="/classes"  color="inherit">
+   Find Tutors
+  </NavLink>
+  {props.isAuth ? <NavLink to="/profile"  variant="body2"> 
+    Profile
+  </NavLink> :null}
+  <NavLink to="/login"  variant="body2" >
+    Login
+  </NavLink> 
+ {props.isAuth ? <NavLink to="/"  variant="body2">
+    Logout
+  </NavLink> :null}
+  <NavLink to="/about"  variant="body2">
+    About
+  </NavLink>
+</Typography>
+
     </div>
   );
 }

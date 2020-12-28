@@ -1,0 +1,73 @@
+
+.navBarContainer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.titleLogo {
+    width: 500px;
+    height: auto;
+    /* position: fixed;
+    top:0;
+  */
+}
+
+.navBar {
+    background-color: rgb(250, 250, 250);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: Futura;
+    justify-content: space-between;
+
+}
+
+.menuItem {
+    font-family: Futura !important;
+    font-size: 20px;
+}
+
+.navMenuIcon {
+    /* background-color: blue; */
+    color: rgb(34, 32, 32);
+    outline:none !important;
+
+}
+
+.topRightMenu {
+    color: rgb(47, 20, 109) !important;
+    outline:none !important;
+
+}
+
+.linksDiv {
+    display: none;
+  
+
+}
+
+
+@font-face {
+    font-family: Futura;
+    src: url(Futura\ Book\ font.ttf);
+  }
+
+  @media only screen and (min-width: 769px) {
+
+    .navMenuIcon {
+        display: none;
+    }
+
+    .linksDiv {
+        justify-content: space-evenly;
+        font-family: Futura !important;
+        display: flex;
+        font-size: 20px !important;
+        margin-top: 40px !important;
+    }
+
+   
+    
+  }

@@ -4,7 +4,7 @@ function About () {
     return (
         <div classname="Container">
             <h2> About Us</h2>
-            <p>
+            <p className='aboutParagraph'>
 
 
 We are a revolutionary online education platform that provides tutoring for for those who need assistance at a free cost. Yes, at a free cost. Some of you may wonder why created a website the provide free assistances. Well, in 2020 many of were affected by the Pandemic in several ways such loosing your job or a family member. Although, we don't have a cure for this deadly virus but,  the world started transitioning to remotely learning and working for out safety.The transition to online learning hasn’t been a pleasant experience since many students are still trying to adapt and many have trouble understanding the material.However, until things come back to normal, we want to assist all those students who do not have the resources to pay for a private tutor and make this online learning become a great experience. </p>
@@ -15,7 +15,7 @@ We are a revolutionary online education platform that provides tutoring for for 
                     <Card.Body className="card-body">
                         <Card.Title className="card-title">Dominic Water</Card.Title>
                         <Card.Text className="card-text">
-                            FullStack Developer
+                            Full Stack Developer
                         </Card.Text>
                         <div className="button">
                         <Card.Link href="https://github.com/DomWat">GitHub</Card.Link>
@@ -30,7 +30,7 @@ We are a revolutionary online education platform that provides tutoring for for 
                     <Card.Body>
                         <Card.Title>Cristina Hernandez</Card.Title>
                         <Card.Text>
-                            FullStack Developer
+                            Full Stack Developer
                         </Card.Text>
                         <div className="button">
                         <Card.Link href="https://github.com/cristinahdz29">GitHub</Card.Link>
@@ -45,7 +45,7 @@ We are a revolutionary online education platform that provides tutoring for for 
                     <Card.Body>
                         <Card.Title>William Foody</Card.Title>
                         <Card.Text>
-                            FullStack Developer
+                            Full Stack Developer
                         <div className="button">
                         <Card.Link href="https://github.com/wfoody">GitHub</Card.Link>
                         <Card.Link href="https://www.linkedin.com/in/wfoody/">LinkedIn</Card.Link>
@@ -60,7 +60,7 @@ We are a revolutionary online education platform that provides tutoring for for 
                     <Card.Body>
                         <Card.Title>Juan Trinidad</Card.Title>
                         <Card.Text>
-                            FullStack Developer
+                            Full Stack Developer
                         </Card.Text>
                         <div className="button">
                         <Card.Link href="https://github.com/juantrinidad14">GitHub</Card.Link>
@@ -75,7 +75,7 @@ We are a revolutionary online education platform that provides tutoring for for 
                     <Card.Body>
                         <Card.Title>Adebowale Oduwole</Card.Title>
                         <Card.Text>
-                            FullStack Developer
+                            Full Stack Developer
                         </Card.Text>
                            <div className="button">
                         <Card.Link href="">GitHub</Card.Link>

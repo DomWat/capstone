@@ -1,12 +1,13 @@
 import React from 'react'
 import classes from '../styles/Footer.module.css'
-function footer() {
+
+function Footer() {
     return(
         <div className={classes.Footer}>
-            <p>Website Title</p>
-            <p>© 2020</p>
+            <span className='blueGood'>good</span><span className='purpleTutor'>tutor&nbsp;</span>
+            <span>© 2020</span>
         </div>
     )
 }
 
-export default footer
+export default Footer
