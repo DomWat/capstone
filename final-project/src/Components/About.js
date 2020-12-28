@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card'
 import '../styles/About.css'
 function About () {
     return (
-        <div classname="Container">
+        <div className="Container">
             <h2> About Us</h2>
             <p className='aboutParagraph'>
 

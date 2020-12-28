@@ -59,9 +59,20 @@ const useStyles = makeStyles((theme) => ({
           <IconButton edge="start" className={classes.menuButton} aria-label="menu" className='navMenuIcon'>
             <MenuIcon className='navMenuIcon'/>
           </IconButton>
-          {/* <Typography variant="h6" className={classes.title}>
-          </Typography> */}
-          
+          <Typography className={classes.root}>
+  {/* <NavLink to="/" > */}
+    {/* Home */}
+  {/* </NavLink> */}
+  {/* < NavLink to="/classes"  color="inherit"> */}
+   {/* Find Classes */}
+  {/* </NavLink> */}
+  {/* {props.isAuth ? <NavLink to="/profile"  variant="body2">Profile</NavLink> :null} */}
+  {/* {!props.isAuth ? <NavLink to="/login"  variant="body2" >Login</NavLink> :null} */}
+ {/* {props.isAuth ? <NavLink to="/"  variant="body2">Logout</NavLink> :null} */}
+  {/* <NavLink to="/about"  variant="body2"> */}
+    {/* About */}
+  {/* </NavLink> */}
+</Typography>
           {auth && (
             <div>
               <IconButton
@@ -110,10 +121,10 @@ const useStyles = makeStyles((theme) => ({
   {props.isAuth ? <NavLink to="/profile"  variant="body2" className='navLink'> 
     Profile
   </NavLink> :null}
-  <NavLink to="/login"  variant="body2" className='navLink'>
+  {!props.isAuth ? <NavLink to="/login"  variant="body2" >
     Login
-  </NavLink> 
- {props.isAuth ? <NavLink to="/"  variant="body2" className='navLink'>
+  </NavLink> :null}
+ {props.isAuth ? <NavLink to="/"  variant="body2">
     Logout
   </NavLink> :null}
   <NavLink to="/about"  variant="body2" className='navLink'>
