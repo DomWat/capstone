@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './store/reducer';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom'
 import App from './App';
 import About from './Components/About'
 import Profile from './Components/Profile'
@@ -20,19 +20,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import requireAuth from './Components/requireAuth'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 // resets the token in the default axios authentication headers when user
 // refreshes page
 const token = localStorage.getItem('jsonwebtoken')
 setAuthenticationHeader(token)
 
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-
-if(token) {
-  store.dispatch({
-    type: 'ON_AUTH'
-  })
-}
+//if(token) {
+  //store.dispatch({
+    //type: 'ON_AUTH'
+  //})
+//}
 
 ReactDOM.render(
   <React.StrictMode>

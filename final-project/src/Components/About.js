@@ -2,12 +2,9 @@ import Card from 'react-bootstrap/Card'
 import '../styles/About.css'
 function About () {
     return (
-        <div classname="Container">
+        <div className="Container">
             <h2> About Us</h2>
-            <p>
-
-
-We are a revolutionary online education platform that provides tutoring for for those who need assistance at a free cost. Yes, at a free cost. Some of you may wonder why created a website the provide free assistances. Well, in 2020 many of were affected by the Pandemic in several ways such loosing your job or a family member. Although, we don't have a cure for this deadly virus but,  the world started transitioning to remotely learning and working for out safety.The transition to online learning hasn’t been a pleasant experience since many students are still trying to adapt and many have trouble understanding the material.However, until things come back to normal, we want to assist all those students who do not have the resources to pay for a private tutor and make this online learning become a great experience. </p>
+            <p>We are a revolutionary online education platform that provides tutoring for for those who need assistance at a free cost. Yes, at a free cost. Some of you may wonder why created a website the provide free assistances. Well, in 2020 many of were affected by the Pandemic in several ways such loosing your job or a family member. Although, we don't have a cure for this deadly virus but,  the world started transitioning to remotely learning and working for out safety.The transition to online learning hasn’t been a pleasant experience since many students are still trying to adapt and many have trouble understanding the material.However, until things come back to normal, we want to assist all those students who do not have the resources to pay for a private tutor and make this online learning become a great experience. </p>
 
             <div className="Card">
                 <Card style={{ width: '18rem' }}>
