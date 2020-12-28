@@ -14,6 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { purple } from "@material-ui/core/colors";
 import { setAuthenticationHeader } from "../utils/authenticate";
+import { connect } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -35,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function LoginStudent() {
+function LoginStudent(props) {
   const classes = useStyles();
 
   const [user, setUser] = useState({});
@@ -68,6 +69,8 @@ export default function LoginStudent() {
       // after getting the token, we can set default authentication headers for axios to include jsonwebtoken
       // Will send the token for every request user makes
       setAuthenticationHeader(token);
+      //update the isAuthenticated in Redux to true
+      props.onAuthenticated()
     }
   };
 
@@ -135,3 +138,9 @@ export default function LoginStudent() {
     </Container>
   );
 }
+const mapDispatchToProps = (dispatch) => {
+  return{
+    onAuthenticated: () => dispatch({type: 'ON_AUTH' })
+  }
+}
+export default connect(null, mapDispatchToProps)(LoginStudent)
