@@ -122,19 +122,8 @@ export default function RegistrationTutor(props) {
               />
             </Grid>
 
-            <Grid item xs={12}>
-              {/* <InputLabel htmlFor="outlined-adornment-amount">
-                Hourly Rate
-              </InputLabel> */}
-              {/* <OutlinedInput
-                id="outlined-adornment-amount"
-                value={values.amount}
-                onChange={handleChange}
-                startAdornment={
-                  <InputAdornment position="start">$</InputAdornment>
-                }
-                labelWidth={60}
-              /> */}
+            {/* <Grid item xs={12}>
+              
               <TextField
                 variant="outlined"
                 required
@@ -158,7 +147,7 @@ export default function RegistrationTutor(props) {
                   },
                 }}
               />
-            </Grid>
+            </Grid> */}
 
             <Grid item xs={12}>
               <TextField
