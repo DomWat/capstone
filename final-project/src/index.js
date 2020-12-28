@@ -15,10 +15,13 @@ import Classes from './Components/Classes'
 import RegistrationStudent from './Components/RegistrationStudent';
 import RegistrationTutor from './Components/RegistrationTutor'
 import { setAuthenticationHeader } from './utils/authenticate';
+import LoginStudent from './Components/LoginStudent';
 import "bootstrap/dist/css/bootstrap.min.css";
 import TutorDetails from './Components/TutorDetails'
 import TutorSchedule from './Components/TutorSchedule'
 
+import requireAuth from './Components/requireAuth'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // resets the token in the default axios authentication headers when user
 // refreshes page
@@ -28,17 +31,24 @@ setAuthenticationHeader(token)
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
+if(token) {
+  store.dispatch({
+    type: 'ON_AUTH'
+  })
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store = {store}>
       <BrowserRouter>
         <BaseLayout>
           <Switch>
-            <Route  path = '/about' component = {About} />
             <Route  path = '/tutor/:tutorId' component = {TutorDetails} />
             <Route  path = '/tutorSchedule' component = {TutorSchedule} />
-            <Route  path = '/profile' component = {Profile} />
-            <Route  path = '/login' component = {Login} />
+            <Route  path = '/about' component = {About} /> 
+            <Route  path = '/profile' component = {requireAuth(Profile)} />
+            <Route exact path = '/login' component = {Login} />
+            <Route path = "/login/student" component ={LoginStudent} />
             <Route  path = '/classes' component = {Classes} />
             <Route  path = '/registration-student' component = {RegistrationStudent} />
             <Route  path = '/registration-tutor' component = {RegistrationTutor} />

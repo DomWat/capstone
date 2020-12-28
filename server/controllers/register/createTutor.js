@@ -1,4 +1,4 @@
-const { Tutors } = require("../../models");
+const { Tutors, Schedules } = require("../../models");
 const bcrypt = require("bcryptjs");
 
 module.exports = async (req, res, next) => {
@@ -15,6 +15,17 @@ module.exports = async (req, res, next) => {
   let cashapp_handle = req.body.cashapp_handle;
   let paypal_handle = req.body.paypal_handle;
 
+  // default schedule created for tutor upon
+  // registration
+  // Will be editable in profile
+  let monday = "9am - 5pm";
+  let tuesday = "9am - 5pm";
+  let wednesday = "9am - 5pm";
+  let thursday = "9am - 5pm";
+  let friday = "9am - 5pm";
+  let saturday = "9am - 5pm";
+  let sunday = "9am - 5pm";
+
   // checking if tutor already exists
   const tutor = await Tutors.findOne({
     where: {
@@ -30,7 +41,7 @@ module.exports = async (req, res, next) => {
     const salt = await bcrypt.genSaltSync(10);
     const hash = await bcrypt.hashSync(password, salt);
 
-    let tutor = await Tutors.create({
+    const tutor = await Tutors.create({
       first_name: first_name,
       last_name: last_name,
       email: email,
@@ -42,10 +53,24 @@ module.exports = async (req, res, next) => {
       venmo_handle: venmo_handle,
       cashapp_handle: cashapp_handle,
       paypal_handle: paypal_handle,
+
     });
 
-    const user = tutor.toJSON();
-    delete user.password;
-    res.status(201).json(user);
+    let tutor_id = tutor.tutor_id
+
+    await Schedules.create({
+      monday: monday,
+      tuesday: tuesday,
+      wednesday: wednesday,
+      thursday: thursday,
+      friday: friday,
+      saturday: saturday,
+      sunday: sunday,
+      tutor_id: tutor_id
+    })
+
+    const newTutor = tutor.toJSON();
+    delete newTutor.password;
+    res.status(201).json(newTutor);
   }
 };

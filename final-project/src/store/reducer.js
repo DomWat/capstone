@@ -2,7 +2,8 @@
 
 const initialState = {
     tutors: [],
-    tutor_num: ''
+    tutor_num: '',
+    isAuthenticated: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -14,8 +15,16 @@ const reducer = (state = initialState, action) => {
         }
     }
 
+    if(action.type == 'ON_AUTH') {
+        return {
+            ...state,
+            isAuthenticated: true
+        }
+    }
 
     return state
+    
 }
+
 
 export default reducer
