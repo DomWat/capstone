@@ -3,8 +3,8 @@
 function About () {
     return (
         <div>
-            <h2>A Bio about us!</h2>
-            <p>blah blah blah...</p>
+            <h1>Website</h1>
+            <p>This is a community tutoring app, devised to help people learn more with dedicated tutors and for tutors to donate their time so that they can help both kids and adults learn new things.</p>
         </div>
     )
 }

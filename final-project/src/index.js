@@ -16,6 +16,8 @@ import RegistrationStudent from './Components/RegistrationStudent';
 import RegistrationTutor from './Components/RegistrationTutor'
 import { setAuthenticationHeader } from './utils/authenticate';
 import "bootstrap/dist/css/bootstrap.min.css";
+import TutorDetails from './Components/TutorDetails'
+import TutorSchedule from './Components/TutorSchedule'
 
 
 // resets the token in the default axios authentication headers when user
@@ -33,6 +35,8 @@ ReactDOM.render(
         <BaseLayout>
           <Switch>
             <Route  path = '/about' component = {About} />
+            <Route  path = '/tutor/:tutorId' component = {TutorDetails} />
+            <Route  path = '/tutorSchedule' component = {TutorSchedule} />
             <Route  path = '/profile' component = {Profile} />
             <Route  path = '/login' component = {Login} />
             <Route  path = '/classes' component = {Classes} />
