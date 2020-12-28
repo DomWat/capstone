@@ -15,6 +15,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux'
+import image from '/Users/willfoody/Documents/Repositories/Capstone/final-project/src/Components/goodtutorlogo.jpg';
+import '../styles/Nav.css'
+// import shadows from "@material-ui/core/styles/shadows";
 //import { Grid } from '@material-ui/core'
 //import { checkPropTypes } from "prop-types";
 const useStyles = makeStyles((theme) => ({
@@ -28,6 +31,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
 }));
+
+
 
  function Navbar (props) {
  const classes = useStyles();
@@ -47,17 +52,55 @@ const useStyles = makeStyles((theme) => ({
   };
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} className='navBar'>
      
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
+      <AppBar position="static" style={{ boxShadow: 'none'}}>
+        <Toolbar className='navBar'>
+          <IconButton edge="start" className={classes.menuButton} aria-label="menu">
+            <MenuIcon className='navMenuIcon'/>
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            goodtutor
-          </Typography>
-          <Typography className={classes.root}>
+          {/* <Typography variant="h6" className={classes.title}>
+          </Typography> */}
+          
+          {auth && (
+            <div>
+              <IconButton
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+                className='topRightMenu'
+
+              >
+                <AccountCircle />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={open}
+                onClose={handleClose}
+                className='topRightMenu'
+              >
+                <MenuItem onClick={handleClose} className='menuItem'>Profile</MenuItem>
+                <MenuItem onClick={handleClose} className='menuItem'>My account</MenuItem>
+                
+              </Menu>
+            </div>
+          )}
+        </Toolbar>
+      </AppBar>
+      <NavLink to='/'><img src={image} alt='logo' className='titleLogo'/></NavLink>
+      <Typography className={classes.root} className='linksDiv'>
   <NavLink to="/" >
     Home
   </NavLink>
@@ -77,39 +120,7 @@ const useStyles = makeStyles((theme) => ({
     About
   </NavLink>
 </Typography>
-          {auth && (
-            <div>
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={open}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-              </Menu>
-            </div>
-          )}
-        </Toolbar>
-      </AppBar>
+
     </div>
   );
 }

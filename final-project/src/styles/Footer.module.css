@@ -9,6 +9,16 @@
     box-sizing: border-box;
     /* background-color: aqua; */
     padding: 0 20px;
+    font-family: Futura;
+
+}
+
+div.Footer.blueGood {
+    color: rgb(0, 162, 255);
+}
+
+div.Footer.purpleTutor {
+    color: rgb(141, 90, 212);
 }
 
 .Footer p {
@@ -20,3 +30,8 @@
     height: 100%;
     margin-right: 40px;
 }
+
+@font-face {
+    font-family: Futura;
+    src: url(Futura\ Book\ font.ttf);
+  }

@@ -15,6 +15,7 @@ import Container from "@material-ui/core/Container";
 import { purple } from "@material-ui/core/colors";
 import { setAuthenticationHeader } from "../utils/authenticate";
 import { connect } from "react-redux"
+import '../styles/login.css'
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -75,13 +76,13 @@ function SignIn(props) {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className='logInContainer'>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" className='signin'>
           Sign in as Tutor
         </Typography>
         <form className={classes.form} noValidate>
@@ -96,6 +97,7 @@ function SignIn(props) {
             autoComplete="email"
             onChange={handleOnChange}
             autoFocus
+            className='signin'
           />
           <TextField
             variant="outlined"
@@ -108,6 +110,7 @@ function SignIn(props) {
             id="password"
             autoComplete="current-password"
             onChange={handleOnChange}
+            className='signin'
           />
 
           <Button
@@ -117,17 +120,18 @@ function SignIn(props) {
             style={{ backgroundColor: purple[300], color: "white" }}
             className={classes.submit}
             onClick={handleLogin}
+            className='signin'
           >
             Sign In
           </Button>
           <Grid container>
             <Grid item xs></Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="#" variant="body2" className='signin'>
                 {"Don't have an account? Sign Up"}
               </Link>
               <br></br>
-              <Link href="/login/student" variant="body2">
+              <Link href="/login/student" variant="body2" className='signin'>
                 {"Sign in as a student"}
               </Link>
             </Grid>
