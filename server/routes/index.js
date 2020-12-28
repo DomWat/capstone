@@ -68,7 +68,7 @@ module.exports = () => {
   // Require tutor jsonwebtoken from front end
   app.get("/tutor/appointments", auth, getTutorAppointments);
 
-  // route to GET tutor info for public pages, like to get more detailed view of tutor (tutor personal info, subjects, and schedule)
+  // route to GET individual tutor info for public pages, like to get more detailed view of tutor (tutor personal info, subjects, schedule, and comments)
   // must send tutor_id back in query params
   app.get("/tutor/:tutor_id", getPublicTutorData);
 
