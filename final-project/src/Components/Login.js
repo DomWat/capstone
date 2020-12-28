@@ -15,7 +15,7 @@ import Container from "@material-ui/core/Container";
 import { purple } from "@material-ui/core/colors";
 import { setAuthenticationHeader } from "../utils/authenticate";
 import { connect } from "react-redux"
-import '../styles/login.css'
+import '../styles/Login.css'
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),

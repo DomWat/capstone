@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
      
       <AppBar position="static" style={{ boxShadow: 'none'}}>
         <Toolbar className='navBar'>
-          <IconButton edge="start" className={classes.menuButton} aria-label="menu">
+          <IconButton edge="start" className={classes.menuButton} aria-label="menu" className='navMenuIcon'>
             <MenuIcon className='navMenuIcon'/>
           </IconButton>
           {/* <Typography variant="h6" className={classes.title}>

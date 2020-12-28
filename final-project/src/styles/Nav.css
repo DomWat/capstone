@@ -15,7 +15,7 @@
 }
 
 .navBar {
-    background-color: snow;
+    background-color: rgb(250, 250, 250);
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -25,17 +25,21 @@
 }
 
 .menuItem {
-    font-family: Futura;
+    font-family: Futura !important;
     font-size: 20px;
 }
 
 .navMenuIcon {
     /* background-color: blue; */
     color: rgb(34, 32, 32);
+    outline:none !important;
+
 }
 
 .topRightMenu {
     color: rgb(47, 20, 109) !important;
+    outline:none !important;
+
 }
 
 .linksDiv {
@@ -61,6 +65,7 @@
         font-family: Futura !important;
         display: flex;
         font-size: 20px !important;
+        margin-top: 40px !important;
     }
 
    

@@ -1,44 +1,18 @@
-.App {
+
+.homeContainer {
+  align-items: center;
+  justify-self: center;
+  display: flex;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.registerButton {
+  background-color: royalblue !important;
+  font-family: Futura !important;
+  border-radius: 10px !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: Futura;
+  src: url(./styles/Futura\ Book\ font.ttf);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-
-/* .Title {
-  margin-left: 200px;
-  margin-top: 50px;
-} */
