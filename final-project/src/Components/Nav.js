@@ -15,7 +15,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux'
-import image from '/Users/willfoody/Documents/Repositories/Capstone/final-project/src/Components/goodtutorlogo.jpg';
+import image from './goodtutorlogo.jpg';
 import '../styles/Nav.css'
 // import shadows from "@material-ui/core/styles/shadows";
 //import { Grid } from '@material-ui/core'
