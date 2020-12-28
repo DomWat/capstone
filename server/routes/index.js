@@ -18,7 +18,8 @@ const createTutorSchedule = require("../controllers/schedules/createSchedule");
 const editTutorSchedule = require("../controllers/schedules/editSchedule");
 const getStudentAppointments = require("../controllers/students/getAllAppointments");
 const getTutorAppointments = require("../controllers/tutors/getAllAppointments");
-const createComment = require("../controllers/comments/createComment")
+const createComment = require("../controllers/comments/createComment");
+
 
 module.exports = () => {
   app.get("/status", getStatus);
@@ -41,7 +42,7 @@ module.exports = () => {
   // STEPS EXPLAINED IN 12/7 lecture at 1:10 timestamp
   // first get jsonwebtoken from localStorage like const token = localStorage.getItem('jsonwebtoken')
   // like:  axios.post('url', {headers: {'authorization': `Bearer ${token}` } })
-  app.post("/tutor/create-subject", auth, createSubject);
+  app.post("/tutor/subject", auth, createSubject);
 
   // route to GET ALL tutors
   //AND will GET ALL tutors of a specific subject if subject is passed as a query parameter in url back to the server
@@ -87,7 +88,9 @@ module.exports = () => {
   // Route for student to CREATE a comment for a tutor
   // Will require student jsonwebtoken from front end
   // Will require tutor_id in url params from front end
-  app.post("/student/create-comment/:tutor_id", auth, createComment);
+  app.post("/student/comment/:tutor_id", auth, createComment);
+
+  
 
   return app;
 };
