@@ -18,7 +18,8 @@ const createTutorSchedule = require("../controllers/schedules/createSchedule");
 const editTutorSchedule = require("../controllers/schedules/editSchedule");
 const getStudentAppointments = require("../controllers/students/getAllAppointments");
 const getTutorAppointments = require("../controllers/tutors/getAllAppointments");
-const createComment = require("../controllers/comments/createComment")
+const createComment = require("../controllers/comments/createComment");
+const createAppointment = require("../controllers/appointments/createAppointment");
 
 module.exports = () => {
   app.get("/status", getStatus);
@@ -41,7 +42,7 @@ module.exports = () => {
   // STEPS EXPLAINED IN 12/7 lecture at 1:10 timestamp
   // first get jsonwebtoken from localStorage like const token = localStorage.getItem('jsonwebtoken')
   // like:  axios.post('url', {headers: {'authorization': `Bearer ${token}` } })
-  app.post("/tutor/create-subject", auth, createSubject);
+  app.post("/tutor/subject", auth, createSubject);
 
   // route to GET ALL tutors
   //AND will GET ALL tutors of a specific subject if subject is passed as a query parameter in url back to the server
@@ -87,7 +88,17 @@ module.exports = () => {
   // Route for student to CREATE a comment for a tutor
   // Will require student jsonwebtoken from front end
   // Will require tutor_id in url params from front end
-  app.post("/student/create-comment/:tutor_id", auth, createComment);
+  app.post("/student/comment/:tutor_id", auth, createComment);
+
+  
+
+  // Route for a student to CREATE an appointment with a tutor
+  // Will need student's jsonwebtoken from front-end
+  // Will need tutor_id sent in url params
+  // Will need subject_id sent as in url params
+  // send back in body start_time and end_time (so i can extract using req.body.start_time etc)
+  // Will return to to front end appt details, as well as student, subject and tutor details for front end in json
+  app.post("/student/appointment/:subject_id/:tutor_id", auth, createAppointment);
 
   return app;
 };
