@@ -15,6 +15,7 @@ import Container from "@material-ui/core/Container";
 import { purple } from "@material-ui/core/colors";
 import { setAuthenticationHeader } from "../utils/authenticate";
 import { connect } from 'react-redux'
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -59,6 +60,7 @@ function LoginStudent(props) {
     return result;
   };
 
+
   const handleLogin = async () => {
     let userToken = await userLoggedIn();
 
@@ -78,6 +80,7 @@ function LoginStudent(props) {
       }
     }
   };
+
 
   return (
     <Container component="main" maxWidth="xs">
