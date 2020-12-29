@@ -26,7 +26,7 @@ function Classes(props) {
     const tutorInfo = props.tutors.map(tutor => {
 
         let subjectItems = tutor.Subjects.map(subject => {
-            return <div key = {subject.subject_id}>Subject: {subject.subject_name}, Specialty: {subject.sub_subject_name}</div>
+            return <div key = {subject.subject_id}>Subject: {subject.subject_name} ({subject.sub_subject_name})</div>
         })    
 
         return (

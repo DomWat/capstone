@@ -40,7 +40,7 @@ function TutorDetails(props) {
 
 
     let subjectItems = tutor.Subjects.map(subject => {
-        return <div key = {subject.subject_id}>Subjects taught: {subject.subject_name}<br /> Specialty: {subject.sub_subject_name}</div>
+        return <div key = {subject.subject_id}>Subjects taught: {subject.subject_name} ({subject.sub_subject_name})</div>
     })
 
     

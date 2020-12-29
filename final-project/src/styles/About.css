@@ -1,9 +1,11 @@
 
 .Container{
-    display: flex;
+   
     align-items: center;
     font-family: Futura;
     background-color: rgb(250, 250, 250) !important;
+    margin-top: 50px;
+    margin-bottom: 200px;
 
 }
 
