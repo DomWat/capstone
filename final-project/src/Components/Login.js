@@ -71,7 +71,7 @@ function SignIn(props) {
       setAuthenticationHeader(token)
       // update the isAuthenticated in Redux to true 
       props.onAuthenticated()
-
+      props.history.push('/profile')
     }
   };
 
