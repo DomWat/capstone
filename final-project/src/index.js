@@ -18,7 +18,6 @@ import { setAuthenticationHeader } from './utils/authenticate';
 import LoginStudent from './Components/LoginStudent';
 import "bootstrap/dist/css/bootstrap.min.css";
 import TutorDetails from './Components/TutorDetails'
-
 import requireAuth from './Components/requireAuth'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
