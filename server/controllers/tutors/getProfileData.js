@@ -1,5 +1,11 @@
 // logic for route to get info for tutor profile page
-const { Tutors, Subjects, Schedules, Appointments } = require("../../models");
+const {
+  Tutors,
+  Subjects,
+  Schedules,
+  Appointments,
+  Students,
+} = require("../../models");
 
 module.exports = async (req, res, next) => {
   const profile = await Tutors.findOne({
@@ -8,7 +14,10 @@ module.exports = async (req, res, next) => {
         model: Subjects,
       },
       { model: Schedules },
-      { model: Appointments },
+      {
+        model: Appointments,
+        include: [{ model: Students }, { model: Subjects }],
+      },
     ],
     where: {
       tutor_id: req.tutor_id,
