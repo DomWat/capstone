@@ -70,8 +70,15 @@ function SignIn(props) {
       // Will send the token for every request user makes
       setAuthenticationHeader(token)
       // update the isAuthenticated in Redux to true 
-      props.onAuthenticated()
 
+      if(token) {
+        props.onAuthenticated()
+        props.history.push('/profile')
+      } else {
+        alert('Please use correct username and password!')
+      }
+      
+      
     }
   };
 
