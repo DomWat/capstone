@@ -20,6 +20,7 @@ import '../styles/Nav.css'
 // import shadows from "@material-ui/core/styles/shadows";
 //import { Grid } from '@material-ui/core'
 //import { checkPropTypes } from "prop-types";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -50,6 +51,14 @@ const useStyles = makeStyles((theme) => ({
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem('jsonwebtoken')
+    // update the isAuthenticated in redux to true
+    props.onLogout()
+    //props.history.push("/")
+
+  }
 
   return (
     <div className={classes.root} className='navBar'>
@@ -124,7 +133,7 @@ const useStyles = makeStyles((theme) => ({
   {!props.isAuth ? <NavLink to="/login"  variant="body2" >
     Login
   </NavLink> :null}
- {props.isAuth ? <NavLink to="/"  variant="body2">
+ {props.isAuth ? <NavLink to="/"  variant="body2" onClick={handleLogout}>
     Logout
   </NavLink> :null}
   <NavLink to="/about"  variant="body2">
@@ -142,8 +151,14 @@ const mapStateToProps = (state) => {
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLogout: () => dispatch({type: 'ON_LOGOUT'})
+  }
+}
 
-export default connect(mapStateToProps)(Navbar)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
 
 
 
