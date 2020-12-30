@@ -1,33 +1,33 @@
 
-.home1Container {
+.home2Container {
     height: 100%;
-    /* padding-bottom: 150px; */
-    /* margin-bottom: 100px; */
+    /* padding-top: 100px;
+    padding-bottom: 150px; */
     display: flex;
     flex-direction: column;
-    align-items: center;
     /* justify-content: space-around; */
-    background-color: rgb(250, 250, 250);
+    align-items: center;
+    background-color: rgb(9, 26, 46);
     width: 100%;
     font-family: Futura;
-    text-align: left;
-    padding-top: 50px;
-
+    color: white;
 }
 
-.home1text {
+.home2text {
     width: 100%;
     height: 100%;
     padding: 30px;
+
     font-size: 20px;
 }
 
-.home1pic{
+.home2pic{
     width: 70%;
     height: 100%;
+    /* padding-left: 100px; */
     padding-top: 50px;
     padding-bottom: 50px;
-    /* margin-right: 50px; */
+
 }
 
 
@@ -36,17 +36,14 @@
     src: url(Futura\ Book\ font.ttf);
   }
 
-
-
   @media only screen and (min-width: 769px) {
 
-    .home1Container {
+    .home2Container {
         height: 400px;
         /* padding-bottom: 150px;  */
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        background-color: rgb(250, 250, 250);
         width: 100%;
         font-family: Futura;
         text-align: left;
@@ -54,7 +51,7 @@
     
     }
     
-    .home1text {
+    .home2text {
         width: 50%;
         height: 100%;
         padding-left: 100px;
@@ -63,12 +60,13 @@
         font-size: 18px;
     }
     
-    .home1pic{
-        width: 20%;
+    .home2pic{
+        width: 25%;
         height: 100%;
         padding-top: 50px;
         padding-bottom: 50px;
         margin-right: 50px;
+        padding-left: 100px;
 
     }
 

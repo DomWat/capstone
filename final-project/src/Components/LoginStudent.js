@@ -15,6 +15,7 @@ import Container from "@material-ui/core/Container";
 import { purple } from "@material-ui/core/colors";
 import { setAuthenticationHeader } from "../utils/authenticate";
 import { connect } from 'react-redux'
+import '../styles/Login.css'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -80,13 +81,13 @@ function LoginStudent(props) {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className='logInContainer'>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" className='signin'> 
           Sign in as Student
         </Typography>
         <form className={classes.form} noValidate>
@@ -128,11 +129,11 @@ function LoginStudent(props) {
           <Grid container>
             <Grid item xs></Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="#" variant="body2" className='signin'>
                 {"Don't have an account? Sign Up"}
               </Link>
               <br></br>
-              <Link href="/login" variant="body2">
+              <Link href="/login" variant="body2" className='signin'>
                 {"Sign in as a tutor"}
               </Link>
             </Grid>

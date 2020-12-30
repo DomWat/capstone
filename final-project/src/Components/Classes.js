@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import '../styles/Classes.css'
 // import axios from 'axios'
 
 
@@ -38,13 +39,13 @@ function Classes(props) {
                     {/* {tutor.description}, */}
                     {subjectItems}
                     </li>
-                <NavLink to =  {'/tutor/' + tutor.tutor_id}><button>BOOK!</button></NavLink>
+                <NavLink to =  {'/tutor/' + tutor.tutor_id}><button>Book Lesson</button></NavLink>
             </div>
         )
     })
 
     return (
-        <div>
+        <div className='classesContainer'>
             <h2>Classes!!</h2>
             <h3>Tutors</h3>
             {tutorInfo}

@@ -17,7 +17,11 @@ function App () {
       </button> */}
       <Home1 />
       <Home2 />
-
+      <div className='appContainer'>
+        <div className='getStarted'>
+          Ready to get started?
+        </div>
+        <div className='buttonContainer'>
       <Button
         variant="contained"
         color="secondary"
@@ -35,6 +39,8 @@ function App () {
       >
         Register as Tutor
       </Button>
+      </div>
+      </div>
     </div>
   ); 
 }

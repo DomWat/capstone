@@ -121,15 +121,15 @@ const useStyles = makeStyles((theme) => ({
   {props.isAuth ? <NavLink to="/profile"  variant="body2" className='navLink'> 
     Profile
   </NavLink> :null}
-  {!props.isAuth ? <NavLink to="/login"  variant="body2" >
-    Login
-  </NavLink> :null}
- {props.isAuth ? <NavLink to="/"  variant="body2">
-    Logout
-  </NavLink> :null}
   <NavLink to="/about"  variant="body2" className='navLink'>
     About
   </NavLink>
+  {!props.isAuth ? <NavLink to="/login"  variant="body2" className='navLink'>
+    Login
+  </NavLink> :null}
+ {props.isAuth ? <NavLink to="/"  variant="body2" className='navLink'>
+    Logout
+  </NavLink> :null}
 </Typography>
 
     </div>

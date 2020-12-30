@@ -4,7 +4,7 @@
     align-items: center;
     font-family: Futura;
     background-color: rgb(250, 250, 250) !important;
-    margin-top: 50px;
+    padding-top: 50px;
     margin-bottom: 200px;
 
 }
@@ -12,7 +12,7 @@
 h2 {
     text-align: center;
     font-family: Futura;
-    margin-top: 15%;
+    color: rgb(20, 65, 160);
 }
 
 .aboutParagraph {

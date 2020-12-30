@@ -39,14 +39,14 @@
 }
 
 .topRightMenu {
-    color: rgb(47, 20, 109) !important;
+    color: rgb(21, 28, 94) !important;
     outline:none !important;
 
 }
 
 .linksDiv {
     display: none;
-    margin-bottom: 5px !important;
+    /* margin-bottom: 5px !important; */
 }
 
 .navLink:hover {
