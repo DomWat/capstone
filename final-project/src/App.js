@@ -26,7 +26,7 @@ function App () {
         variant="contained"
         color="secondary"
         href="/registration-student"
-        className='registerButton'
+        className='homeRegisterButton'
       >
         Register as Student
       </Button>
@@ -34,7 +34,7 @@ function App () {
         variant="contained"
         color="secondary"
         href="/registration-tutor"
-        className='registerButton'
+        className='homeRegisterButton'
 
       >
         Register as Tutor

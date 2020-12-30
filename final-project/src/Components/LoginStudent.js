@@ -27,7 +27,8 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: purple[300],
+    backgroundColor: purple[500],
+
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -87,7 +88,7 @@ function LoginStudent(props) {
     <Container component="main" maxWidth="xs" className='logInContainer'>
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+        <Avatar className={classes.avatar} className='signinIcon'>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5" className='signin'> 
@@ -123,9 +124,10 @@ function LoginStudent(props) {
             // type="submit"
             fullWidth
             variant="contained"
-            style={{ backgroundColor: purple[300], color: "white" }}
+            style={{ color: "white" }}
             className={classes.submit}
             onClick={handleLogin}
+            className='signinButton'
           >
             Sign In
           </Button>

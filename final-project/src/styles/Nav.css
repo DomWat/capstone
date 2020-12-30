@@ -33,16 +33,17 @@
 
 .navMenuIcon {
     /* background-color: blue; */
-    color: rgb(34, 32, 32);
-    outline:none !important;
-
+    color: rgb(20, 87, 163) !important;
+    outline: none !important;
+    font-size: 32px !important;
 }
 
 .topRightMenu {
-    color: rgb(21, 28, 94) !important;
+    color: rgb(20, 87, 163) !important;
     outline:none !important;
-
+    font-size: 32px !important; 
 }
+
 
 .linksDiv {
     display: none;

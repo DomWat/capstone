@@ -1,7 +1,7 @@
 .Footer {
     width: 100%;
     display: flex;
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     right: 0;
     justify-content: center;
@@ -10,6 +10,7 @@
     /* background-color: aqua; */
     padding: 0 20px;
     font-family: Futura;
+    padding-bottom: 20px;
 
 }
 

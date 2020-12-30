@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom'
 import '../styles/Classes.css'
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
 // import axios from 'axios'
 
 import { makeStyles} from "@material-ui/core/styles";
@@ -129,7 +128,7 @@ function Classes(props) {
     });
 
     return (
-      <div key={tutor.tutor_id}>
+      <div key={tutor.tutor_id} className='tutorItem'>
         <li>
           Name: {tutor.first_name} {tutor.last_name}, Email: {tutor.email},
           Image: {tutor.image}, Description: {tutor.description},{subjectItems}
@@ -142,9 +141,10 @@ function Classes(props) {
   });
 
   return (
-    <div>
+    <div className='classesContainer'>
+        <div className='filterDiv'>
       <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel id="demo-simple-select-outlined-label">Subject</InputLabel>
+        <InputLabel id="demo-simple-select-outlined-label" className='filterBox'>Subject</InputLabel>
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
@@ -161,7 +161,7 @@ function Classes(props) {
       </FormControl>
 
       <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel id="demo-simple-select-outlined-label">
+        <InputLabel id="demo-simple-select-outlined-label" className='filterBox'>
           Specialty
         </InputLabel>
         <Select
@@ -181,6 +181,7 @@ function Classes(props) {
           ))}
         </Select>
       </FormControl>
+      </div>
       {tutorInfo}
     </div>
   );

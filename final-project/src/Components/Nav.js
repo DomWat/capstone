@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
      
       <AppBar position="static" style={{ boxShadow: 'none', border: 'none'}}>
         <Toolbar className='navBar'>
-          <IconButton edge="start" className={classes.menuButton} aria-label="menu" className='navMenuIcon'>
+          <IconButton edge="start" className={classes.menuButton} aria-label="menu" >
             <MenuIcon className='navMenuIcon'/>
           </IconButton>
           <Typography className={classes.root}>
@@ -84,7 +84,8 @@ const useStyles = makeStyles((theme) => ({
                 className='topRightMenu'
 
               >
-                <AccountCircle />
+                <AccountCircle className='topRightMenu'
+/>
               </IconButton>
               <Menu
                 id="menu-appbar"

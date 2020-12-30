@@ -86,7 +86,7 @@ function SignIn(props) {
     <Container component="main" maxWidth="xs" className='logInContainer'>
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+        <Avatar className={classes.avatar} className='signinIcon'>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5" className='signin'>
@@ -127,7 +127,7 @@ function SignIn(props) {
             style={{ backgroundColor: purple[300], color: "white" }}
             className={classes.submit}
             onClick={handleLogin}
-            className='signin'
+            className='signinButton'
           >
             Sign In
           </Button>

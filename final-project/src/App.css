@@ -34,7 +34,7 @@
   height: 300px;
 }
 
-.registerButton {
+.homeRegisterButton {
   background-color: rgb(90, 86, 250) !important;
   font-family: Futura !important;
   border-radius: 10px !important;
@@ -45,7 +45,7 @@
   margin-bottom: 30px !important;
 }
 
-.registerButton:hover {
+.homeRegisterButton:hover {
   
   border:rgb(102, 78, 168) !important;
   background-color: rgb(218, 217, 243) !important;
@@ -84,7 +84,7 @@
 
 .getStarted {
   font-size: 50px;
-  padding-top: 100px;
+  padding-top: 120px;
 }
 
 .buttonContainer {
@@ -92,5 +92,6 @@
   flex-direction: column;
   justify-content: space-evenly;
   height: 300px;
+  padding-top: 50px;
 }
 }
