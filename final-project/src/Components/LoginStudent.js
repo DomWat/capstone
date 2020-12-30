@@ -15,6 +15,7 @@ import Container from "@material-ui/core/Container";
 import { purple } from "@material-ui/core/colors";
 import { setAuthenticationHeader } from "../utils/authenticate";
 import { connect } from 'react-redux'
+import '../styles/Login.css'
 import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -26,7 +27,8 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: purple[300],
+    backgroundColor: purple[500],
+
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -83,13 +85,13 @@ function LoginStudent(props) {
 
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className='logInContainer'>
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+        <Avatar className={classes.avatar} className='signinIcon'>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" className='signin'> 
           Sign in as Student
         </Typography>
         <form className={classes.form} noValidate>
@@ -122,20 +124,21 @@ function LoginStudent(props) {
             // type="submit"
             fullWidth
             variant="contained"
-            style={{ backgroundColor: purple[300], color: "white" }}
+            style={{ color: "white" }}
             className={classes.submit}
             onClick={handleLogin}
+            className='signinButton'
           >
             Sign In
           </Button>
           <Grid container>
             <Grid item xs></Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="#" variant="body2" className='signin'>
                 {"Don't have an account? Sign Up"}
               </Link>
               <br></br>
-              <Link href="/login" variant="body2">
+              <Link href="/login" variant="body2" className='signin'>
                 {"Sign in as a tutor"}
               </Link>
             </Grid>

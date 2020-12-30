@@ -1,0 +1,10 @@
+
+.detailsContainer {
+    font-family: Futura;
+    
+}
+
+@font-face {
+    font-family: Futura;
+    src: url(Futura\ Book\ font.ttf);
+  }
