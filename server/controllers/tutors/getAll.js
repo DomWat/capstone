@@ -6,6 +6,9 @@ module.exports = async (req, res, next) => {
   if (req.query.subject) {
     where["subject_name"] = req.query.subject.toLowerCase();
   }
+   if (req.query.sub_subject) {
+     where["sub_subject_name"] = req.query.sub_subject.toLowerCase();
+   }
 
   const tutors = await Tutors.findAll({
     include: {
