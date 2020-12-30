@@ -20,6 +20,7 @@ const getStudentAppointments = require("../controllers/students/getAllAppointmen
 const getTutorAppointments = require("../controllers/tutors/getAllAppointments");
 const createComment = require("../controllers/comments/createComment");
 const createAppointment = require("../controllers/appointments/createAppointment");
+const editTutorDescription = require("../controllers/tutors/editDescription");
 
 module.exports = () => {
   app.get("/status", getStatus);
@@ -85,12 +86,15 @@ module.exports = () => {
   // Need to pass schedule id in the params
   app.put("/tutor/schedule", auth, editTutorSchedule);
 
+  // Route to EDIT tutor description
+  // need jsonwebtoken of tutor from front-end
+  // need updated description sent back as in the body from front-end
+  app.put("/tutor/description", auth, editTutorDescription);
+
   // Route for student to CREATE a comment for a tutor
   // Will require student jsonwebtoken from front end
   // Will require tutor_id in url params from front end
   app.post("/student/comment/:tutor_id", auth, createComment);
-
-  
 
   // Route for a student to CREATE an appointment with a tutor
   // Will need student's jsonwebtoken from front-end
@@ -98,7 +102,11 @@ module.exports = () => {
   // Will need subject_id sent as in url params
   // send back in body start_time and end_time (so i can extract using req.body.start_time etc)
   // Will return to to front end appt details, as well as student, subject and tutor details for front end in json
-  app.post("/student/appointment/:subject_id/:tutor_id", auth, createAppointment);
+  app.post(
+    "/student/appointment/:subject_id/:tutor_id",
+    auth,
+    createAppointment
+  );
 
   return app;
 };

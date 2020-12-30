@@ -3,7 +3,7 @@
 const initialState = {
     tutors: [],
     tutor_num: '',
-    isAuthenticated: false
+    isAuthenticated: false,
 }
 
 const reducer = (state = initialState, action) => {
