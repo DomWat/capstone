@@ -51,6 +51,14 @@ const useStyles = makeStyles((theme) => ({
     setAnchorEl(null);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("jsonwebtoken")
+    props.onLogout()
+  
+  }
+
+
+
   return (
     <div className={classes.root} className='navBar'>
      
@@ -124,7 +132,7 @@ const useStyles = makeStyles((theme) => ({
   {!props.isAuth ? <NavLink to="/login"  variant="body2" >
     Login
   </NavLink> :null}
- {props.isAuth ? <NavLink to="/"  variant="body2">
+ {props.isAuth ? <NavLink  to="/" onClick={handleLogout} variant="body2" >
     Logout
   </NavLink> :null}
   <NavLink to="/about"  variant="body2">
@@ -136,14 +144,23 @@ const useStyles = makeStyles((theme) => ({
   );
 }
 
+
 const mapStateToProps = (state) => {
   return{
     isAuth: state.isAuthenticated
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return{
+    onLogout:() => dispatch({type:'ON_LOGOUT'})
+    }
+  }
+  
 
-export default connect(mapStateToProps)(Navbar)
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Navbar)
 
 
 

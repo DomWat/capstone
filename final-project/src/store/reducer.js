@@ -21,6 +21,12 @@ const reducer = (state = initialState, action) => {
             isAuthenticated: true
         }
     }
+    if(action.type === "ON_LOGOUT") {
+        return {
+            ...state,
+            isAuthenticated: false
+        }
+    }
 
     return state
     
