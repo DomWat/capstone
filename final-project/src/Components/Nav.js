@@ -20,6 +20,7 @@ import '../styles/Nav.css'
 // import shadows from "@material-ui/core/styles/shadows";
 //import { Grid } from '@material-ui/core'
 //import { checkPropTypes } from "prop-types";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -50,6 +51,14 @@ const useStyles = makeStyles((theme) => ({
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  // const handleLogout = () => {
+  //   localStorage.removeItem('jsonwebtoken')
+  //   // update the isAuthenticated in redux to true
+  //   props.onLogout()
+  //   //props.history.push("/")
+
+  // }
 
   return (
     <div className={classes.root} className='navBar'>
@@ -142,6 +151,12 @@ const mapStateToProps = (state) => {
     isAuth: state.isAuthenticated
   }
 }
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     onLogout: () => dispatch({type: 'ON_LOGOUT'})
+//   }
+// }
 
 
 export default connect(mapStateToProps)(Navbar)
