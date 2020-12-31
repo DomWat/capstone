@@ -1,3 +1,5 @@
+
+
 .signin {
     font-family: Futura !important;
 }
@@ -19,6 +21,17 @@
     background-color: rgb(13, 62, 119) !important;
 
 }
+
+.signinLink {
+    font-family: Futura !important;
+    padding-left: 6px !important;
+    font-size: 20px !important;
+}
+
+.MuiGrid-grid-xs-true {
+    display: none !important;
+}
+
 
 @font-face {
     font-family: Futura;

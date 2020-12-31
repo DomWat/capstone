@@ -141,9 +141,12 @@ export default function RegistrationStudent(props) {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="/login/student" variant="body2" className='register'
+              <Link href="/login/student" variant="body2" className='registerLink'
 >
                 Already have a student account? Sign in
+              </Link><br></br>
+              <Link href="/registration-tutor" variant="body2" className='registerLink'>
+                {"Sign up as Tutor"}
               </Link>
             </Grid>
           </Grid>

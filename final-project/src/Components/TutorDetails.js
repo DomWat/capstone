@@ -57,13 +57,13 @@ function TutorDetails(props) {
                 <li>Contact: {tutor.email}</li>
             </ul>
             {subjectItems}<br /><br />
-            <p>Monday: {tutor.Schedule.monday} </p>
-            <p>Tuesday: {tutor.Schedule.tuesday} </p>
-            <p>Wednesday: {tutor.Schedule.wednesday} </p>
-            <p>Thursday: {tutor.Schedule.thursday} </p>
-            <p>Friday: {tutor.Schedule.friday} </p>
-            <p>Saturday: {tutor.Schedule.saturday} </p>
-            <p>Sunday: {tutor.Schedule.sunday} </p>
+            <p className='weekday'>Monday: {tutor.Schedule.monday} </p>
+            <p className='weekday'>Tuesday: {tutor.Schedule.tuesday} </p>
+            <p className='weekday'>Wednesday: {tutor.Schedule.wednesday} </p>
+            <p className='weekday'>Thursday: {tutor.Schedule.thursday} </p>
+            <p className='weekday'>Friday: {tutor.Schedule.friday} </p>
+            <p className='weekday'>Saturday: {tutor.Schedule.saturday} </p>
+            <p className='weekday'>Sunday: {tutor.Schedule.sunday} </p>
         </div>
     )
 }

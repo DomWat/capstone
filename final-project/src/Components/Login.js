@@ -134,12 +134,12 @@ function SignIn(props) {
           <Grid container>
             <Grid item xs></Grid>
             <Grid item>
-              <Link href="#" variant="body2" className='signin'>
+              <Link href="#" variant="body2" className='signinLink'>
                 {"Don't have an account? Sign Up"}
               </Link>
               <br></br>
-              <Link href="/login/student" variant="body2" className='signin'>
-                {"Sign in as a student"}
+              <Link href="/login/student" variant="body2" className='signinLink'>
+                {"Sign in as Student"}
               </Link>
             </Grid>
           </Grid>

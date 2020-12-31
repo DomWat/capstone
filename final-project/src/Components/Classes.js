@@ -122,7 +122,7 @@ function Classes(props) {
     let subjectItems = tutor.Subjects.map((subject) => {
       return (
         <div key={subject.subject_id}>
-          Subject: {subject.subject_name}, Specialty: {subject.sub_subject_name}
+          <span className='tutorBolds'>Subject:</span> {subject.subject_name} ({subject.sub_subject_name})
         </div>
       );
     });
@@ -130,12 +130,16 @@ function Classes(props) {
     return (
       <div key={tutor.tutor_id} className='tutorItem'>
         <li>
-          Name: {tutor.first_name} {tutor.last_name}, Email: {tutor.email},
-          Image: {tutor.image}, Description: {tutor.description},{subjectItems}
+          <span className='tutorBolds'>Name:</span> {tutor.first_name} {tutor.last_name}<br></br> 
+          <span className='tutorBolds'>Email:</span> {tutor.email}<br></br>
+          {/* Image: {tutor.image},  */}
+          <span className='tutorBolds'>Description:</span> {tutor.description}<br></br>
+          {subjectItems}
         </li>
         <NavLink to={"/tutor/" + tutor.tutor_id}>
-          <button>BOOK!</button>
+          <button className='classesBookButton'>Book Lesson</button>
         </NavLink>
+        <hr></hr>
       </div>
     );
   });
@@ -152,10 +156,11 @@ function Classes(props) {
           onChange={handleChange}
           label="subject"
           name="subject"
+          className='filterBox'
         >
-          <MenuItem value="">Any</MenuItem>
+          <MenuItem value="" className='filterBox'>Any</MenuItem>
           {subject.subjectList.map((subject) => (
-            <MenuItem value={`${subject}`}>{capitalize(subject)}</MenuItem>
+            <MenuItem value={`${subject}`} className='filterBox'>{capitalize(subject)}</MenuItem>
           ))}
         </Select>
       </FormControl>
@@ -172,12 +177,13 @@ function Classes(props) {
           label="specialty"
           name="specialty"
           disabled={subject.subject === ""}
+          className='filterBox'
         >
-          <MenuItem value="">
+          <MenuItem value="" className='filterBox'>
             <em>Any</em>
           </MenuItem>
           {subject.specialtyList.map((specality) => (
-            <MenuItem value={`${specality}`}>{capitalize(specality)}</MenuItem>
+            <MenuItem value={`${specality}`} className='filterBox'>{capitalize(specality)}</MenuItem>
           ))}
         </Select>
       </FormControl>
