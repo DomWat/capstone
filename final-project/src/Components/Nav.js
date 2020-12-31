@@ -52,13 +52,13 @@ const useStyles = makeStyles((theme) => ({
     setAnchorEl(null);
   };
 
-  // const handleLogout = () => {
-  //   localStorage.removeItem('jsonwebtoken')
-  //   // update the isAuthenticated in redux to true
-  //   props.onLogout()
-  //   //props.history.push("/")
+  const handleLogout = () => {
+    localStorage.removeItem("jsonwebtoken")
+    props.onLogout()
+  
+  }
 
-  // }
+
 
   return (
     <div className={classes.root} className='navBar'>
@@ -137,7 +137,7 @@ const useStyles = makeStyles((theme) => ({
   {!props.isAuth ? <NavLink to="/login"  variant="body2" className='navLink'>
     Login
   </NavLink> :null}
- {props.isAuth ? <NavLink to="/"  variant="body2" className='navLink'>
+ {props.isAuth ? <NavLink  to="/" onClick={handleLogout} variant="body2" >
     Logout
   </NavLink> :null}
 </Typography>
@@ -146,20 +146,23 @@ const useStyles = makeStyles((theme) => ({
   );
 }
 
+
 const mapStateToProps = (state) => {
   return{
     isAuth: state.isAuthenticated
   }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     onLogout: () => dispatch({type: 'ON_LOGOUT'})
-//   }
-// }
+const mapDispatchToProps = (dispatch) => {
+  return{
+    onLogout:() => dispatch({type:'ON_LOGOUT'})
+    }
+  }
+  
 
 
-export default connect(mapStateToProps)(Navbar)
+
+export default connect(mapStateToProps,mapDispatchToProps)(Navbar)
 
 
 
