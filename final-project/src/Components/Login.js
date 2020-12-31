@@ -83,13 +83,13 @@ function SignIn(props) {
   };
 
   return (
-    <Container component="main" maxWidth="xs" className='logInContainer'>
+    <Container component="main" maxWidth="xs" className="logInContainer">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar} className='signinIcon'>
+        <Avatar className={classes.avatar} className="signinIcon">
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5" className='signin'>
+        <Typography component="h1" variant="h5" className="signin">
           Sign in as Tutor
         </Typography>
         <form className={classes.form} noValidate>
@@ -104,7 +104,7 @@ function SignIn(props) {
             autoComplete="email"
             onChange={handleOnChange}
             autoFocus
-            className='signin'
+            className="signin"
           />
           <TextField
             variant="outlined"
@@ -117,7 +117,7 @@ function SignIn(props) {
             id="password"
             autoComplete="current-password"
             onChange={handleOnChange}
-            className='signin'
+            className="signin"
           />
 
           <Button
@@ -127,18 +127,26 @@ function SignIn(props) {
             style={{ backgroundColor: purple[300], color: "white" }}
             className={classes.submit}
             onClick={handleLogin}
-            className='signinButton'
+            className="signinButton"
           >
             Sign In
           </Button>
           <Grid container>
             <Grid item xs></Grid>
             <Grid item>
-              <Link href="#" variant="body2" className='signinLink'>
-                {"Don't have an account? Sign Up"}
+              <Link
+                href="/registration-tutor"
+                variant="body2"
+                className="signinLink"
+              >
+                {"Don't have a tutor account? Sign Up"}
               </Link>
               <br></br>
-              <Link href="/login/student" variant="body2" className='signinLink'>
+              <Link
+                href="/login/student"
+                variant="body2"
+                className="signinLink"
+              >
                 {"Sign in as Student"}
               </Link>
             </Grid>

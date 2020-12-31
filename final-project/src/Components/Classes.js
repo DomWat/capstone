@@ -122,7 +122,7 @@ function Classes(props) {
     let subjectItems = tutor.Subjects.map((subject) => {
       return (
         <div key={subject.subject_id}>
-          <span className='tutorBolds'>Subject:</span> {subject.subject_name} ({subject.sub_subject_name})
+          <span className='tutorBolds'>Subject:</span> {capitalize(subject.subject_name)} ({capitalize(subject.sub_subject_name)})
         </div>
       );
     });
@@ -130,7 +130,7 @@ function Classes(props) {
     return (
       <div key={tutor.tutor_id} className='tutorItem'>
         <li>
-          <span className='tutorBolds'>Name:</span> {tutor.first_name} {tutor.last_name}<br></br> 
+          <span className='tutorBolds'>Name:</span> {capitalize(tutor.first_name)} {tutor.last_name}<br></br> 
           <span className='tutorBolds'>Email:</span> {tutor.email}<br></br>
           {/* Image: {tutor.image},  */}
           <span className='tutorBolds'>Description:</span> {tutor.description}<br></br>
