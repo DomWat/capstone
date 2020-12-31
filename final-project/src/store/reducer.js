@@ -19,12 +19,12 @@ const reducer = (state = initialState, action) => {
     };
   }
 
-  if (action.type === "ON_LOGOUT") {
-    return {
-      ...state,
-      isAuthenticated: false,
-    };
-  }
+  // if (action.type === "ON_LOGOUT") {
+  //   return {
+  //     ...state,
+  //     isAuthenticated: false,
+  //   };
+  // }
 
   return state;
 };
