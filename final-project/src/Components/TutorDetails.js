@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 // import { NavLink } from 'react-router-dom'
+import '../styles/TutorDetails.css'
 
 function TutorDetails(props) {
 
@@ -39,7 +40,7 @@ function TutorDetails(props) {
 
 
     let subjectItems = tutor.Subjects.map(subject => {
-        return <div key = {subject.subject_id}>Subject: {subject.subject_name}, Specialty: {subject.sub_subject_name}</div>
+        return <div key = {subject.subject_id}>Subjects taught: {subject.subject_name} ({subject.sub_subject_name})</div>
     })
 
     
@@ -49,20 +50,20 @@ function TutorDetails(props) {
     return (
 
 
-        <div>
-            <p>Tutor Details</p>
+        <div className='detailsContainer'>
+            <h2>{tutor.first_name} {tutor.last_name}</h2>
             <ul>
-                <li>{tutor.first_name} {tutor.last_name}</li>
-                <li>{tutor.email}</li>
+            
+                <li>Contact: {tutor.email}</li>
             </ul>
-            {subjectItems}
-            <p>Monday: {tutor.Schedule.monday} </p>
-            <p>Tuesday: {tutor.Schedule.tuesday} </p>
-            <p>Wednesday: {tutor.Schedule.wednesday} </p>
-            <p>Thursday: {tutor.Schedule.thursday} </p>
-            <p>Friday: {tutor.Schedule.friday} </p>
-            <p>Saturday: {tutor.Schedule.saturday} </p>
-            <p>Sunday: {tutor.Schedule.sunday} </p>
+            {subjectItems}<br /><br />
+            <p className='weekday'>Monday: {tutor.Schedule.monday} </p>
+            <p className='weekday'>Tuesday: {tutor.Schedule.tuesday} </p>
+            <p className='weekday'>Wednesday: {tutor.Schedule.wednesday} </p>
+            <p className='weekday'>Thursday: {tutor.Schedule.thursday} </p>
+            <p className='weekday'>Friday: {tutor.Schedule.friday} </p>
+            <p className='weekday'>Saturday: {tutor.Schedule.saturday} </p>
+            <p className='weekday'>Sunday: {tutor.Schedule.sunday} </p>
         </div>
     )
 }

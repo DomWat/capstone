@@ -20,6 +20,7 @@ import '../styles/Nav.css'
 // import shadows from "@material-ui/core/styles/shadows";
 //import { Grid } from '@material-ui/core'
 //import { checkPropTypes } from "prop-types";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -62,9 +63,9 @@ const useStyles = makeStyles((theme) => ({
   return (
     <div className={classes.root} className='navBar'>
      
-      <AppBar position="static" style={{ boxShadow: 'none'}}>
+      <AppBar position="static" style={{ boxShadow: 'none', border: 'none'}}>
         <Toolbar className='navBar'>
-          <IconButton edge="start" className={classes.menuButton} aria-label="menu" className='navMenuIcon'>
+          <IconButton edge="start" className={classes.menuButton} aria-label="menu" >
             <MenuIcon className='navMenuIcon'/>
           </IconButton>
           <Typography className={classes.root}>
@@ -92,7 +93,8 @@ const useStyles = makeStyles((theme) => ({
                 className='topRightMenu'
 
               >
-                <AccountCircle />
+                <AccountCircle className='topRightMenu'
+/>
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -120,24 +122,24 @@ const useStyles = makeStyles((theme) => ({
       </AppBar>
       <NavLink to='/'><img src={image} alt='logo' className='titleLogo'/></NavLink>
       <Typography className={classes.root} className='linksDiv'>
-  <NavLink to="/" >
+  <NavLink to="/" className='navLink'>
     Home
   </NavLink>
-  < NavLink to="/classes"  color="inherit">
+  < NavLink to="/classes"  color="inherit" className='navLink'>
    Find Tutors
   </NavLink>
-  {props.isAuth ? <NavLink to="/profile"  variant="body2"> 
+  {props.isAuth ? <NavLink to="/profile"  variant="body2" className='navLink'> 
     Profile
   </NavLink> :null}
-  {!props.isAuth ? <NavLink to="/login"  variant="body2" >
+  <NavLink to="/about"  variant="body2" className='navLink'>
+    About
+  </NavLink>
+  {!props.isAuth ? <NavLink to="/login"  variant="body2" className='navLink'>
     Login
   </NavLink> :null}
  {props.isAuth ? <NavLink  to="/" onClick={handleLogout} variant="body2" >
     Logout
   </NavLink> :null}
-  <NavLink to="/about"  variant="body2">
-    About
-  </NavLink>
 </Typography>
 
     </div>

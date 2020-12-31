@@ -1,6 +1,7 @@
+import { NavLink } from 'react-router-dom'
+import '../styles/Classes.css'
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
 // import axios from 'axios'
 
 import { makeStyles} from "@material-ui/core/styles";
@@ -48,6 +49,32 @@ function Classes(props) {
       specialtyList = [];
     }
 
+    // const tutorInfo = props.tutors.map(tutor => {
+
+    //     let subjectItems = tutor.Subjects.map(subject => {
+    //         return <div key = {subject.subject_id}>Subject: {subject.subject_name} ({subject.sub_subject_name})</div>
+    //     })    
+
+    //     return (
+    //         <div key = {tutor.tutor_id}>
+    //             <li>
+    //                 Name: {tutor.first_name} {tutor.last_name},
+    //                 Email: {tutor.email},
+    //                 Image: {tutor.image},
+    //                 {/* {tutor.description}, */}
+    //                 {subjectItems}
+    //                 </li>
+    //             <NavLink to =  {'/tutor/' + tutor.tutor_id}><button>Book Lesson</button></NavLink>
+    //         </div>
+    //     )
+    // })
+
+    // return (
+    //     <div className='classesContainer'>
+    //         <h2>Classes!!</h2>
+    //         <h3>Tutors</h3>
+    //         {tutorInfo}
+    //     </div>
     setSubject({
       ...subject,
       specialty,
@@ -95,28 +122,33 @@ function Classes(props) {
     let subjectItems = tutor.Subjects.map((subject) => {
       return (
         <div key={subject.subject_id}>
-          Subject: {subject.subject_name}, Specialty: {subject.sub_subject_name}
+          <span className='tutorBolds'>Subject:</span> {subject.subject_name} ({subject.sub_subject_name})
         </div>
       );
     });
 
     return (
-      <div key={tutor.tutor_id}>
+      <div key={tutor.tutor_id} className='tutorItem'>
         <li>
-          Name: {tutor.first_name} {tutor.last_name}, Email: {tutor.email},
-          Image: {tutor.image}, Description: {tutor.description},{subjectItems}
+          <span className='tutorBolds'>Name:</span> {tutor.first_name} {tutor.last_name}<br></br> 
+          <span className='tutorBolds'>Email:</span> {tutor.email}<br></br>
+          {/* Image: {tutor.image},  */}
+          <span className='tutorBolds'>Description:</span> {tutor.description}<br></br>
+          {subjectItems}
         </li>
         <NavLink to={"/tutor/" + tutor.tutor_id}>
-          <button>BOOK!</button>
+          <button className='classesBookButton'>Book Lesson</button>
         </NavLink>
+        <hr></hr>
       </div>
     );
   });
 
   return (
-    <div>
+    <div className='classesContainer'>
+        <div className='filterDiv'>
       <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel id="demo-simple-select-outlined-label">Subject</InputLabel>
+        <InputLabel id="demo-simple-select-outlined-label" className='filterBox'>Subject</InputLabel>
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
@@ -124,16 +156,17 @@ function Classes(props) {
           onChange={handleChange}
           label="subject"
           name="subject"
+          className='filterBox'
         >
-          <MenuItem value="">Any</MenuItem>
+          <MenuItem value="" className='filterBox'>Any</MenuItem>
           {subject.subjectList.map((subject) => (
-            <MenuItem value={`${subject}`}>{capitalize(subject)}</MenuItem>
+            <MenuItem value={`${subject}`} className='filterBox'>{capitalize(subject)}</MenuItem>
           ))}
         </Select>
       </FormControl>
 
       <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel id="demo-simple-select-outlined-label">
+        <InputLabel id="demo-simple-select-outlined-label" className='filterBox'>
           Specialty
         </InputLabel>
         <Select
@@ -144,15 +177,17 @@ function Classes(props) {
           label="specialty"
           name="specialty"
           disabled={subject.subject === ""}
+          className='filterBox'
         >
-          <MenuItem value="">
+          <MenuItem value="" className='filterBox'>
             <em>Any</em>
           </MenuItem>
           {subject.specialtyList.map((specality) => (
-            <MenuItem value={`${specality}`}>{capitalize(specality)}</MenuItem>
+            <MenuItem value={`${specality}`} className='filterBox'>{capitalize(specality)}</MenuItem>
           ))}
         </Select>
       </FormControl>
+      </div>
       {tutorInfo}
     </div>
   );

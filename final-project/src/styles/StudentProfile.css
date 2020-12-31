@@ -1,0 +1,36 @@
+.container, .title-appo{
+    align-items: center;
+    font-family: Futura;
+    background-color: rgb(250, 250, 250) !important;
+    padding-top: 50px;
+    margin-bottom: 200px;
+   
+}
+.title, .student-details, .student-photo, .title-appo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    
+
+}
+
+
+p,label {
+    text-indent: 50px; 
+}
+
+ .container-2 { 
+     display: flex; 
+     align-items: center;
+     font-family: Futura;
+
+ }
+
+    
+th, td{
+    align-items: center;
+    justify-content: center;
+
+}
+   
+    

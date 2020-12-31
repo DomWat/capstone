@@ -1,10 +1,8 @@
-
-
 const initialState = {
-    tutors: [],
-    tutor_num: '',
-    isAuthenticated: false,
-}
+  tutors: [],
+  tutor_num: "",
+  isAuthenticated: false,
+};
 
 const reducer = (state = initialState, action) => {
 

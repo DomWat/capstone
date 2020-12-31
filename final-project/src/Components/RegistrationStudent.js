@@ -17,6 +17,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import '../styles/Register.css'
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -46,13 +47,14 @@ export default function RegistrationStudent(props) {
   );
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className='registerContainer'>
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+        <Avatar className={classes.avatar} className='registerIcon'>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" className='register'
+>
           Sign up as Student
         </Typography>
         <form className={classes.form} noValidate>
@@ -71,6 +73,7 @@ export default function RegistrationStudent(props) {
                 value={values.first_name}
                 error={errors.first_name}
                 helperText={errors.first_name ? errors.first_name : ""}
+                className='register'
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -101,6 +104,8 @@ export default function RegistrationStudent(props) {
                 value={values.email}
                 error={errors.email}
                 helperText={errors.email ? errors.email : ""}
+                className='register'
+
               />
             </Grid>
             <Grid item xs={12}>
@@ -117,6 +122,8 @@ export default function RegistrationStudent(props) {
                 value={values.password}
                 error={errors.password}
                 helperText={errors.password ? errors.password : ""}
+                className='register'
+
               />
             </Grid>
           </Grid>
@@ -127,13 +134,19 @@ export default function RegistrationStudent(props) {
             color="primary"
             className={classes.submit}
             onClick={handleSubmit}
+            className='registerButton'
+
           >
             Sign Up
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="/login/student" variant="body2">
+              <Link href="/login/student" variant="body2" className='registerLink'
+>
                 Already have a student account? Sign in
+              </Link><br></br>
+              <Link href="/registration-tutor" variant="body2" className='registerLink'>
+                {"Sign up as Tutor"}
               </Link>
             </Grid>
           </Grid>

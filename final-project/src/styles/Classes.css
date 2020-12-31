@@ -1,0 +1,78 @@
+
+.classesContainer {
+    background-color: rgb(250, 250, 250);
+    font-family: Futura;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 20px;
+    padding-top: 50px;
+    color: rgb(12, 35, 61);
+    list-style: none;
+}
+
+.filterBox {
+    font-family: Futura !important;
+    
+}
+
+.filterDiv {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.tutorItem {
+    margin: 20px 20px 0px 20px;
+}
+
+.tutorBolds {
+    font-family: Futura Bold;
+    font-size: 22px;
+}
+
+.classesBookButton {
+    border-width: 1px;
+    border-color: rgb(16, 33, 44);
+    border-style: solid;
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 20px;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    background-color: rgb(50, 73, 102);
+    outline: none;
+    color: white;
+}
+
+@font-face {
+    font-family: Futura Bold;
+    src: url(Futura\ Bold\ font.ttf);
+  }
+
+  @media only screen and (min-width: 769px) {
+    /* .tutorItem {
+        width: 50%;
+    } */
+
+    .classesBookButton {
+        width: 200px;
+    }
+
+    .classesContainer {
+        padding-left: 150px;
+        padding-top: 100px;
+    }
+
+    .filterDiv {
+        margin-bottom: 50px;
+    }
+
+    .filterBox {
+        width: 200px !important;
+    }
+
+    .tutorBolds {
+        line-height: 2;
+    }
+
+  }

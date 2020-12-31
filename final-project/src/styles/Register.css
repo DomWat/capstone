@@ -1,10 +1,18 @@
+.registerContainer {
+    font-family: Futura;
+    margin-bottom: 50px;
+}
 
-
-.signin {
+.register {
     font-family: Futura !important;
 }
 
-.signinButton {
+label {
+    font-family: Futura !important;
+
+}
+
+.registerButton {
     font-family: Futura !important;
     /* background-color: rgb(90,86,250) !important; */
     background-color: rgb(15, 39, 83) !important;
@@ -14,26 +22,21 @@
     height: 60px ;
     text-transform: none !important;
     font-size: 20px !important;
+
 }
 
-.signinIcon {
+.registerIcon {
     /* background-color: rgb(0,162,255) !important; */
-    background-color: rgb(13, 62, 119) !important;
-
+    background-color: rgb(18, 62, 112) !important;
 }
 
-.signinLink {
+.registerLink {
+    font-size: 18px !important;
     font-family: Futura !important;
-    padding-left: 6px !important;
-    font-size: 20px !important;
 }
 
-.MuiGrid-grid-xs-true {
-    display: none !important;
+.MuiGrid-justify-xs-flex-end {
+    justify-content: left !important;
+    padding-left: 6px;
+
 }
-
-
-@font-face {
-    font-family: Futura;
-    src: url(Futura\ Book\ font.ttf);
-  }
