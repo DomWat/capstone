@@ -7,8 +7,7 @@ function About () {
             <p className='aboutParagraph'>
 
 
-We are a revolutionary online education platform that provides tutoring for for those who need assistance at a free cost. Yes, at a free cost. Some of you may wonder why created a website the provide free assistances. Well, in 2020 many of were affected by the Pandemic in several ways such loosing your job or a family member. Although, we don't have a cure for this deadly virus but,  the world started transitioning to remotely learning and working for out safety.The transition to online learning hasn’t been a pleasant experience since many students are still trying to adapt and many have trouble understanding the material.However, until things come back to normal, we want to assist all those students who do not have the resources to pay for a private tutor and make this online learning become a great experience. </p>
-
+            We are a revolutionary online education platform that provides tutoring for for those who need assistance at a free cost. Yes, at a free cost. Some of you may wonder why create a website the provide free assistance. Well, in 2020 many people were affected by the Pandemic in several ways.Many lost their job or even worse a family member. Because of this deadly virus the world started transitioning to remotely working and  learning remotely. Many students have found the online learning has not been a very pleasent experience. Until things goo back to normal we are here to help student with resources and make online learning a great experience.</p>
             <div className="Card">
                 <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src="https://avatars3.githubusercontent.com/u/70596778?s=400&u=68e5bf656064672f01d0a31093eec3edbe138001&v=4" />
@@ -71,14 +70,14 @@ We are a revolutionary online education platform that provides tutoring for for 
                 </div>
                 <div className="Card5">
                 <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="" />
+                    <Card.Img variant="top" src="https://avatars3.githubusercontent.com/u/72713592?s=400&u=a8eb7398a09aeeb54493d9d5bd09792dcdfe075c&v=4" />
                     <Card.Body>
-                        <Card.Title>Adebowale Oduwole</Card.Title>
+                        <Card.Title>Debo Oduwole</Card.Title>
                         <Card.Text>
                             Full Stack Developer
                         </Card.Text>
                            <div className="button">
-                        <Card.Link href="">GitHub</Card.Link>
+                        <Card.Link href="https://github.com/AOLink">GitHub</Card.Link>
                         <Card.Link href="https://www.linkedin.com/in/adebowale-oduwole-30652a121/">LinkedIn</Card.Link>
                         </div>  
                     </Card.Body>
