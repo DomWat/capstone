@@ -1,2 +1,102 @@
-# capstone
-A full stack project for final capstone
+# goodtutor
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+    <img src="/final-project/src/Components/goodtutorlogo.jpg">
+  </a>
+  
+  
+<!-- PROJECT LOGO -->
+<br />
+
+
+
+
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Usage](#usage)
+* [Videos And Screenshots](#videos-and-screenshots)
+* [Acknowledgements](#acknowledgements)
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
+We are a revolutionary online education platform that provides tutoring for for those who need assistance at a free cost. Yes, at a free cost. Some of you may wonder why create a website the provide free assistance. Well, in 2020 many people were affected by the Pandemic in several ways.Many lost their job or even worse a family member. Because of this deadly virus the world started transitioning to remotely working and  learning remotely. Many students have found the online learning has not been a very pleasent experience. Until things goo back to normal we are here to help student with resources and make online learning a great experience.
+
+
+Why an app such as this can be helpful:
+* Ensure understanding and  explain concept in several ways
+* Improve academic performance, study habits, and intellectual independence 
+* Provide a sense of economic relief to those parents who cannot afford a private tutor
+
+
+
+
+
+### Built With
+* React
+* Redux
+* NodeJS
+* Express
+* Sequelize
+* JavaScript
+* CSS
+* ElephantSQL
+* PostgreSQL
+* JSON Web Token
+* Material-UI
+* Axios
+
+<!-- USAGE EXAMPLES -->
+## Usage
+* 
+## Videos and Screenshots
+<img src="" width=900 height=500>
+<img src="" width=900 height=500>
+<img src="">
+
+<!-- CONTACT -->
+## Project
+
+
+
+Project Link: 
+
+
+
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+ 
+ * [Dominic Waters](https://github.com/DomWat)
+ * [Cristina Hernandez](https://github.com/cristinahdz29)
+ * [William Foody](https://github.com/wfoody)
+ * [Juan Trinidad](https://github.com/juantrinidad14)
+ * [Adebowale Oduwole](https://github.com/AOLink)
+ 
+
+
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=flat-square
+[contributors-url]: https://github.com/github_username/repo/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=flat-square
+[forks-url]: https://github.com/github_username/repo/network/members
+[stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=flat-square
+[stars-url]: https://github.com/github_username/repo/stargazers
+[issues-shield]: https://img.shields.io/github/issues/github_username/repo.svg?style=flat-square
+[issues-url]: https://github.com/github_username/repo/issues
+[license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=flat-square
+[license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/github_username
+[product-screenshot]: images/screenshot.png
