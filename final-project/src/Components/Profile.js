@@ -9,7 +9,7 @@ function Profile() {
   });
   useEffect(() => {
     fetchStudentProfile();
-  }, [student]);
+  }, []);
 
   const fetchStudentProfile = async () => {
     let response = await axios.get("http://localhost:3001/student/me");
