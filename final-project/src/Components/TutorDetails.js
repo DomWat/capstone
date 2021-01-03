@@ -84,6 +84,7 @@ function TutorDetails(props) {
           
           tutorId={props.match.params.tutorId}
           subjectList={tutor.Subjects}
+          history={props.history}
         />
       </div>
     </div>

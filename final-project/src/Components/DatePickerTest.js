@@ -50,6 +50,7 @@ function DateAndTimePickers(props) {
 
   const handleClose = () => {
     setOpen(false);
+    props.history.push("/classes")
   };
 
   const classes = useStyles();
@@ -204,7 +205,7 @@ function DateAndTimePickers(props) {
             <Button
               onClick={handleClose}
               color="primary"
-              href="/classes"
+              //href="/classes"
               autoFocus
             >
               Close
