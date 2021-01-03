@@ -7,7 +7,7 @@ function About () {
             <p className='aboutParagraph'>
 
 
-            We are a revolutionary online education platform that provides tutoring for for those who need assistance at a free cost. Yes, at a free cost. Some of you may wonder why create a website the provide free assistance. Well, in 2020 many people were affected by the Pandemic in several ways.Many lost their job or even worse a family member. Because of this deadly virus the world started transitioning to remotely working and  learning remotely. Many students have found the online learning has not been a very pleasent experience. Until things goo back to normal we are here to help student with resources and make online learning a great experience.</p>
+            We are a revolutionary online education platform that provides tutoring for for those who need assistance at a free cost. Yes, at a free cost. Some of you may wonder why create a website that provides free assistance. Well, in 2020 many people were affected by the Pandemic in several ways.Many lost their jobs or even worse a family member. Due to this deadly virus,the world started transitioning to working remotely and learning remotely. Many students have found that online learning has not been a very pleasant experience. Until things go back to normal we are here to help students with resources and make online learning a great experience.</p>
             <div className="Card">
                 <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src="https://avatars3.githubusercontent.com/u/70596778?s=400&u=68e5bf656064672f01d0a31093eec3edbe138001&v=4" />

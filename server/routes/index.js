@@ -23,7 +23,7 @@ const createAppointment = require("../controllers/appointments/createAppointment
 const editTutorDescription = require("../controllers/tutors/editDescription");
 
 module.exports = () => {
-  app.get("/status", getStatus);
+  app.get("/status", getStatus); 
 
   // route to create a student
   app.post("/register/student", createStudent);

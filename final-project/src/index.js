@@ -23,6 +23,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DateAndTimePickers from './Components/DatePickerTest';
 import DateFnsUtils from "@date-io/date-fns";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import TutorProfile from './Components/TutorProfile'
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 // resets the token in the default axios authentication headers when user
@@ -31,11 +32,11 @@ const token = localStorage.getItem('jsonwebtoken')
 setAuthenticationHeader(token)
 
 
-//if(token) {
-  //store.dispatch({
-    //type: 'ON_AUTH'
-  //})
-//}
+if(token) {
+  store.dispatch({
+    type: 'ON_AUTH'
+  })
+}
 
 ReactDOM.render(
   <React.StrictMode>
