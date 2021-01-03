@@ -88,10 +88,6 @@ function Classes(props) {
   };
   //---------Material UI----------------//
 
-  useEffect(() => {
-    fetchTutors();
-  }, [subject]);
-
   const fetchTutors = async () => {
     return fetch(
       `http://localhost:3001/all-tutors?subject=${subject.subject}&sub_subject=${subject.specialty}`
@@ -117,6 +113,10 @@ function Classes(props) {
         props.onTutorsFetch(result);
       });
   };
+
+  useEffect(() => {
+    fetchTutors();
+  }, [subject]);
 
   const tutorInfo = props.tutors.map((tutor) => {
     let subjectItems = tutor.Subjects.map((subject) => {

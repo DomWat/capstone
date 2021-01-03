@@ -7,33 +7,71 @@ import {
   DatePicker,
 } from "@material-ui/pickers";
 import dayjs from "dayjs";
-import dayjsPluginUTC from "dayjs-plugin-utc";
+//import dayjsPluginUTC from "dayjs-plugin-utc";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+// import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import capitalize from "capitalize-the-first-letter";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    "& > *": {
-      margin: theme.spacing(1),
-    },
+  // root: {
+  //   "& > *": {
+  //     margin: theme.spacing(1),
+  //   },
+  // },
+  formControl: {
+    margin: "8px",
+    marginLeft: "0px",
+    marginTop: "16px",
+    marginRight: "0px",
+    minWidth: "166px",
+    maxWidth: "166px",
   },
 }));
 
-function DateAndTimePickers() {
+function DateAndTimePickers(props) {
   // for material ui button
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const classes = useStyles();
-  dayjs.extend(dayjsPluginUTC);
 
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
+  const dateObj = new Date();
 
-  const initialTime = dayjs(selectedDate).hour();
+  const [subjectId, setSubjectId] = React.useState(props.subjectList[0].subject_id);
 
-  const [startTime, setStartTime] = useState(dayjs(initialTime).add(4, "hour"));
+  const [selectedDate, setSelectedDate] = React.useState(
+    dayjs(dateObj.toLocaleString("en-US", { timeZone: "America/New_York" }))
+  );
 
-  const [endTime, setEndTime] = useState(dayjs(initialTime).add(5, "hour"));
+  const [startTime, setStartTime] = useState(
+    dayjs(selectedDate).add(1, "hour")
+  );
+
+  const [endTime, setEndTime] = useState(dayjs(selectedDate).add(2, "hour"));
 
   //    console.log(selectedDate)
+  const handleSubjectChange = (e) => {
+    setSubjectId(e.target.value);
+  }
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
@@ -48,30 +86,38 @@ function DateAndTimePickers() {
   };
 
   // get selectedDate in utc format
-  const utcDate = dayjs.utc(selectedDate).format();
-  const date = dayjs(utcDate).day();
+  const utcDate = dayjs(selectedDate);
+  //console.log(utcDate)
+  const date = dayjs(utcDate).date();
   const month = dayjs(utcDate).month();
   const year = dayjs(utcDate).year();
-  const utcStartTime = dayjs
-    .utc(startTime)
-    .set("date", date)
-    .set("month", month)
-    .set("year", year);
-  const utcEndTime = dayjs
-    .utc(endTime)
+
+  const utcStartTime = dayjs(startTime)
     .set("date", date)
     .set("month", month)
     .set("year", year);
 
+  const utcEndTime = dayjs(endTime)
+    .set("date", date)
+    .set("month", month)
+    .set("year", year);
+
+  console.log({
+    start_time: utcStartTime.toString(),
+    end_time: utcEndTime.toString(),
+  });
   // checking
-  console.log(utcDate, "UTC Date");
-  console.log(utcStartTime, "UTC Start time");
-  console.log(utcEndTime, "UTC End time");
+  // console.log(utcDate, "UTC Date");
+  // console.log(utcStartTime, "UTC Start time");
+  // console.log(utcEndTime, "UTC End time");
+
+  console.log(props.subjectId, props.tutorId, "Subject and TutorID");
 
   // make a post call with axios
   const createAppointment = async () => {
-    let response = await axios.post(
-      "http://localhost:3001/student/appointment/27/14",
+    handleClickOpen();
+    await axios.post(
+      `http://localhost:3001/student/appointment/${subjectId}/${props.tutorId}`,
       {
         start_time: utcStartTime.toString(),
         end_time: utcEndTime.toString(),
@@ -82,39 +128,89 @@ function DateAndTimePickers() {
   return (
     <>
       <MuiPickersUtilsProvider utils={DateDayjsUtils}>
-        <Grid container justify="space-around">
-          <DatePicker
-            margin="normal"
-            id="date-picker-dialog"
-            label="Select a Date"
-            format="MM/DD/YYYY"
-            value={selectedDate}
-            onChange={handleDateChange}
-          />
-          <TimePicker
-            margin="normal"
-            id="time-picker"
-            label="Select Start Time"
-            name="start time"
-            value={startTime}
-            minutesStep={5}
-            onChange={handleStartTimeChange}
-          />
-
-          <TimePicker
-            margin="normal"
-            label="Select End Time"
-            name="end time"
-            value={endTime}
-            minutesStep={5}
-            onChange={handleEndTimeChange}
-          />
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+            <FormControl className={classes.formControl}>
+              <InputLabel id="demo-simple-select-label">Subject</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={subjectId}
+                onChange={handleSubjectChange}
+              >
+                {props.subjectList.map((s) => (
+                  <MenuItem value={s.subject_id}>
+                    {capitalize(s.subject_name)} - {capitalize(s.sub_subject_name)}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <DatePicker
+              margin="normal"
+              id="date-picker-dialog"
+              label="Select a Date"
+              format="MM/DD/YYYY"
+              value={selectedDate}
+              onChange={handleDateChange}
+            />
+          </Grid>
+        </Grid>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+            <TimePicker
+              margin="normal"
+              id="time-picker"
+              label="Select Start Time"
+              name="start time"
+              value={startTime}
+              minutesStep={5}
+              onChange={handleStartTimeChange}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TimePicker
+              margin="normal"
+              label="Select End Time"
+              name="end time"
+              value={endTime}
+              minutesStep={5}
+              onChange={handleEndTimeChange}
+            />
+          </Grid>
         </Grid>
       </MuiPickersUtilsProvider>
       <div className={classes.root}>
         <Button variant="contained" color="primary" onClick={createAppointment}>
           Book
         </Button>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">
+            {"Appointment Scheduled!"}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              You're all set! Check your inbox for a confirmation email
+              containing details about your upcoming tutoring session!
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button
+              onClick={handleClose}
+              color="primary"
+              href="/classes"
+              autoFocus
+            >
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
     </>
   );
