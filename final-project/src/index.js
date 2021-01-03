@@ -28,11 +28,11 @@ const token = localStorage.getItem('jsonwebtoken')
 setAuthenticationHeader(token)
 
 
-//if(token) {
-  //store.dispatch({
-    //type: 'ON_AUTH'
-  //})
-//}
+if(token) {
+  store.dispatch({
+    type: 'ON_AUTH'
+  })
+}
 
 ReactDOM.render(
   <React.StrictMode>
