@@ -20,6 +20,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import TutorDetails from './Components/TutorDetails'
 import requireAuth from './Components/requireAuth'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import TutorProfile from './Components/TutorProfile'
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 // resets the token in the default axios authentication headers when user
@@ -43,6 +44,7 @@ ReactDOM.render(
             <Route  path = '/tutor/:tutorId' component = {TutorDetails} />
             <Route  path = '/about' component = {About} /> 
             <Route  path = '/profile' component = {requireAuth(Profile)} />
+            <Route  path = '/tutor-profile' component = {requireAuth(TutorProfile)} />
             <Route exact path = '/login' component = {Login} />
             <Route path = "/login/student" component ={LoginStudent} />
             <Route  path = '/classes' component = {Classes} />
