@@ -44,7 +44,7 @@ ReactDOM.render(
         <BrowserRouter>
           <BaseLayout>
             <Switch>
-              <Route path="/tutor/:tutorId" component={TutorDetails} />
+              <Route path="/tutor/:tutorId" component={requireAuth(TutorDetails)} />
               <Route path="/about" component={About} />
               <Route path="/profile" component={requireAuth(Profile)} />
               <Route exact path="/login" component={Login} />

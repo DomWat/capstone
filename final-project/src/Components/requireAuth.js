@@ -11,7 +11,7 @@ export default function(ComposedComponent) {
 
             if(!this.props.isAuthenticated) {
                 // if the user is not authenticated 
-                this.props.history.push('/')
+                this.props.history.push('/login/student')
             }
         }
 
