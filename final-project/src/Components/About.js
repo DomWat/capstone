@@ -3,11 +3,13 @@ import '../styles/About.css'
 function About () {
     return (
         <div className="Container">
-            <h2> About Us</h2>
+            <h2> About GoodTutor</h2>
             <p className='aboutParagraph'>
 
 
             We are a revolutionary online education platform that provides tutoring for for those who need assistance at a free cost. Yes, at a free cost. Some of you may wonder why create a website that provides free assistance. Well, in 2020 many people were affected by the Pandemic in several ways.Many lost their jobs or even worse a family member. Due to this deadly virus,the world started transitioning to working remotely and learning remotely. Many students have found that online learning has not been a very pleasant experience. Until things go back to normal we are here to help students with resources and make online learning a great experience.</p>
+           
+           <div className='ourTeam'>Our Team</div>
             <div className="Card">
                 <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src="https://avatars3.githubusercontent.com/u/70596778?s=400&u=68e5bf656064672f01d0a31093eec3edbe138001&v=4" />
