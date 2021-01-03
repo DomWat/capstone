@@ -27,7 +27,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
-We are a revolutionary online education platform that provides tutoring for for those who need assistance at a free cost. Yes, at a free cost. Some of you may wonder why create a website the provide free assistance. Well, in 2020 many people were affected by the Pandemic in several ways.Many lost their job or even worse a family member. Because of this deadly virus the world started transitioning to remotely working and  learning remotely. Many students have found the online learning has not been a very pleasant experience. Until things go back to normal we are here to help student with resources and make online learning a great experience.
+We are a revolutionary online education platform that provides tutoring for for those who need assistance at a free cost. Yes, at a free cost. Some of you may wonder why create a website that provides free assistance. Well, in 2020 many people were affected by the Pandemic in several ways.Many lost their jobs or even worse a family member. Due to this deadly virus,the world started transitioning to working remotely and learning remotely. Many students have found that online learning has not been a very pleasant experience. Until things go back to normal we are here to help students with resources and make online learning a great experience.
 
 
 Why an app such as this can be helpful:
@@ -52,10 +52,10 @@ Why an app such as this can be helpful:
 * JSON Web Token
 * Material-UI
 * Axios
-
+* React Boostrap
 <!-- USAGE EXAMPLES -->
 ## Usage
-* In this web application tutor are able to share their knowledge and availability for assistance. As for students, are able to register, choose specific tutor depending their needs, and review previous tutors history.
+* In this web application, tutors are able to share their knowledge and availability for assistance. As for students,they are able to register, choose specific tutor depending their needs, and review previous tutors history.
 ## Videos and Screenshots
 <img src="" width=900 height=500>
 <img src="" width=900 height=500>
