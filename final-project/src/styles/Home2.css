@@ -1,8 +1,8 @@
 
 .home2Container {
     height: 100%;
-    /* padding-top: 100px;
-    padding-bottom: 150px; */
+    /* padding-top: 100px; */
+    /* padding-bottom: 150px; */
     display: flex;
     flex-direction: column;
     /* justify-content: space-around; */
@@ -11,9 +11,10 @@
     width: 100%;
     font-family: Futura;
     color: white;
+    
 }
 
-.home2text {
+.home2textTop {
     width: 100%;
     height: 100%;
     padding: 30px;
@@ -22,14 +23,66 @@
 }
 
 .home2pic{
-    width: 70%;
+    width: 100%;
     height: 100%;
+    display: none;
     /* padding-left: 100px; */
-    padding-top: 50px;
+    /* padding-top: 50px; */
     padding-bottom: 50px;
 
 }
 
+.lists li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.lists p {
+    font-size: 20px;
+}
+
+.homeListItem {
+    display: flex;
+}
+
+
+ .numbersSpanStudent {
+    background-color: rgb(1,162,255);
+    height: 28px;
+    align-items: center !important;
+    border-radius: 20px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-top: 0 !important;
+    margin-right: 10px;
+    margin-bottom: 15px;
+   
+} 
+
+
+.numbersSpanTutor {
+    background-color: rgb(117,126,255);
+    /* width: 45px; */
+    height: 28px;
+    align-items: center !important;
+    border-radius: 20px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-top: 0 !important;
+    margin-right: 10px;
+    margin-bottom: 15px;
+
+}
+
+.bottomText {
+    font-size: 20px;
+    padding: 30px;
+}
+
+.bottomTextAlt {
+    display: none;
+}
 
 @font-face {
     font-family: Futura;
@@ -39,10 +92,11 @@
   @media only screen and (min-width: 769px) {
 
     .home2Container {
-        height: 400px;
+        /* height: 700px; */
+        height: 100%;
         /* padding-bottom: 150px;  */
         display: flex;
-        flex-direction: row;
+        /* flex-direction: row; */
         justify-content: space-around;
         width: 100%;
         font-family: Futura;
@@ -50,26 +104,92 @@
         padding-top: 50px;
     
     }
-    
-    .home2text {
-        width: 50%;
-        height: 100%;
+
+    .picAndText {
+        display: flex;
+        flex-direction: row;
         padding-left: 100px;
+    }
+    
+    .home2textTop {
+        /* width: 100%; */
+        /* height: 100%; */
+        padding-left: 9% !important;
+        padding-right: 10%;
+        /* margin-top: 50px;  
+         margin-bottom: 15px; */
+        font-size: 20px;
+        font-weight: bold;
+        width: 100%;
+    }
+
+    .lists {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    ol {
+        width: 45%;
+    }
+
+    .rightSideText {
+        display: flex;
+        flex-direction: column;
         padding-right: 100px;
-        padding-top: 100px;
-        font-size: 18px;
+        font-size: 20px;
+        padding-left: 100px;
     }
     
     .home2pic{
-        width: 25%;
-        height: 100%;
-        padding-top: 50px;
-        padding-bottom: 50px;
-        margin-right: 50px;
-        padding-left: 100px;
+        display: flex;
+        width: 300px;
+        /* height: 100%; */
+        /* overflow: auto; */
+        padding-top: 0px;
+        /* padding-bottom: 50px;
+        margin-right: 50px;*/
+        margin-left: 2%; 
 
     }
 
+    .numbersSpanStudent {
+        /* width: 35px;
+        height: 35px; */
+        align-items: center; 
+        border-radius: 20px;
+        /* padding-left: 10px;
+        padding-right: 10px; */
+        padding: 20px;
+    
+        margin-right: 10px;
+    }
+
+    .bottomTextAlt {
+        font-size: 20px;
+        padding-left: 9% !important;
+        padding-right: 10%;
+        padding-bottom: 40px;
+        width: 100%;
+        display: flex;
+    }
+
+    .bottomText {
+        display: none;
+    }
+
+    @media only screen and (min-width: 1090px) {
+
+        .bottomText {
+            display: flex;
+            padding-bottom: 40px;
+
+        }
+
+        .bottomTextAlt {
+            display: none;
+        }
+    }
 
 
   } 
