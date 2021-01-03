@@ -73,7 +73,7 @@ function SignIn(props) {
 
       if(token) {
         props.onAuthenticated()
-        props.history.push('/profile')
+        props.history.push('/tutor-profile')
       } else {
         alert('Please use correct username and password!')
       }
