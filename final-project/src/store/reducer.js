@@ -1,10 +1,8 @@
-
-
 const initialState = {
-    tutors: [],
-    tutor_num: '',
-    isAuthenticated: false,
-}
+  tutors: [],
+  tutor_num: "",
+  isAuthenticated: false,
+};
 
 const reducer = (state = initialState, action) => {
 
@@ -19,6 +17,12 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             isAuthenticated: true
+        }
+    }
+    if(action.type === "ON_LOGOUT") {
+        return {
+            ...state,
+            isAuthenticated: false
         }
     }
 

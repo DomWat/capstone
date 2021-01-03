@@ -1,64 +1,124 @@
 
 .Container{
-    display: flex;
+   
     align-items: center;
     font-family: Futura;
     background-color: rgb(250, 250, 250) !important;
+    padding-top: 50px;
+    margin-bottom: 200px;
 
 }
 
 h2 {
     text-align: center;
     font-family: Futura;
-    margin-top: 15%;
+    color: rgb(20, 65, 160);
 }
 
 .aboutParagraph {
-    margin-left: 20%;
-    margin-right: 20%;
+    /* margin-left: 20%; */
+    margin-right: 8%;
     margin-top: 5%;
     font-family: Futura;
-    text-align: center;
+    /* text-align: center; */
+    margin-left: 8%;
+    font-size: 20px;
 
 }
 
 .Card, .Card2, .Card3{
-    width: 22%;
+    width: 100%;
     margin-top: 10%;
-    margin-left: 8%;
+    /* margin-left: 8%; */
     /*margin-right: 1%;*/
     margin-bottom: 45px;
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-family: Futura;
+    flex-direction: column;
+    align-content: center;
+    font-size: 25px;
 
 }
 
 .Card4, .Card5{
-    width: 22%;
+    width: 100%;
     /*margin-right: 1%;*/
-    margin-left: 18%;
+    /* margin-left: 18%; */
     margin-bottom: 30px;
-    display: inline-flex;
+    display: flex;
     align-content: center;
     justify-content: center;
     font-family: Futura;
-
+    flex-direction: column;
+    align-items: center;
 }
 
 .card-title, .card-text, .button{
     text-align: center;
+    /* font-size: 22px; */
+}
+
+.card-title {
+    font-size: 28px !important;
+}
+
+.card-text {
+    font-size: 23px !important;
 }
 
 
 
 .button {
     margin-top: 30px;
-
+    font-size: 20px;
 }
 
 @font-face {
     font-family: Futura;
     src: url(Futura\ Book\ font.ttf);
+  }
+
+  @media only screen and (min-width: 769px) {
+
+    .Card, .Card2, .Card3{
+        width: 22%;
+        margin-top: 10%;
+        margin-left: 8%;
+        margin-right: 1%;
+        margin-bottom: 45px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Futura;
+        flex-direction: column;
+    
+    }
+    
+    .Card4, .Card5{
+        width: 22%;
+        margin-right: 1%;
+        margin-left: 18%;
+        margin-bottom: 30px;
+        display: inline-flex;
+        align-content: center;
+        justify-content: center;
+        font-family: Futura;
+    
+    }
+    
+    .card-title, .card-text, .button{
+        text-align: center;
+    }
+    
+    
+    
+    .button {
+        margin-top: 30px;
+    
+    }
+
+
+
   }
