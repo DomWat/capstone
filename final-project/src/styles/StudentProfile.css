@@ -1,0 +1,51 @@
+
+.users-information, .information {
+    display: inline-flex;
+    padding: 10px;
+    font-family: Futura;
+
+
+}
+ .users-information, .information {
+    justify-content: center;
+}
+
+.users-title, .appointment-title {
+    display: flex;
+    font-family: Futura;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    font-family: Futura;
+    margin-top: 50px;
+    
+}
+
+.photo-title {
+    justify-content: center;
+}
+
+.student-photo {
+    display: flex;
+    bottom:0;
+    text-align: center;
+    left:0;
+}
+
+.photo {
+    display:flex;
+    justify-content: center;
+}
+
+.Container-2{
+    font-family: Futura;
+    display: flex;
+    
+}
