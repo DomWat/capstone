@@ -15,12 +15,16 @@ const reducer = (state = initialState, action) => {
     }
 
     if(action.type === 'ON_AUTH') {
+        const profile = localStorage.getItem('profile') || ''
         return {
-            ...state,
-            isAuthenticated: true
-        }
+          ...state,
+          isAuthenticated: true,
+          userType: profile,
+        };
     }
+
     if(action.type === "ON_LOGOUT") {
+        localStorage.removeItem("profile");
         return {
             ...state,
             isAuthenticated: false
@@ -28,6 +32,7 @@ const reducer = (state = initialState, action) => {
     }
 
     if (action.type === "TUTOR_LOGIN") {
+        localStorage.setItem('profile', '/tutor-profile')
         return {
             ...state,
             userType:'/tutor-profile'
@@ -35,6 +40,7 @@ const reducer = (state = initialState, action) => {
     }
     
     if (action.type === "STUDENT_LOGIN") {
+        localStorage.setItem("profile", "/profile");
         return {
             ...state,
             userType: '/profile'

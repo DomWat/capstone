@@ -8,6 +8,11 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
 // === Meterial ui styling (start) === //
 const useStyles = makeStyles((theme) => ({
@@ -19,11 +24,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 // === Meterial ui styling (start) === //
 
 function TutorProfile() {
   // for material ui
   const classes = useStyles();
+
+  // material ui for modal
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const [tutor, setTutor] = useState({
     tutor: {
@@ -56,17 +74,16 @@ function TutorProfile() {
   const handleEdit = () => {
     setTutor({
       ...tutor,
-      notUpdating: false
-
-    })
-  }
+      notUpdating: false,
+    });
+  };
 
   const handleSave = () => {
     setTutor({
       ...tutor,
       notUpdating: true,
     });
-  }
+  };
 
   return (
     <>
@@ -129,6 +146,44 @@ function TutorProfile() {
           </div>
         );
       })}
+      <div>
+        <Button variant="contained" color="primary" onClick={handleClickOpen}>
+          Add
+        </Button>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="form-dialog-title"
+        >
+          <DialogTitle id="form-dialog-title">Add a Subject!</DialogTitle>
+          <DialogContent>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="subject"
+              label="Subject"
+              type="email"
+              fullWidth
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="specialty"
+              label="Specialty"
+              type="email"
+              fullWidth
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} color="primary">
+              Cancel
+            </Button>
+            <Button onClick={handleClose} color="primary">
+              Add
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </div>
       <h1>Schedule: </h1>
       {/* Mon: {tutor.tutor.Schedule.monday} */}
       <form className={classes.root} noValidate autoComplete="off">
