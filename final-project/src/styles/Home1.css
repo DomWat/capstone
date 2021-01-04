@@ -61,11 +61,11 @@
         padding-right: 100px;
         padding-top: 100px;
         font-size: 18px;
-        font-weight: bold;
+        font-weight: bolder;
     }
     
     .home1pic{
-        width: 23%;
+        width: 30%;
         height: 100%;
         padding-top: 50px;
         padding-bottom: 50px;
@@ -77,7 +77,12 @@
 
         .home1text {
             font-size: 20px;
+        }
 
+        .home1pic{
+            width: 23%;
+          
+    
         }
 
 
