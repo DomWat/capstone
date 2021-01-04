@@ -78,7 +78,7 @@ hr {
 
 .navLink:hover {
     text-decoration: none ;
-    border-top: royalblue;
+    border-top: rgb(47, 86, 202);
     border-width: 3px;
     border-style: solid;
     border-bottom: none;

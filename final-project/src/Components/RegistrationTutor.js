@@ -52,7 +52,7 @@ export default function RegistrationTutor(props) {
   const { handleChange, values, handleSubmit, errors } = useTutorForm(Validate, props.history);
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className='registerContainer'>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar} className='registerIcon'>
