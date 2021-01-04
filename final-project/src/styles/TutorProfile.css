@@ -1,0 +1,65 @@
+.tutor-container{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    font-family: Futura;
+}
+
+.tutor-information {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+
+.tutor-button{
+   justify-content: center;
+   display: flex;
+
+
+}
+
+.save-profile, .save-profile{
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+
+.tutor-content {
+    margin-top: 50px;
+    justify-content: center;
+    display: flex;
+    font-family: Futura;
+
+}
+
+.tutor-description{
+position: absolute;
+flex-wrap: wrap;
+margin-top: 50px;
+margin-bottom: 50px;
+      
+}
+
+.tutor-subject{
+    display:flex;
+    flex-direction: column;
+    margin-top: 150px;
+    align-items: center;
+    font-family: Futura;
+}
+
+.add-button{
+    display:flex;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.schedule {
+    display:flex;
+    flex-direction: column;
+    margin-top: 100px;
+    align-items: center;
+    font-family: Futura;
+}
