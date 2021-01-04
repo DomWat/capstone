@@ -43,6 +43,27 @@ function TutorProfile() {
     setOpen(false);
   };
 
+  const [subject, setSubject] = useState({
+    subject: '',
+    specialty: ''
+  })
+
+  const handleAdd = () => {
+    axios.post('http://localhost:3001/tutor/subject', {
+      subject_name: subject.subject,
+      sub_subject_name: subject.specialty
+    })
+    handleClose()
+    fetchTutorProfile()
+  }
+
+  const handleOnChange = (e) => {
+    setSubject({
+      ...subject,
+      [e.target.name]: e.target.value
+    })
+  }
+
   const [tutor, setTutor] = useState({
     tutor: {
       Appointments: [],
@@ -53,7 +74,7 @@ function TutorProfile() {
   });
   useEffect(() => {
     fetchTutorProfile();
-  }, []);
+  }, [subject]);
 
   const fetchTutorProfile = async () => {
     let response = await axios.get("http://localhost:3001/tutor/me");
@@ -163,6 +184,8 @@ function TutorProfile() {
               id="subject"
               label="Subject"
               type="email"
+              name="subject"
+              onChange={handleOnChange}
               fullWidth
             />
             <TextField
@@ -171,6 +194,8 @@ function TutorProfile() {
               id="specialty"
               label="Specialty"
               type="email"
+              name="specialty"
+              onChange={handleOnChange}
               fullWidth
             />
           </DialogContent>
@@ -178,7 +203,7 @@ function TutorProfile() {
             <Button onClick={handleClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={handleClose} color="primary">
+            <Button onClick={handleClose, handleAdd} color="primary">
               Add
             </Button>
           </DialogActions>
