@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Table from "react-bootstrap/Table"
-import '../styles/StudentProfile.css'
+import Table from "react-bootstrap/Table";
+import "../styles/StudentProfile.css";
+import dayjs from "dayjs";
+import capitalize from "capitalize-the-first-letter";
 
 function TutorProfile() {
   const [tutor, setTutor] = useState({
     tutor: {
       Appointments: [],
       Schedule: {},
-      Subjects: []
+      Subjects: [],
     },
   });
   useEffect(() => {
@@ -31,7 +33,6 @@ function TutorProfile() {
       <div>
         <h1 className="users-title">
           <b>User's Information</b>
-
         </h1>
         <div className="photo">
           <label className="photo-title">
@@ -43,11 +44,11 @@ function TutorProfile() {
           <label className="users-information">
             <b>Name:</b>
           </label>
-          <p className="information">{tutor.tutor.first_name}</p>
+          <p className="information">{capitalize(`${tutor.tutor.first_name}`)}</p>
           <label className="users-information">
             <b>Last Name:</b>
           </label>
-          <p className="information">{tutor.tutor.last_name}</p>
+          <p className="information">{capitalize(`${tutor.tutor.last_name}`)}</p>
           <label className="users-information">
             <b>Email:</b>
           </label>
@@ -60,7 +61,11 @@ function TutorProfile() {
       </div>
       <h1>Subject: </h1>
       {tutor.tutor.Subjects.map((subject) => {
-        return <div key = {subject.subject_id}>{subject.subject_name} Specialty: {subject.sub_subject_name}</div>
+        return (
+          <div key={subject.subject_id}>
+            {capitalize(subject.subject_name)} Specialty: {capitalize(subject.sub_subject_name)}
+          </div>
+        );
       })}
       <h1>Schedule: </h1>
       Mon: {tutor.tutor.Schedule.monday}
@@ -70,18 +75,20 @@ function TutorProfile() {
       Fri: {tutor.tutor.Schedule.friday}
       Sat: {tutor.tutor.Schedule.saturday}
       Sun: {tutor.tutor.Schedule.sunday}
-      <h1 className='appointment-title'><b>Appointment History</b></h1>
+      <h1 className="appointment-title">
+        <b>Appointment History</b>
+      </h1>
       {tutor.tutor.Appointments.map((appointment) => {
         return (
           <div className="Container-2">
             <Table striped bordered hover size="sm">
               <thead>
                 <tr>
-                  <th>Tutor's  First Name:</th>
-                  <th>Tutor's Last Name:</th>
-                  <th>Tutor's E-Mail:</th>
+                  <th>Student Name:</th>
+
+                  <th>Student E-Mail:</th>
                   <th>Subject:</th>
-                  <th>Specialty:</th>
+                  {/* <th>Specialty:</th> */}
                   <th>Date:</th>
                   <th>Start Time:</th>
                   <th>End Time:</th>
@@ -89,14 +96,21 @@ function TutorProfile() {
               </thead>
               <tbody>
                 <tr>
-                  <td>{appointment.Student.first_name} </td>
-                  <td>{appointment.Student.last_name}</td>
-                  <td><i> {appointment.Student.email}</i></td>
-                  <td>{appointment.Subject.subject_name}</td>
-                  <td>{appointment.Subject.sub_subject_name}</td>
-                  <td></td>
-                  <td>{appointment.start_time}</td>
-                  <td>{appointment.end_time}</td>
+                  <td>
+                    {capitalize(appointment.Student.first_name)}{" "}
+                    {capitalize(appointment.Student.last_name)}
+                  </td>
+                  <td>
+                    <i> {appointment.Student.email}</i>
+                  </td>
+                  <td>
+                    {capitalize(appointment.Subject.subject_name)} (
+                    {capitalize(appointment.Subject.sub_subject_name)})
+                  </td>
+                  {/* <td>{appointment.Subject.sub_subject_name}</td> */}
+                    <td>{dayjs(appointment.start_time).format('MM-DD-YYYY')}</td>
+                  <td>{dayjs(appointment.start_time).format('h:mm A')}</td>
+                  <td>{dayjs(appointment.end_time).format('h:mm A')}</td>
                 </tr>
               </tbody>
             </Table>

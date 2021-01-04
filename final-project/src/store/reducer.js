@@ -2,6 +2,7 @@ const initialState = {
   tutors: [],
   tutor_num: "",
   isAuthenticated: false,
+  userType: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -26,7 +27,20 @@ const reducer = (state = initialState, action) => {
         }
     }
 
-    return state
+    if (action.type === "TUTOR_LOGIN") {
+        return {
+            ...state,
+            userType:'/tutor-profile'
+        }
+    }
+    
+    if (action.type === "STUDENT_LOGIN") {
+        return {
+            ...state,
+            userType: '/profile'
+        }
+    } 
+    return state;
     
 }
 

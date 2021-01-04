@@ -73,6 +73,7 @@ function SignIn(props) {
 
       if(token) {
         props.onAuthenticated()
+        props.onTutorLogin()
         props.history.push('/tutor-profile')
       } else {
         alert('Please use correct username and password!')
@@ -158,12 +159,20 @@ function SignIn(props) {
   );
 }
 
+const mapStateToProps = (state) => {
+  return {
+    // isAuth: state.isAuthenticated,
+    userType: state.userType,
+  };
+};
+
 const mapDispatchToProps =(dispatch) => {
   return{
-    onAuthenticated: () => dispatch({type: 'ON_AUTH'})
+    onAuthenticated: () => dispatch({type: 'ON_AUTH'}),
+    onTutorLogin: () => dispatch({type: "TUTOR_LOGIN"})
   }
 }
-export default connect(null, mapDispatchToProps)(SignIn)
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
 // function Login() {
 //     const [user, setUser] = useState({})
 

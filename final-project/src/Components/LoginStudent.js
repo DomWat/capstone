@@ -76,6 +76,7 @@ function LoginStudent(props) {
       //update the isAuthenticated in Redux to true
       if(token) {
         props.onAuthenticated()
+        props.onStudentLogin()
         props.history.push('/profile')
       } else {
         alert('Please use correct username and password!')
@@ -151,7 +152,10 @@ function LoginStudent(props) {
 }
 const mapDispatchToProps = (dispatch) => {
   return{
-    onAuthenticated: () => dispatch({type: 'ON_AUTH' })
+    onAuthenticated: () => dispatch({type: 'ON_AUTH' }),
+    onStudentLogin: () => dispatch({
+      type: "STUDENT_LOGIN"
+    })
   }
 }
 export default connect(null, mapDispatchToProps)(LoginStudent)
