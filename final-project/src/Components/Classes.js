@@ -130,10 +130,10 @@ function Classes(props) {
     return (
       <div key={tutor.tutor_id} className='tutorItem'>
         <li>
-          <span className='tutorBolds'>Name:</span> {capitalize(tutor.first_name)} {tutor.last_name}<br></br> 
+          <span className='tutorBolds'>Tutor Name:</span> {capitalize(tutor.first_name)} {tutor.last_name}<br></br> 
           <span className='tutorBolds'>Email:</span> {tutor.email}<br></br>
           {/* Image: {tutor.image},  */}
-          <span className='tutorBolds'>Description:</span> {tutor.description}<br></br>
+          <span className='tutorBolds'>Description:</span> "{tutor.description}"<br></br>
           {subjectItems}
         </li>
         <NavLink to={"/tutor/" + tutor.tutor_id}>

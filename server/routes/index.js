@@ -37,7 +37,7 @@ module.exports = () => {
   // route to login a tutor
   app.post("/login/tutor", loginTutors);
 
-  // route to create a subject
+  // route to ADD a subject
   // client side MUST send jsonwebtoken in authorization headers to server in
   // axios.post request
   // STEPS EXPLAINED IN 12/7 lecture at 1:10 timestamp

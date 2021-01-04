@@ -28,8 +28,24 @@
 
 .menuItem {
     font-family: Futura !important;
-    font-size: 20px;
+    font-size: 25px;
     text-decoration: none;
+    width: 120px;
+  text-align: right;
+
+}
+
+hr {
+    border: 0;
+    clear:both;
+    display:block;
+    width: 100%;               
+    background-color: rgba(0, 0, 0, 0.144);
+    height: 1px;
+}
+
+.hrLine:hover {
+    background-color: white !important;
 }
 
 .menuItem:hover {
@@ -41,6 +57,7 @@
     color: rgb(9, 26, 46) !important;
     outline: none !important;
     font-size: 32px !important;
+    width: 100px;
 }
 
 .navMenuIcon:active {
@@ -61,7 +78,7 @@
 
 .navLink:hover {
     text-decoration: none ;
-    border-top: royalblue;
+    border-top: rgb(47, 86, 202);
     border-width: 3px;
     border-style: solid;
     border-bottom: none;

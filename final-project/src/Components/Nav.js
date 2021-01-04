@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
      
       <AppBar position="static" style={{ boxShadow: 'none', border: 'none'}}>
         <Toolbar className='navBar'>
-           <IconButton 
+           {/* <IconButton 
             edge="start" 
             className={classes.menuButton} 
             aria-label="menu" 
@@ -78,21 +78,8 @@ const useStyles = makeStyles((theme) => ({
 
             >
             <MenuIcon className='navMenuIcon'/>
-          </IconButton>
-          <Popover 
-  anchorOrigin={{
-    vertical: 'top',
-    horizontal: 'left',
-  }}
-  transformOrigin={{
-    vertical: 'top',
-    horizontal: 'left',
-  }}
->
-  The content of the Popover.
-</Popover>
-         
-
+          </IconButton> */}
+ 
          
           <Typography className={classes.root}>
   {/* <NavLink to="/" > */}
@@ -119,8 +106,9 @@ const useStyles = makeStyles((theme) => ({
                 className='topRightMenu'
 
               >
-                <AccountCircle className='topRightMenu'
-/>
+                {/* <AccountCircle className='topRightMenu'/> */}
+                <MenuIcon className='navMenuIcon'/>
+
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -138,7 +126,21 @@ const useStyles = makeStyles((theme) => ({
                 onClose={handleClose}
                 className='topRightMenu'
               >
-                {props.isAuth ? <MenuItem onClick={handleClose} ><NavLink className='menuItem'to="/profile"  variant="body2" > 
+                <MenuItem onClick={handleClose} ><NavLink to="/" className='menuItem'>Home</NavLink></MenuItem>
+
+                <MenuItem onClick={handleClose} >< NavLink to="/classes"  color="inherit" className='menuItem'>
+                  Find Tutors
+                </NavLink></MenuItem>
+
+                {!props.isAuth ? <MenuItem  color="inherit" className='hrLine'>
+                 <hr></hr>
+                </MenuItem> :null}
+
+                {props.isAuth ? <MenuItem  color="inherit" className='hrLine'>
+                 <hr></hr>
+                </MenuItem> :null}
+
+                {props.isAuth ? <MenuItem onClick={handleClose} ><NavLink className='menuItem' to={props.userType}  variant="body2" > 
                   Profile
                 </NavLink></MenuItem> :null}
 
@@ -172,7 +174,7 @@ const useStyles = makeStyles((theme) => ({
   {!props.isAuth ? <NavLink to="/login/student"  variant="body2" className='navLink'>
     Login
   </NavLink> :null}
- {props.isAuth ? <NavLink  to="/" onClick={handleLogout} variant="body2" >
+ {props.isAuth ? <NavLink  to="/" onClick={handleLogout} variant="body2" className='navLink'>
     Logout
   </NavLink> :null}
 </Typography>
