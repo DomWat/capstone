@@ -14,7 +14,7 @@ function About () {
                 <Card style={{ width: '18rem' }}>
                     <Card.Img variant="top" src="https://avatars3.githubusercontent.com/u/70596778?s=400&u=68e5bf656064672f01d0a31093eec3edbe138001&v=4" />
                     <Card.Body className="card-body">
-                        <Card.Title className="card-title">Dominic Water</Card.Title>
+                        <Card.Title className="card-title">Dominic Waters</Card.Title>
                         <Card.Text className="card-text">
                             Full Stack Developer
                         </Card.Text>
