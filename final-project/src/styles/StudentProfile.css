@@ -47,5 +47,26 @@
 .Container-2{
     font-family: Futura;
     display: flex;
-    
+    width: 1000px;
+    margin-left:auto;
+    margin-right: auto;
+
 }
+
+
+
+.table-heading,.table-content { 
+    text-align: center;
+
+}
+
+th,td,tr{
+    width: 100px;
+}
+
+.tutors-container {
+    display: flex;
+    
+
+}
+

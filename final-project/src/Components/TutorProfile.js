@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
-import "../styles/StudentProfile.css";
+import "../styles/TutorProfile.css";
 import dayjs from "dayjs";
 import capitalize from "capitalize-the-first-letter";
 import React from "react";
@@ -166,23 +166,25 @@ function TutorProfile() {
 
   return (
     <>
-      <div>
-        <h1 className="users-title">
+      <div className="tutor-container">
+        <h1 className="tutor-information">
           <b>User's Information</b>
         </h1>
-        <Button variant="contained" color="primary" onClick={handleEdit}>
+        <div className="tutor-button">
+        <Button className="edit-profile"variant="contained" color="primary" onClick={handleEdit}>
           Edit Profile
         </Button>
-        <Button variant="contained" color="primary" onClick={handleSave}>
+        <Button ClassName="save-profile"variant="contained" color="primary" onClick={handleSave}>
           Save
         </Button>
-        <div className="photo">
-          <label className="photo-title">
-            <b>Tutor Photo:</b>
-          </label>
-          <p className="student-photo">{tutor.tutor.image}</p>
         </div>
-        <div className="content">
+        {/* <div className="photo"> */}
+          {/* <label className="photo-title"> */}
+            {/* <b>Tutor Photo:</b> */}
+          {/* </label> */}
+          {/* <p className="student-photo">{tutor.tutor.image}</p> */}
+        {/* </div> */}
+        <div className="tutor-content">
           <label className="users-information">
             <b>Name:</b>
           </label>
@@ -202,6 +204,7 @@ function TutorProfile() {
           {/* <label className="users-information">
             <b>Description:</b>
           </label> */}
+          <div className="tutor-description">
           <p className="information">
             {/* {tutor.tutor.description}{" "} */}
             <form className={classes.root} noValidate autoComplete="off">
@@ -215,8 +218,10 @@ function TutorProfile() {
               />
             </form>
           </p>
+          </div>
         </div>
       </div>
+      <div className="tutor-subject">
       <h1>Subject: </h1>
       {tutor.tutor.Subjects.map((subject) => {
         return (
@@ -226,7 +231,8 @@ function TutorProfile() {
           </div>
         );
       })}
-      <div>
+      </div>
+      <div className="add-button">
         <Button variant="contained" color="primary" onClick={handleClickOpen}>
           Add
         </Button>
@@ -268,6 +274,7 @@ function TutorProfile() {
           </DialogActions>
         </Dialog>
       </div>
+      <div className="schedule">
       <h1>Schedule: </h1>
       {/* Mon: {tutor.tutor.Schedule.monday} */}
       <form className={classes.root} noValidate autoComplete="off">
@@ -357,6 +364,7 @@ function TutorProfile() {
             onChange={handleScheduleEdit}
           />
         </form>
+      </div>
       </div>
       <h1 className="appointment-title">
         <b>Appointment History</b>
