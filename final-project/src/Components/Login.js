@@ -14,8 +14,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { purple } from "@material-ui/core/colors";
 import { setAuthenticationHeader } from "../utils/authenticate";
-import { connect } from "react-redux"
-import '../styles/Login.css'
+import { connect } from "react-redux";
+import "../styles/Login.css";
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -41,6 +41,8 @@ function SignIn(props) {
 
   const [user, setUser] = useState({});
 
+  const [error, setError] = useState(false);
+
   const handleOnChange = (e) => {
     setUser({
       ...user,
@@ -50,36 +52,42 @@ function SignIn(props) {
 
   const userLoggedIn = async () => {
     //making fetch call to server
-    const response = await axios.post("http://localhost:3001/login/tutor", {
-      email: user.email,
-      password: user.password,
-    });
-    const result = response.data;
-    console.log(result);
-    return result;
+    try {
+      const response = await axios.post("http://localhost:3001/login/tutor", {
+        email: user.email,
+        password: user.password,
+      });
+      const result = response.data;
+      console.log(result);
+      return result;
+    } catch (err) {
+      return null;
+    }
   };
 
   const handleLogin = async () => {
     let userToken = await userLoggedIn();
 
-    if (user) {
+    if (userToken) {
       const token = userToken.token;
       localStorage.setItem("jsonwebtoken", token);
-      
-      // after getting the token, we can set default authentication headers for axios to include jsonwebtoken 
-      // Will send the token for every request user makes
-      setAuthenticationHeader(token)
-      // update the isAuthenticated in Redux to true 
 
-      if(token) {
-        props.onAuthenticated()
-        props.onTutorLogin()
-        props.history.push('/tutor-profile')
+      // after getting the token, we can set default authentication headers for axios to include jsonwebtoken
+      // Will send the token for every request user makes
+      setAuthenticationHeader(token);
+      // update the isAuthenticated in Redux to true
+
+      if (token) {
+        props.onAuthenticated();
+        props.onTutorLogin();
+        props.history.push("/tutor-profile");
       } else {
-        alert('Please use correct username and password!')
+        // alert('Please use correct username and password!')
+        setError(true);
       }
-      
-      
+    } else {
+      // alert('Please use correct username and password!')
+      setError(true);
     }
   };
 
@@ -106,6 +114,8 @@ function SignIn(props) {
             onChange={handleOnChange}
             autoFocus
             className="signin"
+            error={error}
+            helperText={error ? "Incorrect username" : ""}
           />
           <TextField
             variant="outlined"
@@ -119,6 +129,8 @@ function SignIn(props) {
             autoComplete="current-password"
             onChange={handleOnChange}
             className="signin"
+            error={error}
+            helperText={error ? "Incorrect password" : ""}
           />
 
           <Button
@@ -166,12 +178,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps =(dispatch) => {
-  return{
-    onAuthenticated: () => dispatch({type: 'ON_AUTH'}),
-    onTutorLogin: () => dispatch({type: "TUTOR_LOGIN"})
-  }
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAuthenticated: () => dispatch({ type: "ON_AUTH" }),
+    onTutorLogin: () => dispatch({ type: "TUTOR_LOGIN" }),
+  };
+};
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
 // function Login() {
 //     const [user, setUser] = useState({})
