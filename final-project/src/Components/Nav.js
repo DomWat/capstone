@@ -79,20 +79,7 @@ const useStyles = makeStyles((theme) => ({
             >
             <MenuIcon className='navMenuIcon'/>
           </IconButton> */}
-          <Popover 
-  anchorOrigin={{
-    vertical: 'top',
-    horizontal: 'left',
-  }}
-  transformOrigin={{
-    vertical: 'top',
-    horizontal: 'left',
-  }}
->
-  The content of the Popover.
-</Popover>
-         
-
+ 
          
           <Typography className={classes.root}>
   {/* <NavLink to="/" > */}
@@ -153,7 +140,7 @@ const useStyles = makeStyles((theme) => ({
                  <hr></hr>
                 </MenuItem> :null}
 
-                {props.isAuth ? <MenuItem onClick={handleClose} ><NavLink className='menuItem' to="/profile"  variant="body2" > 
+                {props.isAuth ? <MenuItem onClick={handleClose} ><NavLink className='menuItem' to={props.userType}  variant="body2" > 
                   Profile
                 </NavLink></MenuItem> :null}
 
