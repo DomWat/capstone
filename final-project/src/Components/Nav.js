@@ -17,6 +17,7 @@ import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux'
 import image from './goodtutorlogo.jpg';
 import '../styles/Nav.css'
+
 // import shadows from "@material-ui/core/styles/shadows";
 //import { Grid } from '@material-ui/core'
 //import { checkPropTypes } from "prop-types";
@@ -68,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
           <IconButton edge="start" className={classes.menuButton} aria-label="menu" >
             <MenuIcon className='navMenuIcon'/>
           </IconButton>
+         
           <Typography className={classes.root}>
   {/* <NavLink to="/" > */}
     {/* Home */}
@@ -112,8 +114,15 @@ const useStyles = makeStyles((theme) => ({
                 onClose={handleClose}
                 className='topRightMenu'
               >
-                <MenuItem onClick={handleClose} className='menuItem'>Profile</MenuItem>
-                <MenuItem onClick={handleClose} className='menuItem'>My account</MenuItem>
+                {props.isAuth ? <MenuItem onClick={handleClose} ><NavLink className='menuItem'to="/profile"  variant="body2" > 
+                  Profile
+                </NavLink></MenuItem>:null}
+                {!props.isAuth ? <MenuItem  onClick={handleClose} ><NavLink className='menuItem' to="/login"  variant="body2" >
+                  Login
+                </NavLink></MenuItem> :null}
+                {props.isAuth ? <MenuItem  ><NavLink className='menuItem' to="/" onClick={handleLogout, handleClose} variant="body2" >
+                  Logout
+                </NavLink></MenuItem>:null}
                 
               </Menu>
             </div>
