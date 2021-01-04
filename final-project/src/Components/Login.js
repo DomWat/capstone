@@ -14,8 +14,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { purple } from "@material-ui/core/colors";
 import { setAuthenticationHeader } from "../utils/authenticate";
-import { connect } from "react-redux"
-import '../styles/Login.css'
+import { connect } from "react-redux";
+import "../styles/Login.css";
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -41,6 +41,8 @@ function SignIn(props) {
 
   const [user, setUser] = useState({});
 
+  const [error, setError] = useState(false);
+
   const handleOnChange = (e) => {
     setUser({
       ...user,
@@ -50,46 +52,53 @@ function SignIn(props) {
 
   const userLoggedIn = async () => {
     //making fetch call to server
-    const response = await axios.post("http://localhost:3001/login/tutor", {
-      email: user.email,
-      password: user.password,
-    });
-    const result = response.data;
-    console.log(result);
-    return result;
+    try {
+      const response = await axios.post("http://localhost:3001/login/tutor", {
+        email: user.email,
+        password: user.password,
+      });
+      const result = response.data;
+      console.log(result);
+      return result;
+    } catch (err) {
+      return null;
+    }
   };
 
   const handleLogin = async () => {
     let userToken = await userLoggedIn();
 
-    if (user) {
+    if (userToken) {
       const token = userToken.token;
       localStorage.setItem("jsonwebtoken", token);
-      
-      // after getting the token, we can set default authentication headers for axios to include jsonwebtoken 
-      // Will send the token for every request user makes
-      setAuthenticationHeader(token)
-      // update the isAuthenticated in Redux to true 
 
-      if(token) {
-        props.onAuthenticated()
-        props.history.push('/tutor-profile')
+      // after getting the token, we can set default authentication headers for axios to include jsonwebtoken
+      // Will send the token for every request user makes
+      setAuthenticationHeader(token);
+      // update the isAuthenticated in Redux to true
+
+      if (token) {
+        props.onAuthenticated();
+        props.onTutorLogin();
+        props.history.push("/tutor-profile");
       } else {
-        alert('Please use correct username and password!')
+        // alert('Please use correct username and password!')
+        setError(true);
       }
-      
-      
+    } else {
+      // alert('Please use correct username and password!')
+      setError(true);
     }
   };
 
   return (
-    <Container component="main" maxWidth="xs" className='logInContainer'>
+    <Container component="main" maxWidth="xs" className="logInContainer">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar} className='signinIcon'>
+        <Avatar className={classes.avatar} className="signinIcon">
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5" className='signin'>
+        <Typography component="h1" variant="h5" className="signin">
           Sign in as Tutor
         </Typography>
         <form className={classes.form} noValidate>
@@ -104,7 +113,9 @@ function SignIn(props) {
             autoComplete="email"
             onChange={handleOnChange}
             autoFocus
-            className='signin'
+            className="signin"
+            error={error}
+            helperText={error ? "Incorrect username" : ""}
           />
           <TextField
             variant="outlined"
@@ -117,7 +128,9 @@ function SignIn(props) {
             id="password"
             autoComplete="current-password"
             onChange={handleOnChange}
-            className='signin'
+            className="signin"
+            error={error}
+            helperText={error ? "Incorrect password" : ""}
           />
 
           <Button
@@ -127,18 +140,26 @@ function SignIn(props) {
             style={{ backgroundColor: purple[300], color: "white" }}
             className={classes.submit}
             onClick={handleLogin}
-            className='signinButton'
+            className="signinButton"
           >
             Sign In
           </Button>
           <Grid container>
             <Grid item xs></Grid>
             <Grid item>
-              <Link href="#" variant="body2" className='signinLink'>
-                {"Don't have an account? Sign Up"}
+              <Link
+                href="/registration-tutor"
+                variant="body2"
+                className="signinLink"
+              >
+                {"Don't have a tutor account? Sign Up"}
               </Link>
               <br></br>
-              <Link href="/login/student" variant="body2" className='signinLink'>
+              <Link
+                href="/login/student"
+                variant="body2"
+                className="signinLink"
+              >
                 {"Sign in as Student"}
               </Link>
             </Grid>
@@ -150,12 +171,20 @@ function SignIn(props) {
   );
 }
 
-const mapDispatchToProps =(dispatch) => {
-  return{
-    onAuthenticated: () => dispatch({type: 'ON_AUTH'})
-  }
-}
-export default connect(null, mapDispatchToProps)(SignIn)
+const mapStateToProps = (state) => {
+  return {
+    // isAuth: state.isAuthenticated,
+    userType: state.userType,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAuthenticated: () => dispatch({ type: "ON_AUTH" }),
+    onTutorLogin: () => dispatch({ type: "TUTOR_LOGIN" }),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
 // function Login() {
 //     const [user, setUser] = useState({})
 

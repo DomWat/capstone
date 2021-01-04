@@ -20,6 +20,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import TutorDetails from './Components/TutorDetails'
 import requireAuth from './Components/requireAuth'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import DateAndTimePickers from './Components/DatePickerTest';
+import DateFnsUtils from "@date-io/date-fns";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import TutorProfile from './Components/TutorProfile'
 
 const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
@@ -37,26 +40,38 @@ if(token) {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store = {store}>
-      <BrowserRouter>
-        <BaseLayout>
-          <Switch>
-            <Route  path = '/tutor/:tutorId' component = {TutorDetails} />
-            <Route  path = '/about' component = {About} /> 
-            <Route  path = '/profile' component = {requireAuth(Profile)} />
-            <Route  path = '/tutor-profile' component = {requireAuth(TutorProfile)} />
-            <Route exact path = '/login' component = {Login} />
-            <Route path = "/login/student" component ={LoginStudent} />
-            <Route  path = '/classes' component = {Classes} />
-            <Route  path = '/registration-student' component = {RegistrationStudent} />
-            <Route  path = '/registration-tutor' component = {RegistrationTutor} />
-            <Route exact path = '/' component = {App} />
-          </Switch>
-        </BaseLayout>
-      </BrowserRouter>
+    <Provider store={store}>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <BrowserRouter>
+          <BaseLayout>
+            <Switch>
+              <Route
+                path="/tutor/:tutorId"
+                component={requireAuth(TutorDetails)}
+              />
+              <Route path="/about" component={About} />
+              <Route path="/profile" component={requireAuth(Profile)} />
+              <Route
+                path="/tutor-profile"
+                component={requireAuth(TutorProfile)}
+              />
+              <Route exact path="/login" component={Login} />
+              <Route path="/login/student" component={LoginStudent} />
+              <Route path="/classes" component={Classes} />
+              <Route
+                path="/registration-student"
+                component={RegistrationStudent}
+              />
+              <Route path="/registration-tutor" component={RegistrationTutor} />
+              <Route exact path="/" component={App} />
+              <Route path="/datepicker" component={DateAndTimePickers} />
+            </Switch>
+          </BaseLayout>
+        </BrowserRouter>
+      </MuiPickersUtilsProvider>
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

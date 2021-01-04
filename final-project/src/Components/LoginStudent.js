@@ -14,9 +14,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { purple } from "@material-ui/core/colors";
 import { setAuthenticationHeader } from "../utils/authenticate";
-import { connect } from 'react-redux'
-import '../styles/Login.css'
-import { useHistory } from "react-router-dom";
+import { connect } from "react-redux";
+import "../styles/Login.css";
+//import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -28,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: purple[500],
-
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -44,6 +43,8 @@ function LoginStudent(props) {
 
   const [user, setUser] = useState({});
 
+  const [error, setError] = useState(false);
+
   const handleOnChange = (e) => {
     setUser({
       ...user,
@@ -53,20 +54,23 @@ function LoginStudent(props) {
 
   const userLoggedIn = async () => {
     //making fetch call to server
-    const response = await axios.post("http://localhost:3001/login/student", {
-      email: user.email,
-      password: user.password,
-    });
-    const result = response.data;
-    console.log(result);
-    return result;
+    try {
+      const response = await axios.post("http://localhost:3001/login/student", {
+        email: user.email,
+        password: user.password,
+      });
+      const result = response.data;
+      console.log(result);
+      return result;
+    } catch (err) {
+      return null;
+    }
   };
-
 
   const handleLogin = async () => {
     let userToken = await userLoggedIn();
 
-    if (user) {
+    if (userToken) {
       const token = userToken.token;
       localStorage.setItem("jsonwebtoken", token);
 
@@ -74,24 +78,27 @@ function LoginStudent(props) {
       // Will send the token for every request user makes
       setAuthenticationHeader(token);
       //update the isAuthenticated in Redux to true
-      if(token) {
-        props.onAuthenticated()
-        props.history.push('/profile')
+      if (token) {
+        props.onAuthenticated();
+        props.onStudentLogin();
+        props.history.push("/profile");
       } else {
-        alert('Please use correct username and password!')
+        // alert("Please use correct username and password!")
+        setError(true);
       }
+    } else {
+      setError(true);
     }
   };
 
-
   return (
-    <Container component="main" maxWidth="xs" className='logInContainer'>
+    <Container component="main" maxWidth="xs" className="logInContainer">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar} className='signinIcon'>
+        <Avatar className={classes.avatar} className="signinIcon">
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5" className='signin'> 
+        <Typography component="h1" variant="h5" className="signin">
           Sign in as Student
         </Typography>
         <form className={classes.form} noValidate>
@@ -106,6 +113,8 @@ function LoginStudent(props) {
             autoComplete="email"
             onChange={handleOnChange}
             autoFocus
+            error={error}
+            helperText={error ? "Incorrect username" : ""}
           />
           <TextField
             variant="outlined"
@@ -118,6 +127,8 @@ function LoginStudent(props) {
             id="password"
             autoComplete="current-password"
             onChange={handleOnChange}
+            error={error}
+            helperText={error ? "Incorrect password" : ""}
           />
 
           <Button
@@ -127,18 +138,18 @@ function LoginStudent(props) {
             style={{ color: "white" }}
             className={classes.submit}
             onClick={handleLogin}
-            className='signinButton'
+            className="signinButton"
           >
             Sign In
           </Button>
           <Grid container>
             <Grid item xs></Grid>
             <Grid item>
-              <Link href="#" variant="body2" className='signinLink'>
+              <Link href="#" variant="body2" className="signinLink">
                 {"Don't have an account? Sign Up"}
               </Link>
               <br></br>
-              <Link href="/login" variant="body2" className='signinLink'>
+              <Link href="/login" variant="body2" className="signinLink">
                 {"Sign in as Tutor"}
               </Link>
             </Grid>
@@ -150,8 +161,12 @@ function LoginStudent(props) {
   );
 }
 const mapDispatchToProps = (dispatch) => {
-  return{
-    onAuthenticated: () => dispatch({type: 'ON_AUTH' })
-  }
-}
-export default connect(null, mapDispatchToProps)(LoginStudent)
+  return {
+    onAuthenticated: () => dispatch({ type: "ON_AUTH" }),
+    onStudentLogin: () =>
+      dispatch({
+        type: "STUDENT_LOGIN",
+      }),
+  };
+};
+export default connect(null, mapDispatchToProps)(LoginStudent);

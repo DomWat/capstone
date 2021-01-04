@@ -1,9 +1,17 @@
 
+.detailsDateContainer {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(250, 250, 250);
+}
+
+
 .detailsContainer {
     font-family: Futura;
     list-style: none !important;
     background-color: rgb(250, 250, 250);
     padding-left: 50px;
+    width: 50%;
 }
 
 .detailsContainer li {
