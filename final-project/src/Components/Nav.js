@@ -17,6 +17,8 @@ import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux'
 import image from './goodtutorlogo.jpg';
 import '../styles/Nav.css'
+import Popover from '@material-ui/core/Popover';
+
 
 // import shadows from "@material-ui/core/styles/shadows";
 //import { Grid } from '@material-ui/core'
@@ -68,9 +70,29 @@ const useStyles = makeStyles((theme) => ({
      
       <AppBar position="static" style={{ boxShadow: 'none', border: 'none'}}>
         <Toolbar className='navBar'>
-          <IconButton edge="start" className={classes.menuButton} aria-label="menu" >
+           <IconButton 
+            edge="start" 
+            className={classes.menuButton} 
+            aria-label="menu" 
+      
+
+            >
             <MenuIcon className='navMenuIcon'/>
           </IconButton>
+          <Popover 
+  anchorOrigin={{
+    vertical: 'top',
+    horizontal: 'left',
+  }}
+  transformOrigin={{
+    vertical: 'top',
+    horizontal: 'left',
+  }}
+>
+  The content of the Popover.
+</Popover>
+         
+
          
           <Typography className={classes.root}>
   {/* <NavLink to="/" > */}
@@ -118,13 +140,15 @@ const useStyles = makeStyles((theme) => ({
               >
                 {props.isAuth ? <MenuItem onClick={handleClose} ><NavLink className='menuItem'to="/profile"  variant="body2" > 
                   Profile
-                </NavLink></MenuItem>:null}
-                {!props.isAuth ? <MenuItem  onClick={handleClose} ><NavLink className='menuItem' to="/login"  variant="body2" >
+                </NavLink></MenuItem> :null}
+
+                {!props.isAuth ? <MenuItem  onClick={handleClose} ><NavLink className='menuItem' to="/login/student"  variant="body2" >
                   Login
                 </NavLink></MenuItem> :null}
-                {props.isAuth ? <MenuItem  ><NavLink className='menuItem' to="/" onClick={handleLogout, handleClose} variant="body2" >
+
+                {props.isAuth ? <MenuItem><NavLink className='menuItem' to="/" onClick={() => {handleLogout(); handleClose()}} variant="body2" >
                   Logout
-                </NavLink></MenuItem>:null}
+                </NavLink></MenuItem> :null}
                 
               </Menu>
             </div>
@@ -145,7 +169,7 @@ const useStyles = makeStyles((theme) => ({
   <NavLink to="/about"  variant="body2" className='navLink'>
     About
   </NavLink>
-  {!props.isAuth ? <NavLink to="/login"  variant="body2" className='navLink'>
+  {!props.isAuth ? <NavLink to="/login/student"  variant="body2" className='navLink'>
     Login
   </NavLink> :null}
  {props.isAuth ? <NavLink  to="/" onClick={handleLogout} variant="body2" >

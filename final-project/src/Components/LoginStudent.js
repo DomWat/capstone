@@ -91,6 +91,12 @@ function LoginStudent(props) {
     }
   };
 
+  function handleKeyPress(e){
+    if (e.keyCode === 13){
+       handleLogin();
+    }
+  }
+
   return (
     <Container component="main" maxWidth="xs" className="logInContainer">
       <CssBaseline />
@@ -129,6 +135,8 @@ function LoginStudent(props) {
             onChange={handleOnChange}
             error={error}
             helperText={error ? "Incorrect password" : ""}
+            onKeyDown={handleKeyPress}
+
           />
 
           <Button

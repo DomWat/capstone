@@ -13,7 +13,6 @@ function baseLayout(props) {
   return (
     <div className="Title">
       <Menu/>
-       {/* <h1>Website Title</h1> */}
             {props.children}
       <Footer />
     </div>

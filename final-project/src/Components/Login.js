@@ -16,6 +16,8 @@ import { purple } from "@material-ui/core/colors";
 import { setAuthenticationHeader } from "../utils/authenticate";
 import { connect } from "react-redux";
 import "../styles/Login.css";
+
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -91,6 +93,12 @@ function SignIn(props) {
     }
   };
 
+  function handleKeyPress(e){
+     if (e.keyCode === 13){
+        handleLogin();
+     }
+   }
+
   return (
     <Container component="main" maxWidth="xs" className="logInContainer">
       <CssBaseline />
@@ -131,6 +139,8 @@ function SignIn(props) {
             className="signin"
             error={error}
             helperText={error ? "Incorrect password" : ""}
+            onKeyDown={handleKeyPress}
+
           />
 
           <Button
