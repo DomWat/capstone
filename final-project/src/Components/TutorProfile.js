@@ -55,10 +55,38 @@ function TutorProfile() {
     fetchTutorProfile();
   }, []);
 
+  // state for description
+  const [description, setDescription] = useState(tutor.tutor.description);
+
+  // state for schedule
+  const [schedule, setSchedule] = useState({
+    monday: tutor.tutor.Schedule.monday,
+    tuesday: tutor.tutor.Schedule.tuesday,
+    wednesday: tutor.tutor.Schedule.wednesday,
+    thursday: tutor.tutor.Schedule.thursday,
+    friday: tutor.tutor.Schedule.friday,
+    saturday: tutor.tutor.Schedule.saturday,
+    sunday: tutor.tutor.Schedule.sunday,
+  });
+
   const fetchTutorProfile = async () => {
     let response = await axios.get("http://localhost:3001/tutor/me");
     const tutorData = response.data;
     console.log(tutorData);
+
+    // setting description to corresponding values on load
+    setDescription(tutorData.description);
+
+    //setting schedule to values on load
+    setSchedule({
+      monday: tutorData.Schedule.monday,
+      tuesday: tutorData.Schedule.tuesday,
+      wednesday: tutorData.Schedule.wednesday,
+      thursday: tutorData.Schedule.thursday,
+      friday: tutorData.Schedule.friday,
+      saturday: tutorData.Schedule.saturday,
+      sunday: tutorData.Schedule.sunday,
+    });
 
     setTutor({
       ...tutor,
@@ -78,12 +106,42 @@ function TutorProfile() {
     });
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     setTutor({
       ...tutor,
       notUpdating: true,
     });
+
+    // make axios call to update the description
+    await axios.put("http://localhost:3001/tutor/description", {
+      description: description,
+    });
+
+    // make axios call to update the schedule
+    await axios.put("http://localhost:3001/tutor/schedule", {
+      monday: schedule.monday,
+      tuesday: schedule.tuesday,
+      wednesday: schedule.wednesday,
+      thursday: schedule.thursday,
+      friday: schedule.friday,
+      saturday: schedule.saturday,
+      sunday: schedule.sunday
+    })
   };
+
+  // handleDescriptionEdit function
+  // Will need to update state with new values
+  const handleDescriptionEdit = (e) => {
+    setDescription(e.target.value);
+  };
+  // handleDescriptionEdit function
+  // Will need to update state with new values
+  const handleScheduleEdit = (e) => {
+    setSchedule({
+      ...schedule,
+      [e.target.name]: e.target.value
+    })
+  }
 
   return (
     <>
@@ -130,8 +188,9 @@ function TutorProfile() {
                 id="standard-basic"
                 label="Description"
                 multiline
-                value={tutor.tutor.description || " "}
+                value={description || " "}
                 disabled={tutor.notUpdating}
+                onChange={handleDescriptionEdit}
               />
             </form>
           </p>
@@ -190,8 +249,10 @@ function TutorProfile() {
         <TextField
           id="standard-basic"
           label="Monday"
-          value={tutor.tutor.Schedule.monday || " "}
+          name="monday"
+          value={schedule.monday || " "}
           disabled={tutor.notUpdating}
+          onChange={handleScheduleEdit}
         />
       </form>
       <div>
@@ -200,8 +261,10 @@ function TutorProfile() {
           <TextField
             id="standard-basic"
             label="Tuesday"
-            value={tutor.tutor.Schedule.tuesday || " "}
+            name="tuesday"
+            value={schedule.tuesday || " "}
             disabled={tutor.notUpdating}
+            onChange={handleScheduleEdit}
           />
         </form>
       </div>
@@ -211,8 +274,10 @@ function TutorProfile() {
           <TextField
             id="standard-basic"
             label="Wednesday"
-            value={tutor.tutor.Schedule.wednesday || " "}
+            name="wednesday"
+            value={schedule.wednesday || " "}
             disabled={tutor.notUpdating}
+            onChange={handleScheduleEdit}
           />
         </form>
       </div>
@@ -222,8 +287,10 @@ function TutorProfile() {
           <TextField
             id="standard-basic"
             label="Thursday"
-            value={tutor.tutor.Schedule.thursday || " "}
+            name="thursday"
+            value={schedule.thursday || " "}
             disabled={tutor.notUpdating}
+            onChange={handleScheduleEdit}
           />
         </form>
       </div>
@@ -233,8 +300,10 @@ function TutorProfile() {
           <TextField
             id="standard-basic"
             label="Friday"
-            value={tutor.tutor.Schedule.friday || " "}
+            name="friday"
+            value={schedule.friday || " "}
             disabled={tutor.notUpdating}
+            onChange={handleScheduleEdit}
           />
         </form>
       </div>
@@ -244,8 +313,10 @@ function TutorProfile() {
           <TextField
             id="standard-basic"
             label="Saturday"
-            value={tutor.tutor.Schedule.saturday || " "}
+            name="saturday"
+            value={schedule.saturday || " "}
             disabled={tutor.notUpdating}
+            onChange={handleScheduleEdit}
           />
         </form>
       </div>
@@ -255,8 +326,10 @@ function TutorProfile() {
           <TextField
             id="standard-basic"
             label="Sunday"
-            value={tutor.tutor.Schedule.sunday || " "}
+            name="sunday"
+            value={schedule.sunday || " "}
             disabled={tutor.notUpdating}
+            onChange={handleScheduleEdit}
           />
         </form>
       </div>
