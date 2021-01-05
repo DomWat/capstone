@@ -208,7 +208,7 @@ function LoginStudent(props) {
                 variant="body2"
                 className="signinLink"
               >
-                {"Don't have an account? Sign Up"}
+                {"Don't have a student account? Sign Up"}
               </Link>
               <br></br>
               <Link href="/login" variant="body2" className="signinLink">
