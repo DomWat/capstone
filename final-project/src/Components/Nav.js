@@ -162,9 +162,9 @@ const useStyles = makeStyles((theme) => ({
   <NavLink to="/" className='navLink'>
     Home
   </NavLink>
-  < NavLink to="/classes"  color="inherit" className='navLink'>
+  {props.findTutorDisplay ? < NavLink to="/classes"  color="inherit" className='navLink'>
    Find Tutors
-  </NavLink>
+  </NavLink> :null}
   {props.isAuth ? <NavLink to={props.userType}  variant="body2" className='navLink'> 
     Profile
   </NavLink> :null}
@@ -187,7 +187,8 @@ const useStyles = makeStyles((theme) => ({
 const mapStateToProps = (state) => {
   return{
     isAuth: state.isAuthenticated,
-    userType: state.userType
+    userType: state.userType,
+    findTutorDisplay: state.findTutorDisplay
   }
 }
 

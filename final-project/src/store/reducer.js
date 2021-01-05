@@ -3,6 +3,7 @@ const initialState = {
   tutor_num: "",
   isAuthenticated: false,
   userType: "",
+  findTutorDisplay: true
 };
 
 const reducer = (state = initialState, action) => {
@@ -35,7 +36,8 @@ const reducer = (state = initialState, action) => {
         localStorage.setItem('profile', '/tutor-profile')
         return {
             ...state,
-            userType:'/tutor-profile'
+            userType:'/tutor-profile',
+            findTutorDisplay: false
         }
     }
     
@@ -43,7 +45,8 @@ const reducer = (state = initialState, action) => {
         localStorage.setItem("profile", "/profile");
         return {
             ...state,
-            userType: '/profile'
+            userType: '/profile',
+            findTutorDisplay: true
         }
     } 
     return state;
