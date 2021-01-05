@@ -30,34 +30,41 @@ function Profile() {
   };
 
   return (
-    <>
-      <div>
-        <h1 className="users-title">
-          <b>User's Information</b>
-          
+    <div className='wholeStudentProf'>
+      <div className='studentTop'>
+        <h1 className="studentTitle">
+          <b>Hi, {capitalize(`${student.student.first_name}`)}!</b>
+
         </h1>
-        <div className="photo">
-        <label className="photo-title">
-          {/* <b>Student Photo:</b> */}
-        </label>
+        {/* <div className="photo">
+        <label className="photo-title"> */}
+        {/* <b>Student Photo:</b> */}
+        {/* </label> */}
         {/* <p className = "student-photo">{student.student.image}</p> */}
+        {/* </div> */}
+
+
+        <div className='studentNameInfo' >
+          <div className="studentNameItem">
+            <span>Name:</span>
+            <p className="information">&nbsp;{capitalize(`${student.student.first_name}`)}&nbsp;{capitalize(`${student.student.last_name}`)}</p>
+
+          </div>
+          {/* <p className="information">{capitalize(`${student.student.first_name}`)}&nbsp; {capitalize(`${student.student.last_name}`)}</p> */}
+          {/* <label className="users-information">
+            <b>Last Name:</b>
+            </label> */}
+          {/* <p className= "information">{capitalize(`${student.student.last_name}`)}</p> */}
+          <div className="studentNameItem">
+            <span>Email:</span>
+            <p className="information">&nbsp;{student.student.email}</p>
+
+          </div>
+          {/* <p className="information">{student.student.email}</p> */}
         </div>
-        <div className="content">
-        <label className="users-information">
-          <b>Name:</b>
-        </label>
-        <p className= "information">{student.student.first_name}</p>
-        <label className="users-information">
-          <b>Last Name:</b>
-        </label>
-        <p className= "information">{capitalize(`${student.student.last_name}`)}</p>
-        <label className="users-information">
-          <b>Email:</b>
-        </label>
-        <p className= "information">{student.student.email}</p>
-        </div>
-        </div>
-      <h1 className='appointment-title'><b>Appointment History</b></h1>
+
+      </div>
+      <h1 className='appointment-title-student'><b>Tutoring Sessions</b></h1>
       {student.student.Appointments.map((appointment) => {
         return (
           <div className="Container-2">
@@ -89,7 +96,7 @@ function Profile() {
                     {capitalize(appointment.Subject.sub_subject_name)})
                   </td>
                   {/* <td>{capitalize(appointment.Subject.sub_subject_name)}</td> */}
-                    <td>{dayjs(appointment.start_time).format('MM-DD-YYYY')}</td>
+                  <td>{dayjs(appointment.start_time).format('MM-DD-YYYY')}</td>
                   <td>{dayjs(appointment.start_time).format("h:mm A")}</td>
                   <td>{dayjs(appointment.end_time).format("h:mm A")}</td>
                 </tr>
@@ -98,7 +105,7 @@ function Profile() {
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
 

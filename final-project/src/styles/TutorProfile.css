@@ -1,65 +1,225 @@
+
+.wholeTutorProfile {
+    background-color: rgb(250, 250, 250);
+    font-family: Futura !important;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+
+}
+
 .tutor-container{
     display: flex;
-    align-content: center;
+    /* align-content: center; */
     flex-direction: column;
-    font-family: Futura;
+
 }
+
+.popupTitleTutor {
+    font-family: Futura !important;
+}
+
 
 .tutor-information {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
-
+    color: rgb(32, 75, 124);
 }
 
-.tutor-button{
-   justify-content: center;
-   display: flex;
-
-
+.nameInformation {
+    font-size: 25px;
+    display: flex;
 }
 
-.save-profile, .save-profile{
+.nameInformation span {
+    font-family: Futura;
+    font-weight: bold;
+    font-size: 25px;
+    /* letter-spacing: 1px; */
+    padding-bottom: 0 !important;
+    text-decoration: underline;
+}
+
+.tutorButtons {
+    align-items: center !important;
+    display: flex;
+    align-self: center;
+    justify-content: space-around;
+    padding-bottom: 60px;
+ 
+}
+
+/* .topTutorButtons {
     margin-left: 10px;
     margin-right: 10px;
-    
+} */
+
+.tutor-button{
+   background-color: rgb(116, 118, 211) !important;
+   font-family: Futura !important;
+  
 }
 
+.tutorTopButtons {
+    background-color: rgb(116, 118, 211) !important;
+   font-family: Futura !important;
+   margin-left: 10px !important;
+   margin-right: 10px !important;
+}
+/* .edit-profile, .save-profile{
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+    
+} */
+
+
+
+.information {
+    margin: 0;
+    text-align: left !important;
+}
+
+.MuiTextField-root {
+    margin: 0 0 20px 0 !important;
+    font-family: Futura !important;
+}
+
+
+
 .tutor-content {
-    margin-top: 50px;
-    justify-content: center;
+    /* margin-top: 50px; */
+    justify-content: left;
     display: flex;
+    flex-direction: column;
     font-family: Futura;
 
 }
 
 .tutor-description{
-position: absolute;
+/* position: absolute; */
 flex-wrap: wrap;
-margin-top: 50px;
-margin-bottom: 50px;
-      
+margin-top: 15px;
+margin-bottom: 15px;
+font-family: Futura !important;
+}
+
+.tutor-description textarea{
+    font-family: Futura;
+    margin-top: -10px;
+    font-size: 20px;
+    line-height: normal;
+    height: 80px !important;
+    width: 200px !important;
+    overflow: scroll;
+}
+
+.descriptionTitle{
+    font-size: 25px;
+    margin-top: 20px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.leftSideTutor {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+
+
+.upperhalfTutor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 60px;
+
 }
 
 .tutor-subject{
     display:flex;
     flex-direction: column;
-    margin-top: 150px;
-    align-items: center;
+    font-size: 20px;
+    /* margin-top: 150px; */
+    /* align-items: center; */
+}
+
+.subjectsTutoredTitle {
+    font-size: 25px;
     font-family: Futura;
+    font-weight: bold;
+    text-decoration: underline;
+
+}
+
+.tutorSubjectsBox {
+    height: 240px;
+    overflow: scroll;
+
 }
 
 .add-button{
     display:flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     margin-top: 20px;
     align-items: center;
 }
 
-.schedule {
+.tutorScheduleContainer {
     display:flex;
     flex-direction: column;
-    margin-top: 100px;
-    align-items: center;
+    /* margin-top: 100px;  */
+    /* align-items: center;  */
+    text-align: right; 
     font-family: Futura;
+}
+
+.tutorScheduleContainer label {
+    font-size: 22px;
+    text-align: right;
+}
+
+.tutorScheduleContainer input {
+    font-family: Futura;
+    text-align: right;
+    font-size: 18px;
+}
+
+.scheduleTitle {
+    font-size: 30px;
+    font-family: Futura;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 50px;
+}
+
+/* form.makeStyles-root-7 label{
+    font-size: 20px;
+} */
+
+
+.tutorSchedule {
+    font-family: Futura !important;
+    margin-bottom: 10px !important;
+}
+
+.weekdayP {
+    margin: 0 !important;
+    padding: 0;
+    font-size: 20px;
+}
+
+/* .scheduleDay {
+    font-size: 20px !important;
+} */
+
+.appointment-title-tutor {
+    padding-bottom: 30px;
+}
+
+.appointmentTable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
