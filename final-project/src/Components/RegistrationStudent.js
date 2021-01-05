@@ -18,6 +18,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import '../styles/Register.css'
+import { connect } from "react-redux";
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -39,11 +41,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function RegistrationStudent(props) {
+ function RegistrationStudent(props) {
   const classes = useStyles();
   const { handleChange, values, handleSubmit, errors } = useStudentForm(
     Validate,
-    props.history
+    props
   );
 
   return (
@@ -155,6 +157,18 @@ export default function RegistrationStudent(props) {
     </Container>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAuthenticated: () => dispatch({ type: "ON_AUTH" }),
+    onStudentLogin: () =>
+      dispatch({
+        type: "STUDENT_LOGIN",
+      }),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(RegistrationStudent);
 
 //function RegistrationStudent() {
 //     const {handleChange, values, handleSubmit, errors} = useStudentForm(Validate)
