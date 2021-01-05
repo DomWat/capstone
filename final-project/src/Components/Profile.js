@@ -38,9 +38,9 @@ function Profile() {
         </h1>
         <div className="photo">
         <label className="photo-title">
-          <b>Student Photo:</b>
+          {/* <b>Student Photo:</b> */}
         </label>
-        <p className = "student-photo">{student.student.image}</p>
+        {/* <p className = "student-photo">{student.student.image}</p> */}
         </div>
         <div className="content">
         <label className="users-information">
@@ -61,8 +61,8 @@ function Profile() {
       {student.student.Appointments.map((appointment) => {
         return (
           <div className="Container-2">
-            <Table striped bordered hover size="sm">
-              <thead>
+            <Table striped bordered hover size="sm" className="table">
+              <thead className="table-heading">
                 <tr>
                   <th>Tutor Name:</th>
                   {/* <th>Tutor's Last Name:</th> */}
@@ -74,7 +74,7 @@ function Profile() {
                   <th>End Time:</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="table-content">
                 <tr>
                   <td>
                     {capitalize(appointment.Tutor.first_name)}{" "}
