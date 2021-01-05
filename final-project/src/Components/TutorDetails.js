@@ -69,10 +69,11 @@ function TutorDetails(props) {
             <div className="detailsContainer">
 
                 <ul>
-                    <li>Contact: {tutor.email}</li>
+                    <li><span className='contactBookTutor'>Contact:</span> {tutor.email}</li>
                 </ul>
                 {/* <br />
                 <br /> */}
+                <p className='availabilityTitle'>Availability:</p>
                 <p className="weekday">Monday<br></br> {tutor.Schedule.monday} </p>
                 <p className="weekday">Tuesday<br></br> {tutor.Schedule.tuesday} </p>
                 <p className="weekday">Wednesday<br></br> {tutor.Schedule.wednesday} </p>

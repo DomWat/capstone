@@ -132,7 +132,9 @@ function DateAndTimePickers(props) {
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <FormControl className={classes.formControl}>
-              <InputLabel id="demo-simple-select-label">Subject</InputLabel>
+              {/* <InputLabel id="demo-simple-select-label">Subject</InputLabel> */}
+              <p>Subject</p>
+
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
@@ -140,7 +142,7 @@ function DateAndTimePickers(props) {
                 onChange={handleSubjectChange}
               >
                 {props.subjectList.map((s) => (
-                  <MenuItem value={s.subject_id}>
+                  <MenuItem value={s.subject_id} className='subjectPicker'>
                     {capitalize(s.subject_name)} - {capitalize(s.sub_subject_name)}
                   </MenuItem>
                 ))}
@@ -201,17 +203,18 @@ function DateAndTimePickers(props) {
             {"Appointment Scheduled!"}
           </DialogTitle>
           <DialogContent>
-            <DialogContentText id="alert-dialog-description">
+            <DialogContentText id="alert-dialog-description" className='alert-dialog-description'>
               You're all set! Check your inbox for a confirmation email
               containing details about your upcoming tutoring session!
             </DialogContentText>
           </DialogContent>
-          <DialogActions>
+          <DialogActions className='bookButtonDetails'>
             <Button
               onClick={handleClose}
               color="primary"
               //href="/classes"
               autoFocus
+              className='bookButtonDetails'
             >
               Close
             </Button>

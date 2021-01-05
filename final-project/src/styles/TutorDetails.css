@@ -8,12 +8,27 @@
 
 .tutorDetailsTitle {
     padding-top: 50px;
+    font-weight: bold;
+    font-size: 40px;
 }
 
 .detailsRow {
     display: flex;
     justify-content: space-around;
     /* margin: 0 25% 0 25%; */
+    padding-top: 40px;
+}
+
+.availabilityTitle {
+    font-family: Futura Bold;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+    padding-top: 30px;
+    text-decoration: underline;
+}
+
+.detailsRow li {
+    font-size: 24px;
 }
 
 
@@ -22,7 +37,12 @@
     list-style: none !important;
     background-color: rgb(250, 250, 250);
     padding-left: 50px;
-    width: 50%;
+    text-align: left;
+    /* width: 50%; */
+}
+
+.detailsContainer ul {
+    padding: 0;
 }
 
 .detailsContainer li {
@@ -39,16 +59,23 @@ div.datePicker {
     display: flex;
     flex-direction: column;
     justify-content: right !important;
+    padding-right: 50px;
     /* text-align: right; */
+    padding-top: 40px;
+}
+
+.datePicker p {
+    margin-bottom: 0;
 }
 
 .MuiGrid-spacing-xs-3 {
     display: flex;
     flex-direction: column;
-    /* width: 200px; */
+    width: 300px;
     text-align: right;
     justify-content: right !important;
     margin: 0 !important;
+
 
 }
 
@@ -77,13 +104,21 @@ div.datePicker {
     justify-content: right;
 } */
 
+div.MuiFormControl-root.makeStyles-formControl-24 {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
 div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6 {
     /* width: 330px !important; */
-    width: 100% !important;
+    width: 400px !important;
 
     text-align: right;
-    margin-bottom: 0px;
+    margin-bottom: 30px !important;
     padding-bottom: 0;
+    align-self: flex-end;
+    /* margin: 0 !important; */
+    padding: 0;
 }
 /* 
 div.MuiFormControl-root.MuiTextField-root.MuiFormControl-marginNormal {
@@ -95,15 +130,61 @@ div.MuiFormControl-root.MuiTextField-root.MuiFormControl-marginNormal {
     width: 100%;
 } */
 
+.contactBookTutor {
+    font-family: Futura Bold;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+}
+
 .dateTimeColumn {
     display: flex;
     flex-direction: column;
 }
 
+div.bookButtonDetails {
+    display: flex;
+    align-self: flex-end !important;
+    justify-content: right !important;
+}
+
+.alert-dialog-description {
+    font-family: Futura !important;
+}
+
+
 .weekday {
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 0;
+}
+
+.subjectPicker {
+    font-family: Futura !important;
+}
+
+h4 {
+    font-family: Futura !important;
+}
+
+h6 {
+    font-family: Futura !important;
+}
+
+span .MuiIconButton-label {
+    font-family: Futura !important;
+}
+
+p.MuiTypography-root.MuiTypography-body2.MuiTypography-colorInherit {
+    font-family: Futura !important;
+}
+
+p.MuiTypography-root.MuiTypography-body1.MuiTypography-alignCenter {
+    font-family: Futura !important;
+}
+
+span.MuiTypography-root.MuiPickersCalendarHeader-dayLabel.MuiTypography-caption {
+    font-family: Futura !important;
+
 }
 
 
