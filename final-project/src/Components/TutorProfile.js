@@ -3,7 +3,7 @@ import axios from "axios";
 import Table from "react-bootstrap/Table";
 import "../styles/TutorProfile.css";
 import dayjs from "dayjs";
-import capitalize from "capitalize-the-first-letter";
+import capitalize from "capitalize";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
@@ -90,10 +90,11 @@ function TutorProfile() {
     sunday: tutor.tutor.Schedule.sunday,
   });
 
+  console.log(tutor.tutor.first_name)
+
   const fetchTutorProfile = async () => {
     let response = await axios.get("http://localhost:3001/tutor/me");
     const tutorData = response.data;
-    console.log(tutorData);
 
     // setting description to corresponding values on load
     setDescription(tutorData.description);
@@ -165,38 +166,56 @@ function TutorProfile() {
   }
 
   return (
-    <div className='wholeTutorProfile'>
+    <div className="wholeTutorProfile">
       <div className="tutor-container">
         <h1 className="tutor-information">
-          <b>Hi, {capitalize(`${tutor.tutor.first_name}`)}!</b>
+          <b>Hi, {capitalize.words(`${tutor.tutor.first_name || " "}`)}!</b>
         </h1>
 
-        <div className='tutorButtons'>
-          <Button variant="contained" color="primary" onClick={handleEdit} className="tutorTopButtons">
+        <div className="tutorButtons">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleEdit}
+            className="tutorTopButtons"
+          >
             Edit Profile
           </Button>
-          <Button variant="contained" color="primary" onClick={handleSave} className="tutorTopButtons">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleSave}
+            className="tutorTopButtons"
+          >
             Save
           </Button>
         </div>
 
-        <div className='upperhalfTutor'>
-          <div className='leftSideTutor'>
+        <div className="upperhalfTutor">
+          <div className="leftSideTutor">
             <div className="tutor-content">
-
               <p className="nameInformation">
-                <span className='nameBold'>Name:</span>&nbsp;<span className='nameReal'>{capitalize(`${tutor.tutor.first_name}`)}&nbsp;{capitalize(`${tutor.tutor.last_name}`)}</span>
+                <span className="nameBold">Name:</span>&nbsp;
+                <span className="nameReal">
+                  {capitalize.words(tutor.tutor.first_name || "")}&nbsp;
+                  {capitalize.words(tutor.tutor.last_name || "")}
+                </span>
               </p>
-
               <p className="nameInformation">
-                <span className='nameBold'>Email:</span>&nbsp;<span className='nameReal'>{tutor.tutor.email}</span>
+                <span className="nameBold">Email:</span>&nbsp;
+                <span className="nameReal">{tutor.tutor.email}</span>
               </p>
-<hr></hr>
+              <hr></hr>
               <div className="tutor-description">
                 {/* <p className="information"> */}
                 {/* {tutor.tutor.description}{" "} */}
-                <div className='descriptionTitle'>Description:</div>
-                <form className={classes.root} noValidate autoComplete="off" className="tutor-description">
+                <div className="descriptionTitle">Description:</div>
+                <form
+                  className={classes.root}
+                  noValidate
+                  autoComplete="off"
+                  className="tutor-description"
+                >
                   <TextField
                     id="standard-basic"
                     // label="Description"
@@ -208,34 +227,42 @@ function TutorProfile() {
                 </form>
                 {/* </p> */}
               </div>
-
             </div>
 
             <div className="tutor-subject">
-                <p className='subjectsTutoredTitle'>Subject(s) you tutor: </p>
-                <div className='tutorSubjectsBox'>
-
+              <p className="subjectsTutoredTitle">Subject(s) you tutor: </p>
+              <div className="tutorSubjectsBox">
                 {tutor.tutor.Subjects.map((subject) => {
                   return (
                     <div key={subject.subject_id}>
-                      {capitalize(subject.subject_name)}&nbsp;
-                      {/* Specialty:{" "} */}
-                    ({capitalize(subject.sub_subject_name)})
+                      {capitalize.words(subject.subject_name)}&nbsp;
+                      {/* Specialty:{" "} */}(
+                      {capitalize.words(subject.sub_subject_name)})
                     </div>
                   );
                 })}
               </div>
               <div className="add-button">
-                <Button variant="contained" color="primary" onClick={handleClickOpen} className="tutor-button">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleClickOpen}
+                  className="tutor-button"
+                >
                   Add
-              </Button>
+                </Button>
                 <Dialog
                   open={open}
                   onClose={handleClose}
                   aria-labelledby="form-dialog-title"
-                  className='popupTitleTutor'
+                  className="popupTitleTutor"
                 >
-                  <DialogTitle id="form-dialog-title" className='popupTitleTutor'>Add a Subject</DialogTitle>
+                  <DialogTitle
+                    id="form-dialog-title"
+                    className="popupTitleTutor"
+                  >
+                    Add a Subject
+                  </DialogTitle>
                   <DialogContent>
                     <TextField
                       autoFocus
@@ -261,22 +288,21 @@ function TutorProfile() {
                   <DialogActions>
                     <Button onClick={handleClose} color="primary">
                       Cancel
-                  </Button>
-                    <Button onClick={handleClose, handleAdd} color="primary">
+                    </Button>
+                    <Button onClick={(handleClose, handleAdd)} color="primary">
                       Add
-                  </Button>
+                    </Button>
                   </DialogActions>
                 </Dialog>
               </div>
             </div>
-
           </div>
 
           <div className="tutorScheduleContainer">
-            <p className='scheduleTitle'>Schedule</p>
+            <p className="scheduleTitle">Schedule</p>
             {/* Mon: {tutor.tutor.Schedule.monday} */}
-            <form className={classes.root} noValidate autoComplete="off" >
-              <p className='weekdayP'>Monday</p>
+            <form className={classes.root} noValidate autoComplete="off">
+              <p className="weekdayP">Monday</p>
               <TextField
                 id="standard-basic"
                 // label="Monday"
@@ -290,7 +316,7 @@ function TutorProfile() {
             <div>
               {/* Tues: {tutor.tutor.Schedule.tuesday} */}
               <form className={classes.root} noValidate autoComplete="off">
-              <p className='weekdayP'>Tuesday</p>
+                <p className="weekdayP">Tuesday</p>
 
                 <TextField
                   id="standard-basic"
@@ -305,7 +331,7 @@ function TutorProfile() {
             <div>
               {/* Wed: {tutor.tutor.Schedule.wednesday}{" "} */}
               <form className={classes.root} noValidate autoComplete="off">
-              <p className='weekdayP'>Wednesday</p>
+                <p className="weekdayP">Wednesday</p>
 
                 <TextField
                   id="standard-basic"
@@ -320,7 +346,7 @@ function TutorProfile() {
             <div>
               {/* Thur: {tutor.tutor.Schedule.thursday} */}
               <form className={classes.root} noValidate autoComplete="off">
-              <p className='weekdayP'>Thursday</p>
+                <p className="weekdayP">Thursday</p>
 
                 <TextField
                   id="standard-basic"
@@ -335,7 +361,7 @@ function TutorProfile() {
             <div>
               {/* Fri: {tutor.tutor.Schedule.friday}{" "} */}
               <form className={classes.root} noValidate autoComplete="off">
-              <p className='weekdayP'>Friday</p>
+                <p className="weekdayP">Friday</p>
 
                 <TextField
                   id="standard-basic"
@@ -350,7 +376,7 @@ function TutorProfile() {
             <div>
               {/* Sat: {tutor.tutor.Schedule.saturday}{" "} */}
               <form className={classes.root} noValidate autoComplete="off">
-              <p className='weekdayP'>Saturday</p>
+                <p className="weekdayP">Saturday</p>
 
                 <TextField
                   id="standard-basic"
@@ -365,7 +391,7 @@ function TutorProfile() {
             <div>
               {/* Sun: {tutor.tutor.Schedule.sunday}{" "} */}
               <form className={classes.root} noValidate autoComplete="off">
-              <p className='weekdayP'>Sunday</p>
+                <p className="weekdayP">Sunday</p>
 
                 <TextField
                   id="standard-basic"
@@ -380,7 +406,7 @@ function TutorProfile() {
           </div>
         </div>
       </div>
-      <div className='appointmentTable'>
+      <div className="appointmentTable">
         <h1 className="appointment-title-tutor">
           <b>Tutoring Sessions</b>
         </h1>
@@ -403,25 +429,26 @@ function TutorProfile() {
                 <tbody>
                   <tr>
                     <td>
-                      {capitalize(appointment.Student.first_name)}{" "}
-                      {capitalize(appointment.Student.last_name)}
+                      {capitalize.words(appointment.Student.first_name)}{" "}
+                      {capitalize.words(appointment.Student.last_name)}
                     </td>
                     <td>
                       <i> {appointment.Student.email}</i>
                     </td>
                     <td>
-                      {capitalize(appointment.Subject.subject_name)} (
-                    {capitalize(appointment.Subject.sub_subject_name)})
-                  </td>
+                      {capitalize.words(appointment.Subject.subject_name)} (
+                      {capitalize.words(appointment.Subject.sub_subject_name)})
+                    </td>
                     {/* <td>{appointment.Subject.sub_subject_name}</td> */}
-                    <td>{dayjs(appointment.start_time).format("MM-DD-YYYY")}</td>
+                    <td>
+                      {dayjs(appointment.start_time).format("MM-DD-YYYY")}
+                    </td>
                     <td>{dayjs(appointment.start_time).format("h:mm A")}</td>
                     <td>{dayjs(appointment.end_time).format("h:mm A")}</td>
                   </tr>
                 </tbody>
               </Table>
             </div>
-
           );
         })}
       </div>
