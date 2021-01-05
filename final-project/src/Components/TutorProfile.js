@@ -48,13 +48,13 @@ function TutorProfile() {
     specialty: ''
   })
 
-  const handleAdd =  async() => {
+  const handleAdd = async () => {
     await axios.post('http://localhost:3001/tutor/subject', {
       subject_name: subject.subject,
       sub_subject_name: subject.specialty
     })
     handleClose()
-     await fetchTutorProfile()
+    await fetchTutorProfile()
   }
 
   const handleOnChange = (e) => {
@@ -172,10 +172,10 @@ function TutorProfile() {
         </h1>
 
         <div className='tutorButtons'>
-          <Button variant="contained" color="primary" onClick={handleEdit} className="tutor-button">
+          <Button variant="contained" color="primary" onClick={handleEdit} className="tutorTopButtons">
             Edit Profile
           </Button>
-          <Button  variant="contained" color="primary" onClick={handleSave} className="tutor-button">
+          <Button variant="contained" color="primary" onClick={handleSave} className="tutorTopButtons">
             Save
           </Button>
         </div>
@@ -212,17 +212,19 @@ function TutorProfile() {
             </div>
 
             <div className="tutor-subject">
-              <p className='subjectsTutoredTitle'>Subject(s) you tutor: </p>
-              {tutor.tutor.Subjects.map((subject) => {
-                return (
-                  <div key={subject.subject_id}>
-                    {capitalize(subject.subject_name)}&nbsp;
-                    {/* Specialty:{" "} */}
-                    ({capitalize(subject.sub_subject_name)})
-                  </div>
-                );
-              })}
+                <p className='subjectsTutoredTitle'>Subject(s) you tutor: </p>
+                <div className='tutorSubjectsBox'>
 
+                {tutor.tutor.Subjects.map((subject) => {
+                  return (
+                    <div key={subject.subject_id}>
+                      {capitalize(subject.subject_name)}&nbsp;
+                      {/* Specialty:{" "} */}
+                    ({capitalize(subject.sub_subject_name)})
+                    </div>
+                  );
+                })}
+              </div>
               <div className="add-button">
                 <Button variant="contained" color="primary" onClick={handleClickOpen} className="tutor-button">
                   Add
@@ -273,10 +275,11 @@ function TutorProfile() {
           <div className="tutorScheduleContainer">
             <p className='scheduleTitle'>Schedule</p>
             {/* Mon: {tutor.tutor.Schedule.monday} */}
-            <form className={classes.root} noValidate autoComplete="off" className='scheduleDay'>
+            <form className={classes.root} noValidate autoComplete="off" >
+              <p className='weekdayP'>Monday</p>
               <TextField
                 id="standard-basic"
-                label="Monday"
+                // label="Monday"
                 name="monday"
                 value={schedule.monday || " "}
                 disabled={tutor.notUpdating}
@@ -287,9 +290,11 @@ function TutorProfile() {
             <div>
               {/* Tues: {tutor.tutor.Schedule.tuesday} */}
               <form className={classes.root} noValidate autoComplete="off">
+              <p className='weekdayP'>Tuesday</p>
+
                 <TextField
                   id="standard-basic"
-                  label="Tuesday"
+                  // label="Tuesday"
                   name="tuesday"
                   value={schedule.tuesday || " "}
                   disabled={tutor.notUpdating}
@@ -300,9 +305,11 @@ function TutorProfile() {
             <div>
               {/* Wed: {tutor.tutor.Schedule.wednesday}{" "} */}
               <form className={classes.root} noValidate autoComplete="off">
+              <p className='weekdayP'>Wednesday</p>
+
                 <TextField
                   id="standard-basic"
-                  label="Wednesday"
+                  // label="Wednesday"
                   name="wednesday"
                   value={schedule.wednesday || " "}
                   disabled={tutor.notUpdating}
@@ -313,9 +320,11 @@ function TutorProfile() {
             <div>
               {/* Thur: {tutor.tutor.Schedule.thursday} */}
               <form className={classes.root} noValidate autoComplete="off">
+              <p className='weekdayP'>Thursday</p>
+
                 <TextField
                   id="standard-basic"
-                  label="Thursday"
+                  // label="Thursday"
                   name="thursday"
                   value={schedule.thursday || " "}
                   disabled={tutor.notUpdating}
@@ -326,9 +335,11 @@ function TutorProfile() {
             <div>
               {/* Fri: {tutor.tutor.Schedule.friday}{" "} */}
               <form className={classes.root} noValidate autoComplete="off">
+              <p className='weekdayP'>Friday</p>
+
                 <TextField
                   id="standard-basic"
-                  label="Friday"
+                  // label="Friday"
                   name="friday"
                   value={schedule.friday || " "}
                   disabled={tutor.notUpdating}
@@ -339,9 +350,11 @@ function TutorProfile() {
             <div>
               {/* Sat: {tutor.tutor.Schedule.saturday}{" "} */}
               <form className={classes.root} noValidate autoComplete="off">
+              <p className='weekdayP'>Saturday</p>
+
                 <TextField
                   id="standard-basic"
-                  label="Saturday"
+                  // label="Saturday"
                   name="saturday"
                   value={schedule.saturday || " "}
                   disabled={tutor.notUpdating}
@@ -352,9 +365,11 @@ function TutorProfile() {
             <div>
               {/* Sun: {tutor.tutor.Schedule.sunday}{" "} */}
               <form className={classes.root} noValidate autoComplete="off">
+              <p className='weekdayP'>Sunday</p>
+
                 <TextField
                   id="standard-basic"
-                  label="Sunday"
+                  // label="Sunday"
                   name="sunday"
                   value={schedule.sunday || " "}
                   disabled={tutor.notUpdating}
@@ -366,8 +381,8 @@ function TutorProfile() {
         </div>
       </div>
       <div className='appointmentTable'>
-        <h1 className="appointment-title">
-          <b>Appointment History</b>
+        <h1 className="appointment-title-tutor">
+          <b>Tutoring Sessions</b>
         </h1>
         {tutor.tutor.Appointments.map((appointment) => {
           return (

@@ -2,6 +2,9 @@
 .wholeTutorProfile {
     background-color: rgb(250, 250, 250);
     font-family: Futura !important;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
 
 }
 
@@ -41,16 +44,29 @@
 .tutorButtons {
     align-items: center !important;
     display: flex;
-    
+    align-self: center;
+    justify-content: space-around;
     padding-bottom: 60px;
  
 }
 
+/* .topTutorButtons {
+    margin-left: 10px;
+    margin-right: 10px;
+} */
+
 .tutor-button{
    background-color: rgb(116, 118, 211) !important;
    font-family: Futura !important;
+  
 }
 
+.tutorTopButtons {
+    background-color: rgb(116, 118, 211) !important;
+   font-family: Futura !important;
+   margin-left: 10px !important;
+   margin-right: 10px !important;
+}
 /* .edit-profile, .save-profile{
     margin-left: 10px !important;
     margin-right: 10px !important;
@@ -95,12 +111,14 @@ font-family: Futura !important;
     line-height: normal;
     height: 80px !important;
     width: 200px !important;
+    overflow: scroll;
 }
 
 .descriptionTitle{
     font-size: 25px;
     margin-top: 20px;
     text-decoration: underline;
+    font-weight: bold;
 }
 
 .leftSideTutor {
@@ -135,6 +153,12 @@ font-family: Futura !important;
 
 }
 
+.tutorSubjectsBox {
+    height: 240px;
+    overflow: scroll;
+
+}
+
 .add-button{
     display:flex;
     /* flex-direction: column; */
@@ -153,18 +177,26 @@ font-family: Futura !important;
 
 .tutorScheduleContainer label {
     font-size: 22px;
+    text-align: right;
 }
 
 .tutorScheduleContainer input {
     font-family: Futura;
+    text-align: right;
+    font-size: 18px;
 }
 
 .scheduleTitle {
-    font-size: 25px;
+    font-size: 30px;
     font-family: Futura;
     font-weight: bold;
     text-decoration: underline;
+    margin-bottom: 50px;
 }
+
+/* form.makeStyles-root-7 label{
+    font-size: 20px;
+} */
 
 
 .tutorSchedule {
@@ -172,9 +204,19 @@ font-family: Futura !important;
     margin-bottom: 10px !important;
 }
 
+.weekdayP {
+    margin: 0 !important;
+    padding: 0;
+    font-size: 20px;
+}
+
 /* .scheduleDay {
     font-size: 20px !important;
 } */
+
+.appointment-title-tutor {
+    padding-bottom: 30px;
+}
 
 .appointmentTable {
     display: flex;
