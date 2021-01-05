@@ -1,16 +1,16 @@
-import { NavLink } from 'react-router-dom'
-import '../styles/Classes.css'
+import { NavLink } from "react-router-dom";
+import "../styles/Classes.css";
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 // import axios from 'axios'
 
-import { makeStyles} from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 // import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import capitalize from "capitalize-the-first-letter";
+import capitalize from "capitalize";
 
 //---------Material UI Styling----------------//
 const useStyles = makeStyles((theme) => ({
@@ -53,7 +53,7 @@ function Classes(props) {
 
     //     let subjectItems = tutor.Subjects.map(subject => {
     //         return <div key = {subject.subject_id}>Subject: {subject.subject_name} ({subject.sub_subject_name})</div>
-    //     })    
+    //     })
 
     //     return (
     //         <div key = {tutor.tutor_id}>
@@ -122,7 +122,9 @@ function Classes(props) {
     let subjectItems = tutor.Subjects.map((subject) => {
       return (
         <div key={subject.subject_id}>
-          <span className='tutorBolds'></span> {capitalize(subject.subject_name)} ({capitalize(subject.sub_subject_name)})
+          <span className="tutorBolds"></span>{" "}
+          {capitalize.words(subject.subject_name)} (
+          {capitalize.words(subject.sub_subject_name)})
         </div>
       );
     });
@@ -133,7 +135,7 @@ function Classes(props) {
           <div className="nameEmailDiv">
             <li>
               <span className="tutorBolds">Name:</span>{" "}
-              {capitalize(tutor.first_name)} {tutor.last_name}
+              {capitalize.words(tutor.first_name)} {tutor.last_name}
               <br></br>
               <span className="tutorBolds">Email:</span> {tutor.email}
               <br></br>
@@ -159,49 +161,63 @@ function Classes(props) {
   });
 
   return (
-    <div className='classesContainer'>
-        <h2>Browse Tutors by Subject</h2>
-        <div className='filterDiv'>
-      <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel id="demo-simple-select-outlined-label" className='filterBox'>Subject</InputLabel>
-        <Select
-          labelId="demo-simple-select-outlined-label"
-          id="demo-simple-select-outlined"
-          value={subject.subject}
-          onChange={handleChange}
-          label="subject"
-          name="subject"
-          className='filterBox'
-        >
-          <MenuItem value="" className='filterBox'>Any</MenuItem>
-          {subject.subjectList.map((subject) => (
-            <MenuItem value={`${subject}`} className='filterBox'>{capitalize(subject)}</MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+    <div className="classesContainer">
+      <h2>Browse Tutors by Subject</h2>
+      <div className="filterDiv">
+        <FormControl variant="outlined" className={classes.formControl}>
+          <InputLabel
+            id="demo-simple-select-outlined-label"
+            className="filterBox"
+          >
+            Subject
+          </InputLabel>
+          <Select
+            labelId="demo-simple-select-outlined-label"
+            id="demo-simple-select-outlined"
+            value={subject.subject}
+            onChange={handleChange}
+            label="subject"
+            name="subject"
+            className="filterBox"
+          >
+            <MenuItem value="" className="filterBox">
+              Any
+            </MenuItem>
+            {subject.subjectList.map((subject) => (
+              <MenuItem value={`${subject}`} className="filterBox">
+                {capitalize.words(subject)}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
 
-      <FormControl variant="outlined" className={classes.formControl}>
-        <InputLabel id="demo-simple-select-outlined-label" className='filterBox'>
-          Specialty
-        </InputLabel>
-        <Select
-          labelId="demo-simple-select-outlined-label"
-          id="demo-simple-select-outlined"
-          value={subject.specialty}
-          onChange={handleChange}
-          label="specialty"
-          name="specialty"
-          disabled={subject.subject === ""}
-          className='filterBox'
-        >
-          <MenuItem value="" className='filterBox'>
-            <em>Any</em>
-          </MenuItem>
-          {subject.specialtyList.map((specality) => (
-            <MenuItem value={`${specality}`} className='filterBox'>{capitalize(specality)}</MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+        <FormControl variant="outlined" className={classes.formControl}>
+          <InputLabel
+            id="demo-simple-select-outlined-label"
+            className="filterBox"
+          >
+            Specialty
+          </InputLabel>
+          <Select
+            labelId="demo-simple-select-outlined-label"
+            id="demo-simple-select-outlined"
+            value={subject.specialty}
+            onChange={handleChange}
+            label="specialty"
+            name="specialty"
+            disabled={subject.subject === ""}
+            className="filterBox"
+          >
+            <MenuItem value="" className="filterBox">
+              <em>Any</em>
+            </MenuItem>
+            {subject.specialtyList.map((specality) => (
+              <MenuItem value={`${specality}`} className="filterBox">
+                {capitalize.words(specality)}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       </div>
       {tutorInfo}
     </div>

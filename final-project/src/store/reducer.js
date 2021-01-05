@@ -28,9 +28,10 @@ const reducer = (state = initialState, action) => {
     if(action.type === "ON_LOGOUT") {
         localStorage.removeItem("profile");
         return {
-            ...state,
-            isAuthenticated: false
-        }
+          ...state,
+          isAuthenticated: false,
+          findTutorDisplay: true,
+        };
     }
 
     if (action.type === "TUTOR_LOGIN") {
