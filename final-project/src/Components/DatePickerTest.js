@@ -21,7 +21,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 // import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import capitalize from "capitalize-the-first-letter";
+import capitalize from "capitalize";
 
 const useStyles = makeStyles((theme) => ({
   // root: {
@@ -50,14 +50,16 @@ function DateAndTimePickers(props) {
 
   const handleClose = () => {
     setOpen(false);
-    props.history.push("/classes")
+    props.history.push("/classes");
   };
 
   const classes = useStyles();
 
   const dateObj = new Date();
 
-  const [subjectId, setSubjectId] = React.useState(props.subjectList[0].subject_id);
+  const [subjectId, setSubjectId] = React.useState(
+    props.subjectList[0].subject_id
+  );
 
   const [selectedDate, setSelectedDate] = React.useState(
     dayjs(dateObj.toLocaleString("en-US", { timeZone: "America/New_York" }))
@@ -72,7 +74,7 @@ function DateAndTimePickers(props) {
   //    console.log(selectedDate)
   const handleSubjectChange = (e) => {
     setSubjectId(e.target.value);
-  }
+  };
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
@@ -143,7 +145,10 @@ function DateAndTimePickers(props) {
               >
                 {props.subjectList.map((s) => (
                   <MenuItem value={s.subject_id} className='subjectPicker'>
-                    {capitalize(s.subject_name)} - {capitalize(s.sub_subject_name)}
+                    {capitalize.words(s.subject_name)} -{" "}
+                    {capitalize.words(s.sub_subject_name)}
+                  
+                    
                   </MenuItem>
                 ))}
               </Select>

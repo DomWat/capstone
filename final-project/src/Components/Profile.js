@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Table from "react-bootstrap/Table"
-import '../styles/StudentProfile.css'
+import Table from "react-bootstrap/Table";
+import "../styles/StudentProfile.css";
 import dayjs from "dayjs";
-import capitalize from "capitalize-the-first-letter";
 import {NavLink} from 'react-router-dom';
-
-
-
+import capitalize from "capitalize";
 
 function Profile() {
   const [student, setStudent] = useState({
@@ -31,11 +28,10 @@ function Profile() {
   };
 
   return (
-    <div className='wholeStudentProf'>
-      <div className='studentTop'>
+    <div className="wholeStudentProf">
+      <div className="studentTop">
         <h1 className="studentTitle">
-          <b>Hi, {capitalize(`${student.student.first_name}`)}!</b>
-
+          <b>Hi, {capitalize.words(`${student.student.first_name || ""}`)}!</b>
         </h1>
         {/* <div className="photo">
         <label className="photo-title"> */}
@@ -44,26 +40,25 @@ function Profile() {
         {/* <p className = "student-photo">{student.student.image}</p> */}
         {/* </div> */}
 
-
-        <div className='studentNameInfo' >
+        <div className="studentNameInfo">
           <div className="studentNameItem">
             <span>Name:</span>
-            <p className="information">&nbsp;{capitalize(`${student.student.first_name}`)}&nbsp;{capitalize(`${student.student.last_name}`)}</p>
-
+            <p className="information">
+              &nbsp;{capitalize.words(`${student.student.first_name}`)}&nbsp;
+              {capitalize.words(`${student.student.last_name}`)}
+            </p>
           </div>
-          {/* <p className="information">{capitalize(`${student.student.first_name}`)}&nbsp; {capitalize(`${student.student.last_name}`)}</p> */}
+          {/* <p className="information">{capitalize.words(`${student.student.first_name}`)}&nbsp; {capitalize.words(`${student.student.last_name}`)}</p> */}
           {/* <label className="users-information">
             <b>Last Name:</b>
             </label> */}
-          {/* <p className= "information">{capitalize(`${student.student.last_name}`)}</p> */}
+          {/* <p className= "information">{capitalize.words(`${student.student.last_name}`)}</p> */}
           <div className="studentNameItem">
             <span>Email:</span>
             <p className="information">&nbsp;{student.student.email}</p>
-
           </div>
           {/* <p className="information">{student.student.email}</p> */}
         </div>
-
       </div>
       {student.student.Appointments.length != 0 ? <h1 className='appointment-title-student'><b>Tutoring Sessions</b></h1> : 
       <p className='appointment-title-alt'>You haven't scheduled any lessons yet. Head to our&nbsp;<NavLink to='/classes' className='studentNav'>Find Tutors</NavLink>&nbsp;page to start learning!</p> }
@@ -86,19 +81,19 @@ function Profile() {
               <tbody className="table-content">
                 <tr>
                   <td>
-                    {capitalize(appointment.Tutor.first_name)}{" "}
-                    {capitalize(appointment.Tutor.last_name)}
+                    {capitalize.words(appointment.Tutor.first_name)}{" "}
+                    {capitalize.words(appointment.Tutor.last_name)}
                   </td>
-                  {/* <td>{capitalize(appointment.Tutor.last_name)}</td> */}
+                  {/* <td>{capitalize.words(appointment.Tutor.last_name)}</td> */}
                   <td>
                     <i> {appointment.Tutor.email}</i>
                   </td>
                   <td>
-                    {capitalize(appointment.Subject.subject_name)} (
-                    {capitalize(appointment.Subject.sub_subject_name)})
+                    {capitalize.words(appointment.Subject.subject_name)} (
+                    {capitalize.words(appointment.Subject.sub_subject_name)})
                   </td>
-                  {/* <td>{capitalize(appointment.Subject.sub_subject_name)}</td> */}
-                  <td>{dayjs(appointment.start_time).format('MM-DD-YYYY')}</td>
+                  {/* <td>{capitalize.words(appointment.Subject.sub_subject_name)}</td> */}
+                  <td>{dayjs(appointment.start_time).format("MM-DD-YYYY")}</td>
                   <td>{dayjs(appointment.start_time).format("h:mm A")}</td>
                   <td>{dayjs(appointment.end_time).format("h:mm A")}</td>
                 </tr>
@@ -111,25 +106,24 @@ function Profile() {
   );
 }
 
-
 export default Profile;
 
 // {/* <h6> */}
-              // {/* <b>Tutor Details</b> */}
-            // {/* </h6> */}
-            // <p>
-              // {/* Name: {appointment.Tutor.first_name} {appointment.Tutor.last_name} */}
-            // {/* </p> */}
-            // <p>
-              // {/* Email:<i> {appointment.Tutor.email}</i> */}
-            // {/* </p> */}
-            // <h6>
-              // {/* <b>Subject Details</b> */}
-            // {/* </h6> */}
-            // <p>Subject: {appointment.Subject.subject_name}</p>
-            // <p>Specialty: {appointment.Subject.sub_subject_name}</p>
-            // <h6>
-              // {/* <b>Appointment Details</b> */}
-            // {/* </h6> */}
-            // {/* // <p>Start time: {appointment.start_time}</p> */}
-            // {/* // <p>End time: {appointment.end_time}</p> */}
+// {/* <b>Tutor Details</b> */}
+// {/* </h6> */}
+// <p>
+// {/* Name: {appointment.Tutor.first_name} {appointment.Tutor.last_name} */}
+// {/* </p> */}
+// <p>
+// {/* Email:<i> {appointment.Tutor.email}</i> */}
+// {/* </p> */}
+// <h6>
+// {/* <b>Subject Details</b> */}
+// {/* </h6> */}
+// <p>Subject: {appointment.Subject.subject_name}</p>
+// <p>Specialty: {appointment.Subject.sub_subject_name}</p>
+// <h6>
+// {/* <b>Appointment Details</b> */}
+// {/* </h6> */}
+// {/* // <p>Start time: {appointment.start_time}</p> */}
+// {/* // <p>End time: {appointment.end_time}</p> */}

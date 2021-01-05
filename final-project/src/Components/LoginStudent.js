@@ -91,11 +91,51 @@ function LoginStudent(props) {
     }
   };
 
-  function handleKeyPress(e){
-    if (e.keyCode === 13){
-       handleLogin();
+  // handleGuestLoggedIn
+  const handleGuestLogin = async () => {
+    let userToken = await guestLoggedIn();
+
+    if (userToken) {
+      const token = userToken.token;
+      localStorage.setItem("jsonwebtoken", token);
+
+      // after getting the token, we can set default authentication headers for axios to include jsonwebtoken
+      // Will send the token for every request user makes
+      setAuthenticationHeader(token);
+      //update the isAuthenticated in Redux to true
+      if (token) {
+        props.onAuthenticated();
+        props.onStudentLogin();
+        props.history.push("/profile");
+      } else {
+        // alert("Please use correct username and password!")
+        setError(true);
+      }
+    } else {
+      setError(true);
+    }
+  };
+
+  function handleKeyPress(e) {
+    if (e.keyCode === 13) {
+      handleLogin();
     }
   }
+
+  //Guest Login function
+  const guestLoggedIn = async () => {
+    try {
+      const response = await axios.post("http://localhost:3001/login/student", {
+        email: "student@guest.com",
+        password: "pass123",
+      });
+      const result = response.data;
+      console.log(result);
+      return result;
+    } catch (err) {
+      return null;
+    }
+  };
 
   return (
     <Container component="main" maxWidth="xs" className="logInContainer">
@@ -148,6 +188,17 @@ function LoginStudent(props) {
             className="signinButton"
           >
             Sign In
+          </Button>
+          <Button
+            // type="submit"
+            fullWidth
+            variant="contained"
+            style={{ color: "white" }}
+            className={classes.submit}
+            onClick={handleGuestLogin}
+            className="signinButton"
+          >
+            Sign In As Guest
           </Button>
           <Grid container>
             <Grid item xs></Grid>
