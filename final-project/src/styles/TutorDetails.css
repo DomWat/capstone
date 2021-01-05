@@ -1,8 +1,19 @@
 
 .detailsDateContainer {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: rgb(250, 250, 250);
+    font-family: Futura !important;
+}
+
+.tutorDetailsTitle {
+    padding-top: 50px;
+}
+
+.detailsRow {
+    display: flex;
+    justify-content: space-around;
+    /* margin: 0 25% 0 25%; */
 }
 
 
@@ -18,6 +29,75 @@
     list-style: none;
     inset: none;
     list-style: none;
+}
+
+div .datePicker input {
+    text-align: right !important;
+}
+
+div.datePicker {
+    display: flex;
+    flex-direction: column;
+    justify-content: right !important;
+    /* text-align: right; */
+}
+
+.MuiGrid-spacing-xs-3 {
+    display: flex;
+    flex-direction: column;
+    /* width: 200px; */
+    text-align: right;
+    justify-content: right !important;
+    margin: 0 !important;
+
+}
+
+.MuiGrid-spacing-xs-3 label {
+    text-align: right;
+}
+
+.MuiInputBase-root {
+    font-family: Futura !important;
+}
+
+/* .MuiFormControl-root.makeStyles-formControl-4 {
+    width: 300px !important;
+
+} */
+
+/* .MuiSelect-root.MuiSelect-select.MuiSelect-selectMenu.MuiInputBase-input.MuiInput-input {
+    width: 400px !important;
+
+} */
+
+/*  */
+/* .MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-3 {
+    text-align: right;
+    display: flex;
+    justify-content: right;
+} */
+
+div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6 {
+    /* width: 330px !important; */
+    width: 100% !important;
+
+    text-align: right;
+    margin-bottom: 0px;
+    padding-bottom: 0;
+}
+/* 
+div.MuiFormControl-root.MuiTextField-root.MuiFormControl-marginNormal {
+    text-align: right !important;
+}
+
+.MuiInputBase-root.MuiInput-root.MuiInput-underline.MuiInputBase-formControl.MuiInput-formControl {
+    text-align: right !important;
+    width: 100%;
+} */
+
+.dateTimeColumn {
+    display: flex;
+    flex-direction: column;
 }
 
 .weekday {

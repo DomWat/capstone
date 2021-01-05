@@ -128,7 +128,7 @@ function DateAndTimePickers(props) {
 
   return (
     <>
-      <MuiPickersUtilsProvider utils={DateDayjsUtils}>
+      <MuiPickersUtilsProvider utils={DateDayjsUtils} className='dateTimeColumn'>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <FormControl className={classes.formControl}>
@@ -148,10 +148,12 @@ function DateAndTimePickers(props) {
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
+          <p>Select a Date</p>
+
             <DatePicker
               margin="normal"
               id="date-picker-dialog"
-              label="Select a Date"
+              // label="Select a Date"
               format="MM/DD/YYYY"
               value={selectedDate}
               onChange={handleDateChange}
@@ -160,10 +162,11 @@ function DateAndTimePickers(props) {
         </Grid>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
+          <p>Select Start Time</p>
             <TimePicker
               margin="normal"
               id="time-picker"
-              label="Select Start Time"
+              // label="Select Start Time"
               name="start time"
               value={startTime}
               minutesStep={5}
@@ -171,9 +174,10 @@ function DateAndTimePickers(props) {
             />
           </Grid>
           <Grid item xs={12} sm={6}>
+            <p>Select End Time</p>
             <TimePicker
               margin="normal"
-              label="Select End Time"
+              // label="Select End Time"
               name="end time"
               value={endTime}
               minutesStep={5}
@@ -182,6 +186,7 @@ function DateAndTimePickers(props) {
           </Grid>
         </Grid>
       </MuiPickersUtilsProvider>
+      
       <div className={classes.root}>
         <Button variant="contained" color="primary" onClick={createAppointment}>
           Book

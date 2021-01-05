@@ -144,7 +144,7 @@ function Classes(props) {
           </div>
           {/* <span className="tutorBolds">Subjects:</span> */}
           <div className="subjectsDiv">
-            <div className="tutorBolds">Subjects:</div>
+            <div className="tutorBolds">Subject(s):</div>
             {subjectItems}
           </div>
         </div>
