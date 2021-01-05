@@ -1,6 +1,6 @@
-import React from 'react'
-import useTutorForm from './useTutorForm'
-import Validate from './ValidateRegInfo'
+import React from "react";
+import useTutorForm from "./useTutorForm";
+import Validate from "./ValidateRegInfo";
 // import classes from '../styles/Form.module.css'
 // import { NavLink } from 'react-router-dom'
 
@@ -17,7 +17,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import '../styles/Register.css'
+import "../styles/Register.css";
+import { connect } from "react-redux";
 
 // import Input from "@material-ui/core/Input";
 // import FilledInput from "@material-ui/core/FilledInput";
@@ -25,7 +26,6 @@ import '../styles/Register.css'
 // import InputLabel from "@material-ui/core/InputLabel";
 // import InputAdornment from "@material-ui/core/InputAdornment";
 // import FormControl from '@material-ui/core/FormControl';
-
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -47,18 +47,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function RegistrationTutor(props) {
+function RegistrationTutor(props) {
   const classes = useStyles();
-  const { handleChange, values, handleSubmit, errors } = useTutorForm(Validate, props.history);
+  const { handleChange, values, handleSubmit, errors } = useTutorForm(
+    Validate,
+    props
+  );
 
   return (
-    <Container component="main" maxWidth="xs" className='registerContainer'>
+    <Container component="main" maxWidth="xs" className="registerContainer">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar} className='registerIcon'>
+        <Avatar className={classes.avatar} className="registerIcon">
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5" className='register'>
+        <Typography component="h1" variant="h5" className="register">
           Sign up as Tutor
         </Typography>
         <form className={classes.form} noValidate>
@@ -172,16 +175,21 @@ export default function RegistrationTutor(props) {
             color="primary"
             className={classes.submit}
             onClick={handleSubmit}
-            className='registerButton'
+            className="registerButton"
           >
             Sign Up
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="/login" variant="body2" className='registerLink'>
+              <Link href="/login" variant="body2" className="registerLink">
                 Already have a tutor account? Sign in
-              </Link><br></br>
-              <Link href="/registration-student" variant="body2" className='registerLink'>
+              </Link>
+              <br></br>
+              <Link
+                href="/registration-student"
+                variant="body2"
+                className="registerLink"
+              >
                 {"Sign up as Student"}
               </Link>
             </Grid>
@@ -192,6 +200,14 @@ export default function RegistrationTutor(props) {
   );
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAuthenticated: () => dispatch({ type: "ON_AUTH" }),
+    onTutorLogin: () => dispatch({ type: "TUTOR_LOGIN" }),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(RegistrationTutor);
 
 // function RegistrationTutor() {
 //     const {handleChange, values, handleSubmit, errors} = useTutorForm(Validate)
@@ -209,7 +225,7 @@ export default function RegistrationTutor(props) {
 //                         id = 'email'
 //                         type='email'
 //                         name='email'
-//                         placeholder='Enter your email' 
+//                         placeholder='Enter your email'
 //                         value = {values.email}
 //                         onChange = {handleChange} />
 //                     {errors.email && <p>{errors.email}</p>}
@@ -275,7 +291,7 @@ export default function RegistrationTutor(props) {
 //                         htmlFor='description'>
 //                         Bio
 //                     </label>
-//                     <textarea 
+//                     <textarea
 //                         id = 'description'
 //                         name = 'description'
 //                         cols = '30'
@@ -299,7 +315,7 @@ export default function RegistrationTutor(props) {
 //                         onChange = {handleChange} />
 //                     {errors.hourly_rate && <p>{errors.hourly_rate}</p>}
 //                 </div> */}
-//                 <button 
+//                 <button
 //                     type = 'submit'>Register</button>
 //                 <span>Already have an account? please login <NavLink to = '/login'>here.</NavLink></span>
 //             </form>
