@@ -21,6 +21,7 @@ const reducer = (state = initialState, action) => {
           ...state,
           isAuthenticated: true,
           userType: profile,
+          findTutorDisplay: !profile.includes('tutor')
         };
     }
 
