@@ -185,13 +185,13 @@ function TutorProfile() {
             <div className="tutor-content">
 
               <p className="nameInformation">
-                <span>Name:</span>&nbsp;{capitalize(`${tutor.tutor.first_name}`)}&nbsp;{capitalize(`${tutor.tutor.last_name}`)}
+                <span className='nameBold'>Name:</span>&nbsp;<span className='nameReal'>{capitalize(`${tutor.tutor.first_name}`)}&nbsp;{capitalize(`${tutor.tutor.last_name}`)}</span>
               </p>
 
               <p className="nameInformation">
-                <span>Email:</span>&nbsp;{tutor.tutor.email}
+                <span className='nameBold'>Email:</span>&nbsp;<span className='nameReal'>{tutor.tutor.email}</span>
               </p>
-
+<hr></hr>
               <div className="tutor-description">
                 {/* <p className="information"> */}
                 {/* {tutor.tutor.description}{" "} */}

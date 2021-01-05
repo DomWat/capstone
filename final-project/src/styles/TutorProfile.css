@@ -30,15 +30,25 @@
 .nameInformation {
     font-size: 25px;
     display: flex;
+    
 }
 
-.nameInformation span {
+.nameInformation .nameBold {
     font-family: Futura;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 26px;
     /* letter-spacing: 1px; */
     padding-bottom: 0 !important;
     text-decoration: underline;
+    font-family: Futura Bold;
+    letter-spacing: 0.5px;
+
+
+}
+
+.nameInformation .nameReal {
+    height: 100%;
+    padding-top: 3px;
 }
 
 .tutorButtons {
@@ -109,16 +119,18 @@ font-family: Futura !important;
     margin-top: -10px;
     font-size: 20px;
     line-height: normal;
-    height: 80px !important;
-    width: 200px !important;
-    overflow: scroll;
+    width: 400px !important;
+    padding-bottom: 10px;
 }
 
 .descriptionTitle{
     font-size: 25px;
     margin-top: 20px;
     text-decoration: underline;
-    font-weight: bold;
+    /* font-weight: bold; */
+    font-family: Futura Bold;
+    letter-spacing: 0.5px;
+
 }
 
 .leftSideTutor {
@@ -147,15 +159,15 @@ font-family: Futura !important;
 
 .subjectsTutoredTitle {
     font-size: 25px;
-    font-family: Futura;
+    font-family: Futura Bold;
     font-weight: bold;
     text-decoration: underline;
-
+    letter-spacing: 0.5px;
 }
 
 .tutorSubjectsBox {
-    height: 240px;
-    overflow: scroll;
+    height: 100%;
+    /* overflow: scroll; */
 
 }
 
@@ -164,6 +176,14 @@ font-family: Futura !important;
     /* flex-direction: column; */
     margin-top: 20px;
     align-items: center;
+}
+
+h2.MuiTypography-root {
+    font-family: Futura;
+}
+
+span.MuiButton-label {
+    font-family: Futura;
 }
 
 .tutorScheduleContainer {
@@ -188,10 +208,12 @@ font-family: Futura !important;
 
 .scheduleTitle {
     font-size: 30px;
-    font-family: Futura;
+    font-family: Futura Bold;
     font-weight: bold;
     text-decoration: underline;
     margin-bottom: 50px;
+    letter-spacing: 0.5px;
+
 }
 
 /* form.makeStyles-root-7 label{
