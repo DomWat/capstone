@@ -126,7 +126,7 @@ function LoginStudent(props) {
   const guestLoggedIn = async () => {
     try {
       const response = await axios.post("http://localhost:3001/login/student", {
-        email: "student@guest.com",
+        email: ".student@guest.com",
         password: "pass123",
       });
       const result = response.data;
