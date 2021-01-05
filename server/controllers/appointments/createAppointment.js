@@ -63,7 +63,7 @@ module.exports = async (req, res, next) => {
       .format("h:mm A EST"),
   };
   const studentPayload = {
-    student_email: "cristinahdz29@gmail.com",
+    student_email: fullAppointment.Student.email,
     student_first_name: capitalize(fullAppointment.Student.first_name),
     tutor_first_name: capitalize(fullAppointment.Tutor.first_name),
     tutor_last_name: capitalize(fullAppointment.Tutor.last_name),
