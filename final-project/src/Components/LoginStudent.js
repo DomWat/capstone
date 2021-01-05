@@ -136,7 +136,6 @@ function LoginStudent(props) {
             error={error}
             helperText={error ? "Incorrect password" : ""}
             onKeyDown={handleKeyPress}
-
           />
 
           <Button
@@ -153,7 +152,11 @@ function LoginStudent(props) {
           <Grid container>
             <Grid item xs></Grid>
             <Grid item>
-              <Link href="#" variant="body2" className="signinLink">
+              <Link
+                href="/registration-student"
+                variant="body2"
+                className="signinLink"
+              >
                 {"Don't have an account? Sign Up"}
               </Link>
               <br></br>

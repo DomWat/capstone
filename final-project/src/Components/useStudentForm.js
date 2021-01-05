@@ -9,18 +9,20 @@ const useStudentForm = (Validate, history) => {
     // password2: '',
     first_name: "",
     last_name: "",
-    description: "",
+    
   });
   const [errors, setErrors] = useState({});
   // const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
     setValues({
       ...values,
       [name]: value,
     });
   };
+
+  //console.log(values)
 
   const handleSubmit = (e) => {
     e.preventDefault();

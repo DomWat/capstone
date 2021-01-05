@@ -32,9 +32,9 @@ export default function validateRegInfo (values) {
     //     errors.hourly_rate = 'Hourly Rate is required'
     // } 
 
-    if(!values.description) {
-        errors.description = 'Please enter a Bio'
-    } 
+    // if(!values.description) {
+    //     errors.description = 'Please enter a Bio'
+    // } 
 
     return errors
 }
