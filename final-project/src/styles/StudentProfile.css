@@ -1,4 +1,4 @@
-
+/* 
 .users-information, .information {
     display: inline-flex;
     padding: 10px;
@@ -8,8 +8,8 @@
 }
  .users-information, .information {
     justify-content: center;
-}
-
+} */
+/* 
 .users-title, .appointment-title {
     display: flex;
     font-family: Futura;
@@ -17,16 +17,16 @@
     margin-bottom: 50px;
     margin-top: 50px;
 
-}
+} */
 
-.content {
+/* .content {
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
     font-family: Futura;
     margin-top: 50px;
     
-}
+} */
 
 .photo-title {
     justify-content: center;

@@ -165,250 +165,252 @@ function TutorProfile() {
   }
 
   return (
-    <>
+    <div className='wholeTutorProfile'>
       <div className="tutor-container">
         <h1 className="tutor-information">
-          <b>User's Information</b>
+          <b>Hi, {capitalize(`${tutor.tutor.first_name}`)}!</b>
         </h1>
-        <div className="tutor-button">
-        <Button className="edit-profile"variant="contained" color="primary" onClick={handleEdit}>
-          Edit Profile
-        </Button>
-        <Button ClassName="save-profile"variant="contained" color="primary" onClick={handleSave}>
-          Save
-        </Button>
+
+        <div className='tutorButtons'>
+          <Button variant="contained" color="primary" onClick={handleEdit} className="tutor-button">
+            Edit Profile
+          </Button>
+          <Button  variant="contained" color="primary" onClick={handleSave} className="tutor-button">
+            Save
+          </Button>
         </div>
-        {/* <div className="photo"> */}
-          {/* <label className="photo-title"> */}
-            {/* <b>Tutor Photo:</b> */}
-          {/* </label> */}
-          {/* <p className="student-photo">{tutor.tutor.image}</p> */}
-        {/* </div> */}
-        <div className="tutor-content">
-          <label className="users-information">
-            <b>Name:</b>
-          </label>
-          <p className="information">
-            {capitalize(`${tutor.tutor.first_name}`)}
-          </p>
-          <label className="users-information">
-            <b>Last Name:</b>
-          </label>
-          <p className="information">
-            {capitalize(`${tutor.tutor.last_name}`)}
-          </p>
-          <label className="users-information">
-            <b>Email:</b>
-          </label>
-          <p className="information">{tutor.tutor.email}</p>
-          {/* <label className="users-information">
-            <b>Description:</b>
-          </label> */}
-          <div className="tutor-description">
-          <p className="information">
-            {/* {tutor.tutor.description}{" "} */}
-            <form className={classes.root} noValidate autoComplete="off">
+
+        <div className='upperhalfTutor'>
+          <div className='leftSideTutor'>
+            <div className="tutor-content">
+
+              <p className="nameInformation">
+                <span>Name:</span>&nbsp;{capitalize(`${tutor.tutor.first_name}`)}&nbsp;{capitalize(`${tutor.tutor.last_name}`)}
+              </p>
+
+              <p className="nameInformation">
+                <span>Email:</span>&nbsp;{tutor.tutor.email}
+              </p>
+
+              <div className="tutor-description">
+                {/* <p className="information"> */}
+                {/* {tutor.tutor.description}{" "} */}
+                <div className='descriptionTitle'>Description:</div>
+                <form className={classes.root} noValidate autoComplete="off" className="tutor-description">
+                  <TextField
+                    id="standard-basic"
+                    // label="Description"
+                    multiline
+                    value={description || " "}
+                    disabled={tutor.notUpdating}
+                    onChange={handleDescriptionEdit}
+                  />
+                </form>
+                {/* </p> */}
+              </div>
+
+            </div>
+
+            <div className="tutor-subject">
+              <p className='subjectsTutoredTitle'>Subject(s) you tutor: </p>
+              {tutor.tutor.Subjects.map((subject) => {
+                return (
+                  <div key={subject.subject_id}>
+                    {capitalize(subject.subject_name)}&nbsp;
+                    {/* Specialty:{" "} */}
+                    ({capitalize(subject.sub_subject_name)})
+                  </div>
+                );
+              })}
+
+              <div className="add-button">
+                <Button variant="contained" color="primary" onClick={handleClickOpen} className="tutor-button">
+                  Add
+              </Button>
+                <Dialog
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="form-dialog-title"
+                  className='popupTitleTutor'
+                >
+                  <DialogTitle id="form-dialog-title" className='popupTitleTutor'>Add a Subject</DialogTitle>
+                  <DialogContent>
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      id="subject"
+                      label="Subject"
+                      type="email"
+                      name="subject"
+                      onChange={handleOnChange}
+                      fullWidth
+                    />
+                    <TextField
+                      autoFocus
+                      margin="dense"
+                      id="specialty"
+                      label="Specialty"
+                      type="email"
+                      name="specialty"
+                      onChange={handleOnChange}
+                      fullWidth
+                    />
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleClose} color="primary">
+                      Cancel
+                  </Button>
+                    <Button onClick={handleClose, handleAdd} color="primary">
+                      Add
+                  </Button>
+                  </DialogActions>
+                </Dialog>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="tutorScheduleContainer">
+            <p className='scheduleTitle'>Schedule</p>
+            {/* Mon: {tutor.tutor.Schedule.monday} */}
+            <form className={classes.root} noValidate autoComplete="off" className='scheduleDay'>
               <TextField
                 id="standard-basic"
-                label="Description"
-                multiline
-                value={description || " "}
+                label="Monday"
+                name="monday"
+                value={schedule.monday || " "}
                 disabled={tutor.notUpdating}
-                onChange={handleDescriptionEdit}
+                onChange={handleScheduleEdit}
+                tutorSchedule
               />
             </form>
-          </p>
+            <div>
+              {/* Tues: {tutor.tutor.Schedule.tuesday} */}
+              <form className={classes.root} noValidate autoComplete="off">
+                <TextField
+                  id="standard-basic"
+                  label="Tuesday"
+                  name="tuesday"
+                  value={schedule.tuesday || " "}
+                  disabled={tutor.notUpdating}
+                  onChange={handleScheduleEdit}
+                />
+              </form>
+            </div>
+            <div>
+              {/* Wed: {tutor.tutor.Schedule.wednesday}{" "} */}
+              <form className={classes.root} noValidate autoComplete="off">
+                <TextField
+                  id="standard-basic"
+                  label="Wednesday"
+                  name="wednesday"
+                  value={schedule.wednesday || " "}
+                  disabled={tutor.notUpdating}
+                  onChange={handleScheduleEdit}
+                />
+              </form>
+            </div>
+            <div>
+              {/* Thur: {tutor.tutor.Schedule.thursday} */}
+              <form className={classes.root} noValidate autoComplete="off">
+                <TextField
+                  id="standard-basic"
+                  label="Thursday"
+                  name="thursday"
+                  value={schedule.thursday || " "}
+                  disabled={tutor.notUpdating}
+                  onChange={handleScheduleEdit}
+                />
+              </form>
+            </div>
+            <div>
+              {/* Fri: {tutor.tutor.Schedule.friday}{" "} */}
+              <form className={classes.root} noValidate autoComplete="off">
+                <TextField
+                  id="standard-basic"
+                  label="Friday"
+                  name="friday"
+                  value={schedule.friday || " "}
+                  disabled={tutor.notUpdating}
+                  onChange={handleScheduleEdit}
+                />
+              </form>
+            </div>
+            <div>
+              {/* Sat: {tutor.tutor.Schedule.saturday}{" "} */}
+              <form className={classes.root} noValidate autoComplete="off">
+                <TextField
+                  id="standard-basic"
+                  label="Saturday"
+                  name="saturday"
+                  value={schedule.saturday || " "}
+                  disabled={tutor.notUpdating}
+                  onChange={handleScheduleEdit}
+                />
+              </form>
+            </div>
+            <div>
+              {/* Sun: {tutor.tutor.Schedule.sunday}{" "} */}
+              <form className={classes.root} noValidate autoComplete="off">
+                <TextField
+                  id="standard-basic"
+                  label="Sunday"
+                  name="sunday"
+                  value={schedule.sunday || " "}
+                  disabled={tutor.notUpdating}
+                  onChange={handleScheduleEdit}
+                />
+              </form>
+            </div>
           </div>
         </div>
       </div>
-      <div className="tutor-subject">
-      <h1>Subject: </h1>
-      {tutor.tutor.Subjects.map((subject) => {
-        return (
-          <div key={subject.subject_id}>
-            {capitalize(subject.subject_name)} Specialty:{" "}
-            {capitalize(subject.sub_subject_name)}
-          </div>
-        );
-      })}
-      </div>
-      <div className="add-button">
-        <Button variant="contained" color="primary" onClick={handleClickOpen}>
-          Add
-        </Button>
-        <Dialog
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="form-dialog-title"
-        >
-          <DialogTitle id="form-dialog-title">Add a Subject!</DialogTitle>
-          <DialogContent>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="subject"
-              label="Subject"
-              type="email"
-              name="subject"
-              onChange={handleOnChange}
-              fullWidth
-            />
-            <TextField
-              autoFocus
-              margin="dense"
-              id="specialty"
-              label="Specialty"
-              type="email"
-              name="specialty"
-              onChange={handleOnChange}
-              fullWidth
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} color="primary">
-              Cancel
-            </Button>
-            <Button onClick={handleClose, handleAdd} color="primary">
-              Add
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
-      <div className="schedule">
-      <h1>Schedule: </h1>
-      {/* Mon: {tutor.tutor.Schedule.monday} */}
-      <form className={classes.root} noValidate autoComplete="off">
-        <TextField
-          id="standard-basic"
-          label="Monday"
-          name="monday"
-          value={schedule.monday || " "}
-          disabled={tutor.notUpdating}
-          onChange={handleScheduleEdit}
-        />
-      </form>
-      <div>
-        {/* Tues: {tutor.tutor.Schedule.tuesday} */}
-        <form className={classes.root} noValidate autoComplete="off">
-          <TextField
-            id="standard-basic"
-            label="Tuesday"
-            name="tuesday"
-            value={schedule.tuesday || " "}
-            disabled={tutor.notUpdating}
-            onChange={handleScheduleEdit}
-          />
-        </form>
-      </div>
-      <div>
-        {/* Wed: {tutor.tutor.Schedule.wednesday}{" "} */}
-        <form className={classes.root} noValidate autoComplete="off">
-          <TextField
-            id="standard-basic"
-            label="Wednesday"
-            name="wednesday"
-            value={schedule.wednesday || " "}
-            disabled={tutor.notUpdating}
-            onChange={handleScheduleEdit}
-          />
-        </form>
-      </div>
-      <div>
-        {/* Thur: {tutor.tutor.Schedule.thursday} */}
-        <form className={classes.root} noValidate autoComplete="off">
-          <TextField
-            id="standard-basic"
-            label="Thursday"
-            name="thursday"
-            value={schedule.thursday || " "}
-            disabled={tutor.notUpdating}
-            onChange={handleScheduleEdit}
-          />
-        </form>
-      </div>
-      <div>
-        {/* Fri: {tutor.tutor.Schedule.friday}{" "} */}
-        <form className={classes.root} noValidate autoComplete="off">
-          <TextField
-            id="standard-basic"
-            label="Friday"
-            name="friday"
-            value={schedule.friday || " "}
-            disabled={tutor.notUpdating}
-            onChange={handleScheduleEdit}
-          />
-        </form>
-      </div>
-      <div>
-        {/* Sat: {tutor.tutor.Schedule.saturday}{" "} */}
-        <form className={classes.root} noValidate autoComplete="off">
-          <TextField
-            id="standard-basic"
-            label="Saturday"
-            name="saturday"
-            value={schedule.saturday || " "}
-            disabled={tutor.notUpdating}
-            onChange={handleScheduleEdit}
-          />
-        </form>
-      </div>
-      <div>
-        {/* Sun: {tutor.tutor.Schedule.sunday}{" "} */}
-        <form className={classes.root} noValidate autoComplete="off">
-          <TextField
-            id="standard-basic"
-            label="Sunday"
-            name="sunday"
-            value={schedule.sunday || " "}
-            disabled={tutor.notUpdating}
-            onChange={handleScheduleEdit}
-          />
-        </form>
-      </div>
-      </div>
-      <h1 className="appointment-title">
-        <b>Appointment History</b>
-      </h1>
-      {tutor.tutor.Appointments.map((appointment) => {
-        return (
-          <div className="Container-2">
-            <Table striped bordered hover size="sm">
-              <thead>
-                <tr>
-                  <th>Student Name:</th>
+      <div className='appointmentTable'>
+        <h1 className="appointment-title">
+          <b>Appointment History</b>
+        </h1>
+        {tutor.tutor.Appointments.map((appointment) => {
+          return (
+            <div className="Container-2">
+              <Table striped bordered hover size="sm">
+                <thead>
+                  <tr>
+                    <th>Student Name:</th>
 
-                  <th>Student E-Mail:</th>
-                  <th>Subject:</th>
-                  {/* <th>Specialty:</th> */}
-                  <th>Date:</th>
-                  <th>Start Time:</th>
-                  <th>End Time:</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    {capitalize(appointment.Student.first_name)}{" "}
-                    {capitalize(appointment.Student.last_name)}
-                  </td>
-                  <td>
-                    <i> {appointment.Student.email}</i>
-                  </td>
-                  <td>
-                    {capitalize(appointment.Subject.subject_name)} (
+                    <th>Student E-Mail:</th>
+                    <th>Subject:</th>
+                    {/* <th>Specialty:</th> */}
+                    <th>Date:</th>
+                    <th>Start Time:</th>
+                    <th>End Time:</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      {capitalize(appointment.Student.first_name)}{" "}
+                      {capitalize(appointment.Student.last_name)}
+                    </td>
+                    <td>
+                      <i> {appointment.Student.email}</i>
+                    </td>
+                    <td>
+                      {capitalize(appointment.Subject.subject_name)} (
                     {capitalize(appointment.Subject.sub_subject_name)})
                   </td>
-                  {/* <td>{appointment.Subject.sub_subject_name}</td> */}
-                  <td>{dayjs(appointment.start_time).format("MM-DD-YYYY")}</td>
-                  <td>{dayjs(appointment.start_time).format("h:mm A")}</td>
-                  <td>{dayjs(appointment.end_time).format("h:mm A")}</td>
-                </tr>
-              </tbody>
-            </Table>
-          </div>
-        );
-      })}
-    </>
+                    {/* <td>{appointment.Subject.sub_subject_name}</td> */}
+                    <td>{dayjs(appointment.start_time).format("MM-DD-YYYY")}</td>
+                    <td>{dayjs(appointment.start_time).format("h:mm A")}</td>
+                    <td>{dayjs(appointment.end_time).format("h:mm A")}</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </div>
+
+          );
+        })}
+      </div>
+    </div>
   );
 }
 

@@ -42,7 +42,7 @@ function About () {
                 </div>
                 <div className="Card3">
                 <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="https://avatars1.githubusercontent.com/u/64038559?s=400&u=57edb188854f5e294c19dc7a656f6c4bbf814807&v=4" />
+                    <Card.Img variant="top" src="https://avatars0.githubusercontent.com/u/64038559?s=400&u=05ce0823c943d6fd9e8a8cd961ea8ca41d3d5bfd&v=4" />
                     <Card.Body>
                         <Card.Title>William Foody</Card.Title>
                         <Card.Text>
