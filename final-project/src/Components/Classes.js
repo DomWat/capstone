@@ -160,7 +160,7 @@ function Classes(props) {
 
   return (
     <div className='classesContainer'>
-        <h2>Browse by Subject</h2>
+        <h2>Browse Tutors by Subject</h2>
         <div className='filterDiv'>
       <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel id="demo-simple-select-outlined-label" className='filterBox'>Subject</InputLabel>
