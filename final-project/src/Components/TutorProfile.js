@@ -48,13 +48,13 @@ function TutorProfile() {
     specialty: ''
   })
 
-  const handleAdd = () => {
-    axios.post('http://localhost:3001/tutor/subject', {
+  const handleAdd =  async() => {
+    await axios.post('http://localhost:3001/tutor/subject', {
       subject_name: subject.subject,
       sub_subject_name: subject.specialty
     })
     handleClose()
-    fetchTutorProfile()
+     await fetchTutorProfile()
   }
 
   const handleOnChange = (e) => {
