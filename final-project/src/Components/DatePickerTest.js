@@ -130,11 +130,13 @@ function DateAndTimePickers(props) {
 
   return (
     <>
-      <MuiPickersUtilsProvider utils={DateDayjsUtils}>
+      <MuiPickersUtilsProvider utils={DateDayjsUtils} className='dateTimeColumn'>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <FormControl className={classes.formControl}>
-              <InputLabel id="demo-simple-select-label">Subject</InputLabel>
+              {/* <InputLabel id="demo-simple-select-label">Subject</InputLabel> */}
+              <p>Subject</p>
+
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
@@ -142,19 +144,23 @@ function DateAndTimePickers(props) {
                 onChange={handleSubjectChange}
               >
                 {props.subjectList.map((s) => (
-                  <MenuItem value={s.subject_id}>
+                  <MenuItem value={s.subject_id} className='subjectPicker'>
                     {capitalize.words(s.subject_name)} -{" "}
                     {capitalize.words(s.sub_subject_name)}
+                  
+                    
                   </MenuItem>
                 ))}
               </Select>
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
+          <p>Select a Date</p>
+
             <DatePicker
               margin="normal"
               id="date-picker-dialog"
-              label="Select a Date"
+              // label="Select a Date"
               format="MM/DD/YYYY"
               value={selectedDate}
               onChange={handleDateChange}
@@ -163,10 +169,11 @@ function DateAndTimePickers(props) {
         </Grid>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
+          <p>Select Start Time</p>
             <TimePicker
               margin="normal"
               id="time-picker"
-              label="Select Start Time"
+              // label="Select Start Time"
               name="start time"
               value={startTime}
               minutesStep={5}
@@ -174,9 +181,10 @@ function DateAndTimePickers(props) {
             />
           </Grid>
           <Grid item xs={12} sm={6}>
+            <p>Select End Time</p>
             <TimePicker
               margin="normal"
-              label="Select End Time"
+              // label="Select End Time"
               name="end time"
               value={endTime}
               minutesStep={5}
@@ -185,6 +193,7 @@ function DateAndTimePickers(props) {
           </Grid>
         </Grid>
       </MuiPickersUtilsProvider>
+      
       <div className={classes.root}>
         <Button variant="contained" color="primary" onClick={createAppointment}>
           Book
@@ -199,17 +208,18 @@ function DateAndTimePickers(props) {
             {"Appointment Scheduled!"}
           </DialogTitle>
           <DialogContent>
-            <DialogContentText id="alert-dialog-description">
+            <DialogContentText id="alert-dialog-description" className='alert-dialog-description'>
               You're all set! Check your inbox for a confirmation email
               containing details about your upcoming tutoring session!
             </DialogContentText>
           </DialogContent>
-          <DialogActions>
+          <DialogActions className='bookButtonDetails'>
             <Button
               onClick={handleClose}
               color="primary"
               //href="/classes"
               autoFocus
+              className='bookButtonDetails'
             >
               Close
             </Button>

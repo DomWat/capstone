@@ -93,6 +93,8 @@
 .studentTopContent {
     display: flex;
     flex-direction: column;
+    background-color: #5a56fa1c;
+
 }
 
 
@@ -111,6 +113,18 @@
     color: rgb(13, 19, 70);
     align-self: center;
 }
+
+.appointment-title-alt {
+    display: flex;
+    align-self: center;
+    font-size: 25px;
+}
+
+.appointment-title-alt .studentNav {
+    display: inline;
+
+}
+
 
 
 

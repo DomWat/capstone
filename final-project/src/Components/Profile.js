@@ -3,6 +3,7 @@ import axios from "axios";
 import Table from "react-bootstrap/Table";
 import "../styles/StudentProfile.css";
 import dayjs from "dayjs";
+import {NavLink} from 'react-router-dom';
 import capitalize from "capitalize";
 
 function Profile() {
@@ -59,9 +60,8 @@ function Profile() {
           {/* <p className="information">{student.student.email}</p> */}
         </div>
       </div>
-      <h1 className="appointment-title-student">
-        <b>Tutoring Sessions</b>
-      </h1>
+      {student.student.Appointments.length != 0 ? <h1 className='appointment-title-student'><b>Tutoring Sessions</b></h1> : 
+      <p className='appointment-title-alt'>You haven't scheduled any lessons yet. Head to our&nbsp;<NavLink to='/classes' className='studentNav'>Find Tutors</NavLink>&nbsp;page to start learning!</p> }
       {student.student.Appointments.map((appointment) => {
         return (
           <div className="Container-2">
