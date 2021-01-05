@@ -122,30 +122,45 @@ function Classes(props) {
     let subjectItems = tutor.Subjects.map((subject) => {
       return (
         <div key={subject.subject_id}>
-          <span className='tutorBolds'>Subject:</span> {capitalize(subject.subject_name)} ({capitalize(subject.sub_subject_name)})
+          <span className='tutorBolds'></span> {capitalize(subject.subject_name)} ({capitalize(subject.sub_subject_name)})
         </div>
       );
     });
 
     return (
-      <div key={tutor.tutor_id} className='tutorItem'>
-        <li>
-          <span className='tutorBolds'>Name:</span> {capitalize(tutor.first_name)} {tutor.last_name}<br></br> 
-          <span className='tutorBolds'>Email:</span> {tutor.email}<br></br>
-          {/* Image: {tutor.image},  */}
-          <span className='tutorBolds'>Description:</span> {tutor.description}<br></br>
-          {subjectItems}
-        </li>
-        <NavLink to={"/tutor/" + tutor.tutor_id}>
-          <button className='classesBookButton'>Book Lesson</button>
-        </NavLink>
-        <hr></hr>
+      <div key={tutor.tutor_id} className="tutorItem">
+        <div className="tutorContentDiv">
+          <div className="nameEmailDiv">
+            <li>
+              <span className="tutorBolds">Name:</span>{" "}
+              {capitalize(tutor.first_name)} {tutor.last_name}
+              <br></br>
+              <span className="tutorBolds">Email:</span> {tutor.email}
+              <br></br>
+              {/* Image: {tutor.image},  */}
+              <span className="tutorBolds">Description:</span>{" "}
+              {tutor.description}
+            </li>
+          </div>
+          {/* <span className="tutorBolds">Subjects:</span> */}
+          <div className="subjectsDiv">
+            <div className="tutorBolds">Subjects:</div>
+            {subjectItems}
+          </div>
+        </div>
+        <div className="buttonDiv">
+          <NavLink to={"/tutor/" + tutor.tutor_id}>
+            <button className="classesBookButton">Book Lesson</button>
+          </NavLink>
+        </div>
+        {/* <hr></hr> */}
       </div>
     );
   });
 
   return (
     <div className='classesContainer'>
+        <h2>Browse by Subject</h2>
         <div className='filterDiv'>
       <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel id="demo-simple-select-outlined-label" className='filterBox'>Subject</InputLabel>
