@@ -194,12 +194,15 @@ function DateAndTimePickers(props) {
         </Grid>
       </MuiPickersUtilsProvider>
       
-      <div className={classes.root}>
+      <div className={classes.root} className='datePickerButtonDiv'>
         <div className='bookButtonDiv'>
-        <Button variant="contained" color="primary" onClick={createAppointment} className='bookButtonDetails'
+        {/* <Button variant="contained" color="primary" onClick={createAppointment} className='bookButtonDetails'
 >
           Book
-        </Button>
+        </Button> */}
+        <button onClick={createAppointment} className='bookButtonDetails'>
+          Book
+        </button>
         </div>
         <Dialog
           open={open}

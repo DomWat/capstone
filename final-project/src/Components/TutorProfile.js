@@ -230,7 +230,7 @@ function TutorProfile() {
             </div>
 
             <div className="tutor-subject">
-              <p className="subjectsTutoredTitle">Subject(s) you tutor: </p>
+              <p className="subjectsTutoredTitle">Your Subject(s): </p>
               <div className="tutorSubjectsBox">
                 {tutor.tutor.Subjects.map((subject) => {
                   return (
