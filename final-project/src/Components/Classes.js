@@ -154,6 +154,7 @@ function Classes(props) {
           </div>
         </div>
         <hr></hr>
+        </div>
       </>
     );
   });
