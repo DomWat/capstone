@@ -59,8 +59,8 @@ Why an app such as this can be helpful:
 ## Videos and Screenshots
 <p>goodtutor Overview</p>
 
-<img src="./images/goodtutor-website-overview.gif" width=900 height=500>
-![goodtutor-website-overview](https://user-images.githubusercontent.com/70726489/103716568-63e90580-4f91-11eb-98c6-c00beab7140f.gif)
+![goodtutor-website-overview](https://user-images.githubusercontent.com/70726489/103721295-520c6000-4f9b-11eb-94fa-71b591ef5637.gif)
+
 
 <p>Student Account</p>
 <img src="" width=900 height=500>
