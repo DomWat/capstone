@@ -3,7 +3,7 @@ import axios from "axios";
 import Table from "react-bootstrap/Table";
 import "../styles/StudentProfile.css";
 import dayjs from "dayjs";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import capitalize from "capitalize";
 
 function Profile() {
@@ -17,7 +17,9 @@ function Profile() {
   }, []);
 
   const fetchStudentProfile = async () => {
-    let response = await axios.get("http://localhost:3001/student/me");
+    let response = await axios.get(
+      "https://tranquil-everglades-92280.herokuapp.com/student/me"
+    );
     const studentData = response.data;
     console.log(studentData);
 
@@ -60,12 +62,22 @@ function Profile() {
           {/* <p className="information">{student.student.email}</p> */}
         </div>
       </div>
-      {student.student.Appointments.length != 0 ? <h1 className='appointment-title-student'><b>Tutoring Sessions</b></h1> :
-        <p className='appointment-title-alt'>You haven't scheduled any lessons yet. Head to our&nbsp;<NavLink to='/classes' className='studentNav'>Find Tutors</NavLink>&nbsp;page to start learning!</p>}
+      {student.student.Appointments.length != 0 ? (
+        <h1 className="appointment-title-student">
+          <b>Tutoring Sessions</b>
+        </h1>
+      ) : (
+        <p className="appointment-title-alt">
+          You haven't scheduled any lessons yet. Head to our&nbsp;
+          <NavLink to="/classes" className="studentNav">
+            Find Tutors
+          </NavLink>
+          &nbsp;page to start learning!
+        </p>
+      )}
       {student.student.Appointments.map((appointment) => {
         return (
           <div className="Container-2">
-
             {/* <Table striped bordered hover size="sm" className="table">
               <thead className="table-heading">
                 <tr>
@@ -96,60 +108,46 @@ function Profile() {
                 </tr>
               </tbody>
             </Table> */}
-            <div className='studentProfileLessonTableContainer'>
-              <div className='studentProfileLessonTable'>
-
-                <div className='studentProfileLessonItem'>
-                  <div className='studentProfileTableLabel'>
-                    Tutor name:
-                </div>
-                  <div className='studentProfileTableData'>
+            <div className="studentProfileLessonTableContainer">
+              <div className="studentProfileLessonTable">
+                <div className="studentProfileLessonItem">
+                  <div className="studentProfileTableLabel">Tutor name:</div>
+                  <div className="studentProfileTableData">
                     {capitalize.words(appointment.Tutor.first_name)}{" "}
                     {capitalize.words(appointment.Tutor.last_name)}
                   </div>
                 </div>
-                <div className='studentProfileLessonItem'>
-                  <div className='studentProfileTableLabel'>
-                    Tutor email:
-                </div>
-                  <div className='studentProfileTableData'>
+                <div className="studentProfileLessonItem">
+                  <div className="studentProfileTableLabel">Tutor email:</div>
+                  <div className="studentProfileTableData">
                     {appointment.Tutor.email}
                   </div>
                 </div>
-                <div className='studentProfileLessonItem'>
-                  <div className='studentProfileTableLabel'>
-                    Subject:
-                </div>
-                  <div className='studentProfileTableData'>
-                  {capitalize.words(appointment.Subject.subject_name)} (
+                <div className="studentProfileLessonItem">
+                  <div className="studentProfileTableLabel">Subject:</div>
+                  <div className="studentProfileTableData">
+                    {capitalize.words(appointment.Subject.subject_name)} (
                     {capitalize.words(appointment.Subject.sub_subject_name)})
                   </div>
                 </div>
-                <div className='studentProfileLessonItem'>
-                  <div className='studentProfileTableLabel'>
-                    Date:
-                </div>
-                  <div className='studentProfileTableData'>
+                <div className="studentProfileLessonItem">
+                  <div className="studentProfileTableLabel">Date:</div>
+                  <div className="studentProfileTableData">
                     {dayjs(appointment.start_time).format("MM-DD-YYYY")}
                   </div>
                 </div>
-                <div className='studentProfileLessonItem'>
-                  <div className='studentProfileTableLabel'>
-                    Start time:
-                </div>
-                  <div className='studentProfileTableData'>
+                <div className="studentProfileLessonItem">
+                  <div className="studentProfileTableLabel">Start time:</div>
+                  <div className="studentProfileTableData">
                     {dayjs(appointment.start_time).format("h:mm A")}
                   </div>
                 </div>
-                <div className='studentProfileLessonItem'>
-                  <div className='studentProfileTableLabel'>
-                    End time:
-                </div>
-                  <div className='studentProfileTableData'>
+                <div className="studentProfileLessonItem">
+                  <div className="studentProfileTableLabel">End time:</div>
+                  <div className="studentProfileTableData">
                     {dayjs(appointment.end_time).format("h:mm A")}
                   </div>
                 </div>
-               
               </div>
             </div>
           </div>

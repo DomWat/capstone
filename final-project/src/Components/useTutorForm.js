@@ -51,16 +51,19 @@ const useTutorForm = (Validate, props) => {
       setErrors(errors);
     } else {
       await axios({
-        url: "http://localhost:3001/register/tutor",
+        url: "https://tranquil-everglades-92280.herokuapp.com/register/tutor",
         method: "POST",
         data: values,
       });
       //console.log("Data has been sent to the server");
       //logging tutor in after sign-up
-      const response = await axios.post("http://localhost:3001/login/tutor", {
-        email: values.email,
-        password: values.password,
-      });
+      const response = await axios.post(
+        "https://tranquil-everglades-92280.herokuapp.com/login/tutor",
+        {
+          email: values.email,
+          password: values.password,
+        }
+      );
       await handleLogin(response.data);
 
       props.history.push("/tutor-profile");

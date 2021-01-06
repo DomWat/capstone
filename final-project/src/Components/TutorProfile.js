@@ -24,8 +24,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
 // === Meterial ui styling (start) === //
 
 function TutorProfile() {
@@ -44,25 +42,28 @@ function TutorProfile() {
   };
 
   const [subject, setSubject] = useState({
-    subject: '',
-    specialty: ''
-  })
+    subject: "",
+    specialty: "",
+  });
 
   const handleAdd = async () => {
-    await axios.post('http://localhost:3001/tutor/subject', {
-      subject_name: subject.subject,
-      sub_subject_name: subject.specialty
-    })
-    handleClose()
-    await fetchTutorProfile()
-  }
+    await axios.post(
+      "https://tranquil-everglades-92280.herokuapp.com/tutor/subject",
+      {
+        subject_name: subject.subject,
+        sub_subject_name: subject.specialty,
+      }
+    );
+    handleClose();
+    await fetchTutorProfile();
+  };
 
   const handleOnChange = (e) => {
     setSubject({
       ...subject,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const [tutor, setTutor] = useState({
     tutor: {
@@ -90,10 +91,12 @@ function TutorProfile() {
     sunday: tutor.tutor.Schedule.sunday,
   });
 
-  console.log(tutor.tutor.first_name)
+  console.log(tutor.tutor.first_name);
 
   const fetchTutorProfile = async () => {
-    let response = await axios.get("http://localhost:3001/tutor/me");
+    let response = await axios.get(
+      "https://tranquil-everglades-92280.herokuapp.com/tutor/me"
+    );
     const tutorData = response.data;
 
     // setting description to corresponding values on load
@@ -135,20 +138,26 @@ function TutorProfile() {
     });
 
     // make axios call to update the description
-    await axios.put("http://localhost:3001/tutor/description", {
-      description: description,
-    });
+    await axios.put(
+      "https://tranquil-everglades-92280.herokuapp.com/tutor/description",
+      {
+        description: description,
+      }
+    );
 
     // make axios call to update the schedule
-    await axios.put("http://localhost:3001/tutor/schedule", {
-      monday: schedule.monday,
-      tuesday: schedule.tuesday,
-      wednesday: schedule.wednesday,
-      thursday: schedule.thursday,
-      friday: schedule.friday,
-      saturday: schedule.saturday,
-      sunday: schedule.sunday
-    })
+    await axios.put(
+      "https://tranquil-everglades-92280.herokuapp.com/tutor/schedule",
+      {
+        monday: schedule.monday,
+        tuesday: schedule.tuesday,
+        wednesday: schedule.wednesday,
+        thursday: schedule.thursday,
+        friday: schedule.friday,
+        saturday: schedule.saturday,
+        sunday: schedule.sunday,
+      }
+    );
   };
 
   // handleDescriptionEdit function
@@ -161,9 +170,9 @@ function TutorProfile() {
   const handleScheduleEdit = (e) => {
     setSchedule({
       ...schedule,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <div className="wholeTutorProfile">
@@ -406,12 +415,17 @@ function TutorProfile() {
           </div>
         </div>
       </div>
-        {tutor.tutor.Appointments.length != 0 ? <h1 className='appointment-title-student'><b>Tutoring Sessions</b></h1> :
-        <p className='appointment-title-alt'>You have no lessons scheduled.</p>}
-        {tutor.tutor.Appointments.map((appointment) => {
-          return (
-            <div className="Container-2">
-              {/* <Table striped bordered hover size="sm">
+      {tutor.tutor.Appointments.length != 0 ? (
+        <h1 className="appointment-title-student">
+          <b>Tutoring Sessions</b>
+        </h1>
+      ) : (
+        <p className="appointment-title-alt">You have no lessons scheduled.</p>
+      )}
+      {tutor.tutor.Appointments.map((appointment) => {
+        return (
+          <div className="Container-2">
+            {/* <Table striped bordered hover size="sm">
                 <thead>
                   <tr>
                     <th>Student Name:</th>
@@ -445,66 +459,51 @@ function TutorProfile() {
                 </tbody>
               </Table> */}
 
-              <div className='studentProfileLessonTableContainer'>
-              <div className='studentProfileLessonTable'>
-
-                <div className='studentProfileLessonItem'>
-                  <div className='studentProfileTableLabel'>
-                    Student name:
-                </div>
-                  <div className='studentProfileTableData'>
-                  {capitalize.words(appointment.Student.first_name)}{" "}
-                      {capitalize.words(appointment.Student.last_name)}
+            <div className="studentProfileLessonTableContainer">
+              <div className="studentProfileLessonTable">
+                <div className="studentProfileLessonItem">
+                  <div className="studentProfileTableLabel">Student name:</div>
+                  <div className="studentProfileTableData">
+                    {capitalize.words(appointment.Student.first_name)}{" "}
+                    {capitalize.words(appointment.Student.last_name)}
                   </div>
                 </div>
-                <div className='studentProfileLessonItem'>
-                  <div className='studentProfileTableLabel'>
-                    Student email:
-                </div>
-                  <div className='studentProfileTableData'>
+                <div className="studentProfileLessonItem">
+                  <div className="studentProfileTableLabel">Student email:</div>
+                  <div className="studentProfileTableData">
                     {appointment.Student.email}
                   </div>
                 </div>
-                <div className='studentProfileLessonItem'>
-                  <div className='studentProfileTableLabel'>
-                    Subject:
-                </div>
-                  <div className='studentProfileTableData'>
-                  {capitalize.words(appointment.Subject.subject_name)} (
-                      {capitalize.words(appointment.Subject.sub_subject_name)})
+                <div className="studentProfileLessonItem">
+                  <div className="studentProfileTableLabel">Subject:</div>
+                  <div className="studentProfileTableData">
+                    {capitalize.words(appointment.Subject.subject_name)} (
+                    {capitalize.words(appointment.Subject.sub_subject_name)})
                   </div>
                 </div>
-                <div className='studentProfileLessonItem'>
-                  <div className='studentProfileTableLabel'>
-                    Date:
-                </div>
-                  <div className='studentProfileTableData'>
+                <div className="studentProfileLessonItem">
+                  <div className="studentProfileTableLabel">Date:</div>
+                  <div className="studentProfileTableData">
                     {dayjs(appointment.start_time).format("MM-DD-YYYY")}
                   </div>
                 </div>
-                <div className='studentProfileLessonItem'>
-                  <div className='studentProfileTableLabel'>
-                    Start time:
-                </div>
-                  <div className='studentProfileTableData'>
+                <div className="studentProfileLessonItem">
+                  <div className="studentProfileTableLabel">Start time:</div>
+                  <div className="studentProfileTableData">
                     {dayjs(appointment.start_time).format("h:mm A")}
                   </div>
                 </div>
-                <div className='studentProfileLessonItem'>
-                  <div className='studentProfileTableLabel'>
-                    End time:
-                </div>
-                  <div className='studentProfileTableData'>
+                <div className="studentProfileLessonItem">
+                  <div className="studentProfileTableLabel">End time:</div>
+                  <div className="studentProfileTableData">
                     {dayjs(appointment.end_time).format("h:mm A")}
                   </div>
                 </div>
-              
               </div>
             </div>
-            </div>
-          );
-        })}
-      
+          </div>
+        );
+      })}
     </div>
   );
 }

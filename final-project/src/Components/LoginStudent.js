@@ -55,10 +55,13 @@ function LoginStudent(props) {
   const userLoggedIn = async () => {
     //making fetch call to server
     try {
-      const response = await axios.post("http://localhost:3001/login/student", {
-        email: user.email,
-        password: user.password,
-      });
+      const response = await axios.post(
+        "https://tranquil-everglades-92280.herokuapp.com/login/student",
+        {
+          email: user.email,
+          password: user.password,
+        }
+      );
       const result = response.data;
       console.log(result);
       return result;
@@ -125,10 +128,13 @@ function LoginStudent(props) {
   //Guest Login function
   const guestLoggedIn = async () => {
     try {
-      const response = await axios.post("http://localhost:3001/login/student", {
-        email: ".student@guest.com",
-        password: "pass123",
-      });
+      const response = await axios.post(
+        "https://tranquil-everglades-92280.herokuapp.com/login/student",
+        {
+          email: ".student@guest.com",
+          password: "pass123",
+        }
+      );
       const result = response.data;
       console.log(result);
       return result;

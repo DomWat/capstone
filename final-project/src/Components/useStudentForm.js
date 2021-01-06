@@ -49,14 +49,17 @@ const useStudentForm = (Validate, props) => {
       setErrors(errors);
     } else {
       await axios({
-        url: "http://localhost:3001/register/student",
+        url: "https://tranquil-everglades-92280.herokuapp.com/register/student",
         method: "POST",
         data: values,
       });
-      const response = await axios.post("http://localhost:3001/login/student", {
-        email: values.email,
-        password: values.password,
-      });
+      const response = await axios.post(
+        "https://tranquil-everglades-92280.herokuapp.com/login/student",
+        {
+          email: values.email,
+          password: values.password,
+        }
+      );
       await handleLogin(response.data);
 
       props.history.push("/profile");
