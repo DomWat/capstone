@@ -58,7 +58,8 @@ Why an app such as this can be helpful:
 * In this web application, tutors are able to share their knowledge and availability for assistance. As for students,they are able to register, choose specific tutor depending their needs, and review previous tutors history.
 ## Videos and Screenshots
 <p>goodtutor Overview</p>
-<img src="/images/goodtutor-website-overview.gif" width=900 height=500>
+<img src="https://github.com/DomWat/capstone/blod/main/images/goodtutor-website-overview.gif" width=900 height=500>
+
 <p>Student Account</p>
 <img src="" width=900 height=500>
 <p>Tutor's Account</p>
