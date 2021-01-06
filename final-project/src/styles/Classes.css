@@ -91,6 +91,7 @@
         flex-direction: column;
         padding: 50px;
         font-size: 22px;
+        margin: 0;
     }
 
     .tutorItem:hover {

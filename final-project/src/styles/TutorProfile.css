@@ -42,8 +42,10 @@
     text-decoration: underline;
     font-family: Futura Bold;
     letter-spacing: 0.5px;
+}
 
-
+input {
+    font-family: Futura !important;
 }
 
 .nameInformation .nameReal {
@@ -90,10 +92,10 @@
     text-align: left !important;
 }
 
-.MuiTextField-root {
+/* .MuiTextField-root {
     margin: 0 0 20px 0 !important;
     font-family: Futura !important;
-}
+} */
 
 
 
@@ -103,14 +105,19 @@
     display: flex;
     flex-direction: column;
     font-family: Futura;
+    padding-left: 5%;
 
+}
+
+.tutor-content hr {
+    width: 100%;
 }
 
 .tutor-description{
 /* position: absolute; */
 flex-wrap: wrap;
 margin-top: 15px;
-margin-bottom: 15px;
+margin-bottom: 25px;
 font-family: Futura !important;
 }
 
@@ -143,7 +150,7 @@ font-family: Futura !important;
 
 .upperhalfTutor {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     padding-bottom: 60px;
 
@@ -153,6 +160,7 @@ font-family: Futura !important;
     display:flex;
     flex-direction: column;
     font-size: 20px;
+    padding-left: 5%;
     /* margin-top: 150px; */
     /* align-items: center; */
 }
@@ -189,15 +197,18 @@ span.MuiButton-label {
 .tutorScheduleContainer {
     display:flex;
     flex-direction: column;
+    align-self: center;
     /* margin-top: 100px;  */
     /* align-items: center;  */
     text-align: right; 
     font-family: Futura;
+    /* padding-left: 5%; */
 }
 
 .tutorScheduleContainer label {
     font-size: 22px;
     text-align: right;
+    padding-left: 5%;
 }
 
 .tutorScheduleContainer input {
@@ -213,6 +224,9 @@ span.MuiButton-label {
     text-decoration: underline;
     margin-bottom: 50px;
     letter-spacing: 0.5px;
+    /* padding-left: 5%; */
+    padding-top: 50px;
+    /* text-align: center; */
 
 }
 
@@ -226,10 +240,13 @@ span.MuiButton-label {
     margin-bottom: 10px !important;
 }
 
-.weekdayP {
+p.weekdayP {
+    width: 100%;
     margin: 0 !important;
-    padding: 0;
+    padding: 0 !important;
     font-size: 20px;
+    text-align: right;
+    margin-right: 0 !important;
 }
 
 /* .scheduleDay {
@@ -245,3 +262,50 @@ span.MuiButton-label {
     flex-direction: column;
     align-items: center;
 }
+
+@media only screen and (min-width: 769px) {
+    .upperhalfTutor {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding-bottom: 60px;
+    
+    }
+    .tutor-content {
+        /* margin-top: 50px; */
+        justify-content: left;
+        display: flex;
+        flex-direction: column;
+        font-family: Futura;
+    
+    }
+
+    .tutor-subject{
+        display:flex;
+        flex-direction: column;
+        font-size: 20px;
+        /* margin-top: 150px; */
+        /* align-items: center; */
+    }
+
+    .tutorScheduleContainer {
+        display:flex;
+        flex-direction: column;
+        /* margin-top: 100px;  */
+        /* align-items: center;  */
+        text-align: right; 
+        font-family: Futura;
+    }
+
+    .scheduleTitle {
+       
+        padding-top: 0px;
+    
+    }
+
+    .tutorScheduleContainer input {
+        font-family: Futura;
+        text-align: right;
+        font-size: 18px;
+    }
+    }

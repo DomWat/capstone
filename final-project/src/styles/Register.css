@@ -12,11 +12,15 @@ label {
 
 }
 
+/* span.MuiTouchRipple-root {
+    width: 200px !important;
+} */
+
 .registerButton {
     font-family: Futura !important;
     /* background-color: rgb(90,86,250) !important; */
     background-color: rgb(15, 39, 83) !important;
-
+    width: 100% !important;
     margin-top: 20px !important;
     margin-bottom: 10px !important;
     height: 60px ;
@@ -39,4 +43,8 @@ label {
     justify-content: left !important;
     padding-left: 6px;
 
+}
+
+div.MuiGrid-root.MuiGrid-container.MuiGrid-sapcing-xs-2 {
+    margin: 0 !important;
 }

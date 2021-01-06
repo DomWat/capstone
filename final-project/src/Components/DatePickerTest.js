@@ -195,9 +195,12 @@ function DateAndTimePickers(props) {
       </MuiPickersUtilsProvider>
       
       <div className={classes.root}>
-        <Button variant="contained" color="primary" onClick={createAppointment}>
+        <div className='bookButtonDiv'>
+        <Button variant="contained" color="primary" onClick={createAppointment} className='bookButtonDetails'
+>
           Book
         </Button>
+        </div>
         <Dialog
           open={open}
           onClose={handleClose}
@@ -213,13 +216,12 @@ function DateAndTimePickers(props) {
               containing details about your upcoming tutoring session!
             </DialogContentText>
           </DialogContent>
-          <DialogActions className='bookButtonDetails'>
+          <DialogActions >
             <Button
               onClick={handleClose}
               color="primary"
               //href="/classes"
               autoFocus
-              className='bookButtonDetails'
             >
               Close
             </Button>

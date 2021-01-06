@@ -130,6 +130,7 @@ function Classes(props) {
     });
 
     return (
+      <>
       <div key={tutor.tutor_id} className="tutorItem">
         <div className="tutorContentDiv">
           <div className="nameEmailDiv">
@@ -155,8 +156,10 @@ function Classes(props) {
             <button className="classesBookButton">Book Lesson</button>
           </NavLink>
         </div>
-        {/* <hr></hr> */}
+        
       </div>
+      <hr></hr>
+      </>
     );
   });
 

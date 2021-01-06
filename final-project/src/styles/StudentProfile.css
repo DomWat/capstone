@@ -1,51 +1,4 @@
 
-/* .users-information {
-    display: flex;
-    padding: 10px;
-    font-family: Futura;
-
-
-} */
-
-/* 
- .users-information, .information {
-    justify-content: center;
-} 
-
-.users-title, .appointment-title {
-    display: flex;
-    font-family: Futura;
-    justify-content: center;
-    margin-bottom: 50px;
-    margin-top: 50px;
-
-} */
-
-/* .content {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
-    font-family: Futura;
-    margin-top: 50px;
-    
-} */
-
-/* .photo-title {
-    justify-content: center;
-}
-
-.student-photo {
-    display: flex;
-    bottom:0;
-    text-align: center;
-    left:0;
-}
-
-.photo {
-    display:flex;
-    justify-content: center;
-} */
-
 .wholeStudentProf {
     font-family: Futura;
     background-color: rgb(250, 250, 250);
@@ -59,12 +12,13 @@
     display: flex;
     flex-direction: column;
     /* align-items: center; */
+    height: 270px;
 }
 
 .studentTitle {
     padding-top: 50px;
     color: rgb(13, 19, 70);
-    padding-bottom: 50px;
+    padding-bottom: 20px;
     align-self: center;
 
 }
@@ -75,7 +29,7 @@
     font-size: 25px;
     padding-bottom: 100px;
     color: rgb(13, 19, 70);
-    padding-left: 25%;
+    /* padding-left: 2%; */
 
 }
 
@@ -99,14 +53,14 @@
 
 
 
-.Container-2{
+/* .Container-2{
     font-family: Futura;
     display: flex;
     width: 1000px;
     margin-left:auto;
     margin-right: auto;
 
-}
+} */
 
 .appointment-title-student {
     padding-bottom: 30px;
@@ -139,7 +93,107 @@ th,td,tr{
 
 .tutors-container {
     display: flex;
-    
+}
+
+.studentProfileLessonTable {
+    /* width: 100%; */
+    /* text-align: center; */
+    font-size: 20px;
+    margin-bottom: 50px;
+    border: solid;
+    border-width: 1px;
+    margin-left: 3%;
+    margin-right: 3%;
+    border-color: rgb(171, 174, 182);
+border-radius: 5px;
+}
+
+
+
+.studentProfileTableLabel {
+    background-color: #5a56fa1c;
+    /* background-color: rgb(214, 226, 241); */
+    padding-left: 10px;
+    font-size: 30px;
+    height: 50px;
+    font-weight: bold;
+    text-decoration: underline;
+
+}
+
+.studentProfileTableData {
+    height: 50px;
+    padding-left: 10px;
+    font-size: 28px;
+
+}
+
+@media only screen and (min-width: 769px) {
+
+    .studentNameItem {
+        padding-left: 13%; 
+    }
+
+    .studentProfileLessonTable {
+        display: flex;
+        flex-direction: row;
+        width: 94%;
+        justify-content: space-around;
+        font-size: 15px;
+        border: solid;
+        border-width: 1px;
+        border-color: rgb(185, 189, 199);
+        margin-left: 3%;
+        margin-right: 3%;
+        border-radius: 4px;
+    }
+
+    .studentProfileLessonTableContainer {
+        display: flex;
+        flex-direction: column;
+        /* width: 100%; */
+    }
+
+    div.studentProfileLessonTableContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .studentProfileTableLabel {
+        display: flex;
+        width: 100%;
+        padding-left: 5px;
+        padding-top: 5px;
+        font-size: 20px;
+        /* border-bottom: grey;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+
+        border-width: 1px;
+        border-style: solid; */
+    }
+
+    .studentProfileTableData {
+        width: 100%;
+        text-align: left;
+        padding-left: 5px;
+        font-size: 15px;
+        padding-top: 10px;
+
+    }
+
+    .studentProfileLessonItem {
+        width: 100%;    
+        overflow: hidden;
+        border-right: rgb(185, 189, 199);
+        border-right-width: 1px;
+        border-right-style: solid;
+        /* border-radius: 4px; */
+
+    }
+
 
 }
 

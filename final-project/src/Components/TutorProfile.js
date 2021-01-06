@@ -406,21 +406,18 @@ function TutorProfile() {
           </div>
         </div>
       </div>
-      <div className="appointmentTable">
-        <h1 className="appointment-title-tutor">
-          <b>Tutoring Sessions</b>
-        </h1>
+        {tutor.tutor.Appointments.length != 0 ? <h1 className='appointment-title-student'><b>Tutoring Sessions</b></h1> :
+        <p className='appointment-title-alt'>You have no lessons scheduled.</p>}
         {tutor.tutor.Appointments.map((appointment) => {
           return (
             <div className="Container-2">
-              <Table striped bordered hover size="sm">
+              {/* <Table striped bordered hover size="sm">
                 <thead>
                   <tr>
                     <th>Student Name:</th>
 
                     <th>Student E-Mail:</th>
                     <th>Subject:</th>
-                    {/* <th>Specialty:</th> */}
                     <th>Date:</th>
                     <th>Start Time:</th>
                     <th>End Time:</th>
@@ -439,7 +436,6 @@ function TutorProfile() {
                       {capitalize.words(appointment.Subject.subject_name)} (
                       {capitalize.words(appointment.Subject.sub_subject_name)})
                     </td>
-                    {/* <td>{appointment.Subject.sub_subject_name}</td> */}
                     <td>
                       {dayjs(appointment.start_time).format("MM-DD-YYYY")}
                     </td>
@@ -447,11 +443,68 @@ function TutorProfile() {
                     <td>{dayjs(appointment.end_time).format("h:mm A")}</td>
                   </tr>
                 </tbody>
-              </Table>
+              </Table> */}
+
+              <div className='studentProfileLessonTableContainer'>
+              <div className='studentProfileLessonTable'>
+
+                <div className='studentProfileLessonItem'>
+                  <div className='studentProfileTableLabel'>
+                    Student name:
+                </div>
+                  <div className='studentProfileTableData'>
+                  {capitalize.words(appointment.Student.first_name)}{" "}
+                      {capitalize.words(appointment.Student.last_name)}
+                  </div>
+                </div>
+                <div className='studentProfileLessonItem'>
+                  <div className='studentProfileTableLabel'>
+                    Student email:
+                </div>
+                  <div className='studentProfileTableData'>
+                    {appointment.Student.email}
+                  </div>
+                </div>
+                <div className='studentProfileLessonItem'>
+                  <div className='studentProfileTableLabel'>
+                    Subject:
+                </div>
+                  <div className='studentProfileTableData'>
+                  {capitalize.words(appointment.Subject.subject_name)} (
+                      {capitalize.words(appointment.Subject.sub_subject_name)})
+                  </div>
+                </div>
+                <div className='studentProfileLessonItem'>
+                  <div className='studentProfileTableLabel'>
+                    Date:
+                </div>
+                  <div className='studentProfileTableData'>
+                    {dayjs(appointment.start_time).format("MM-DD-YYYY")}
+                  </div>
+                </div>
+                <div className='studentProfileLessonItem'>
+                  <div className='studentProfileTableLabel'>
+                    Start time:
+                </div>
+                  <div className='studentProfileTableData'>
+                    {dayjs(appointment.start_time).format("h:mm A")}
+                  </div>
+                </div>
+                <div className='studentProfileLessonItem'>
+                  <div className='studentProfileTableLabel'>
+                    End time:
+                </div>
+                  <div className='studentProfileTableData'>
+                    {dayjs(appointment.end_time).format("h:mm A")}
+                  </div>
+                </div>
+              
+              </div>
+            </div>
             </div>
           );
         })}
-      </div>
+      
     </div>
   );
 }
