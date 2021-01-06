@@ -16,6 +16,7 @@ import { purple } from "@material-ui/core/colors";
 import { setAuthenticationHeader } from "../utils/authenticate";
 import { connect } from "react-redux";
 import "../styles/Login.css";
+import { NavLink } from 'react-router-dom'
 //import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -217,9 +218,9 @@ function LoginStudent(props) {
                 {"Don't have a student account? Sign Up"}
               </Link>
               <br></br>
-              <Link href="/login/tutor" variant="body2" className="signinLink">
+              <NavLink to="/login/tutor" variant="body2" className="signinLink">
                 {"Sign in as Tutor"}
-              </Link>
+              </NavLink>
             </Grid>
           </Grid>
         </form>
