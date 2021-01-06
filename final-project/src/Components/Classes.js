@@ -90,7 +90,7 @@ function Classes(props) {
 
   const fetchTutors = async () => {
     return fetch(
-      `http://localhost:3001/all-tutors?subject=${subject.subject}&sub_subject=${subject.specialty}`
+      `https://tranquil-everglades-92280.herokuapp.com/all-tutors?subject=${subject.subject}&sub_subject=${subject.specialty}`
     )
       .then((response) => response.json())
       .then((result) => {
@@ -131,6 +131,7 @@ function Classes(props) {
 
     return (
       <>
+
       <div key={tutor.tutor_id} className="tutorItem">
         <div className="tutorContentDiv">
           <div className="nameEmailDiv">
@@ -144,21 +145,15 @@ function Classes(props) {
               <span className="tutorBolds">Description:</span>{" "}
               {tutor.description}
             </li>
+
           </div>
-          {/* <span className="tutorBolds">Subjects:</span> */}
-          <div className="subjectsDiv">
-            <div className="tutorBolds">Subject(s):</div>
-            {subjectItems}
+          <div className="buttonDiv">
+            <NavLink to={"/tutor/" + tutor.tutor_id}>
+              <button className="classesBookButton">Book Lesson</button>
+            </NavLink>
           </div>
         </div>
-        <div className="buttonDiv">
-          <NavLink to={"/tutor/" + tutor.tutor_id}>
-            <button className="classesBookButton">Book Lesson</button>
-          </NavLink>
-        </div>
-        
-      </div>
-      <hr></hr>
+        <hr></hr>
       </>
     );
   });

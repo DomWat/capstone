@@ -120,7 +120,7 @@ function DateAndTimePickers(props) {
   const createAppointment = async () => {
     handleClickOpen();
     await axios.post(
-      `http://localhost:3001/student/appointment/${subjectId}/${props.tutorId}`,
+      `https://tranquil-everglades-92280.herokuapp.com/student/appointment/${subjectId}/${props.tutorId}`,
       {
         start_time: utcStartTime.toString(),
         end_time: utcEndTime.toString(),
@@ -130,7 +130,10 @@ function DateAndTimePickers(props) {
 
   return (
     <>
-      <MuiPickersUtilsProvider utils={DateDayjsUtils} className='dateTimeColumn'>
+      <MuiPickersUtilsProvider
+        utils={DateDayjsUtils}
+        className="dateTimeColumn"
+      >
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
             <FormControl className={classes.formControl}>
@@ -144,18 +147,16 @@ function DateAndTimePickers(props) {
                 onChange={handleSubjectChange}
               >
                 {props.subjectList.map((s) => (
-                  <MenuItem value={s.subject_id} className='subjectPicker'>
+                  <MenuItem value={s.subject_id} className="subjectPicker">
                     {capitalize.words(s.subject_name)} -{" "}
                     {capitalize.words(s.sub_subject_name)}
-                  
-                    
                   </MenuItem>
                 ))}
               </Select>
             </FormControl>
           </Grid>
           <Grid item xs={12} sm={6}>
-          <p>Select a Date</p>
+            <p>Select a Date</p>
 
             <DatePicker
               margin="normal"
@@ -169,7 +170,7 @@ function DateAndTimePickers(props) {
         </Grid>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={6}>
-          <p>Select Start Time</p>
+            <p>Select Start Time</p>
             <TimePicker
               margin="normal"
               id="time-picker"
@@ -197,16 +198,13 @@ function DateAndTimePickers(props) {
           Book
         </Button>
       </MuiPickersUtilsProvider>
-      
-      <div className={classes.root} className='datePickerButtonDiv'>
-        <div className='bookButtonDiv'>
-        {/* <Button variant="contained" color="primary" onClick={createAppointment} className='bookButtonDetails'
+
+      <div className={classes.root} className="datePickerButtonDiv">
+        <div className="bookButtonDiv">
+          {/* <Button variant="contained" color="primary" onClick={createAppointment} className='bookButtonDetails'
 >
           Book
         </Button> */}
-        {/* <button onClick={createAppointment} className='bookButtonDetails'>
-          Book
-        </button> */}
         </div>
         <Dialog
           open={open}
@@ -218,12 +216,15 @@ function DateAndTimePickers(props) {
             {"Appointment Scheduled!"}
           </DialogTitle>
           <DialogContent>
-            <DialogContentText id="alert-dialog-description" className='alert-dialog-description'>
+            <DialogContentText
+              id="alert-dialog-description"
+              className="alert-dialog-description"
+            >
               You're all set! Check your inbox for a confirmation email
               containing details about your upcoming tutoring session!
             </DialogContentText>
           </DialogContent>
-          <DialogActions >
+          <DialogActions>
             <Button
               onClick={handleClose}
               color="primary"
