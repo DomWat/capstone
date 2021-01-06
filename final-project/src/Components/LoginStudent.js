@@ -217,7 +217,7 @@ function LoginStudent(props) {
                 {"Don't have a student account? Sign Up"}
               </Link>
               <br></br>
-              <Link href="/login" variant="body2" className="signinLink">
+              <Link href="/login/tutor" variant="body2" className="signinLink">
                 {"Sign in as Tutor"}
               </Link>
             </Grid>
