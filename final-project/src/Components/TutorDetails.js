@@ -5,70 +5,79 @@ import DateAndTimePickers from "../Components/DatePickerTest";
 import React from "react";
 
 function TutorDetails(props) {
-  const [tutor, setTutor] = useState({
-    Schedule: {},
-    Subjects: [],
-  });
 
-  const [loading, setLoading] = useState(true);
 
-  // state for passing subject_id and tutor_id to dateComponent as props
-  //const [dateParams, setDateParams] = useState({});
 
-  useEffect(() => {
-    let tutorId = props.match.params.tutorId;
-    fetchTutorById(tutorId);
-  }, []);
+    const [tutor, setTutor] = useState({
+        Schedule: {},
+        Subjects: [],
+    });
 
-  const fetchTutorById = (tutorId) => {
-    fetch(`https://tranquil-everglades-92280.herokuapp.com/tutor/${tutorId}`)
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        setTutor(result);
-        setLoading(false);
-      });
-  };
+    const [loading, setLoading] = useState(true);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+    // state for passing subject_id and tutor_id to dateComponent as props
+    //const [dateParams, setDateParams] = useState({});
 
-  //   const handleClick = (subjectId) => () => {
-  //     let tutor_id = props.match.params.tutorId;
-  //     setDateParams({
-  //       subject_id: subjectId,
-  //       tutor_id: tutor_id,
-  //     });
-  //   };
+    useEffect(() => {
+        let tutorId = props.match.params.tutorId;
+        fetchTutorById(tutorId);
+    }, []);
 
-  //   let subjectItems = tutor.Subjects.map((subject) => {
-  //     return (
-  //       <div key={subject.subject_id}>
-  //         Subjects taught: {subject.subject_name} ({subject.sub_subject_name}){" "}
-  //         <button onClick={handleClick(subject.subject_id)}>
-  //           Select Subject
-  //         </button>
-  //       </div>
-  //     );
-  //   });
+    const fetchTutorById = (tutorId) => {
+        fetch(`http://localhost:3001/tutor/${tutorId}`)
+            .then((response) => response.json())
+            .then((result) => {
+                console.log(result);
+                setTutor(result);
+                setLoading(false);
+            });
+    };
 
-  // Testing:
-  //console.log(dateParams.subject_id, dateParams.tutor_id, "DateParams")
+    if (loading) {
+        return <p>Loading...</p>;
+    }
 
-  return (
-    <div className="detailsDateContainer">
-      <div>
-        <h2 className="tutorDetailsTitle">
-          {tutor.first_name} {tutor.last_name}
-        </h2>
-        <div className="tutorDetailsEmail">
-          <div>Contact: {tutor.email}</div>
-        </div>
-      </div>
-      <div className="detailsRow">
-        <div className="detailsContainer">
-          {/* <ul>
+    //   const handleClick = (subjectId) => () => {
+    //     let tutor_id = props.match.params.tutorId;
+    //     setDateParams({
+    //       subject_id: subjectId,
+    //       tutor_id: tutor_id,
+    //     });
+    //   };
+
+    //   let subjectItems = tutor.Subjects.map((subject) => {
+    //     return (
+    //       <div key={subject.subject_id}>
+    //         Subjects taught: {subject.subject_name} ({subject.sub_subject_name}){" "}
+    //         <button onClick={handleClick(subject.subject_id)}>
+    //           Select Subject
+    //         </button>
+    //       </div>
+    //     );
+    //   });
+
+    // Testing:
+    //console.log(dateParams.subject_id, dateParams.tutor_id, "DateParams")
+
+    return (
+        <div className="detailsDateContainer">
+            <div>
+            <h2 className='tutorDetailsTitle'>
+                {tutor.first_name} {tutor.last_name}
+            </h2>
+            <div className='tutorDetailsEmail'>
+                <div>
+                Contact: <a href={tutor.email ? 'mailto: ' + tutor.email : null} target="_blank" rel="noopener noreferrer" >{tutor.email ? tutor.email : null}</a>
+                </div>
+                </div>
+                
+            </div>
+            <div className='detailsRow'>
+
+            <div className="detailsContainer">
+
+                {/* <ul>
+
                     <li><span className='contactBookTutor'>Contact:</span> {tutor.email}</li>
                 </ul> */}
           {/* <br />

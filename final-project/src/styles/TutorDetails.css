@@ -34,6 +34,7 @@
     padding-right: 30px;
 
     width: 100%;
+    padding-bottom: 50px;
 }
 
 .availabilityTitle {
@@ -129,6 +130,11 @@ div.datePicker div.MuiFormControl-root.makeStyles-formControl-4 {
 
 } 
 
+div.datePicker div.MuiFormControl-root.makeStyles-formControl-23 {
+    padding-right: 15px !important;
+
+} 
+
 /* .MuiSelect-root.MuiSelect-select.MuiSelect-selectMenu.MuiInputBase-input.MuiInput-input {
     width: 400px !important;
 
@@ -189,17 +195,27 @@ div.MuiFormControl-root.MuiTextField-root.MuiFormControl-marginNormal {
     width: 100%;
     
 } */
-
+/* 
 button.bookButtonDetails {
     align-self: right !important;
     margin-right: -10px !important;
     width: 100px !important;
     margin-left: 50%;
-    /* position: absolute; */
-    /* bottom: -100px;
-    right: 30px ; */
+    position: absolute;
+    bottom: -20px;
+    right: 20px ; 
     font-size: 18px; 
-}
+} */
+
+/* button.bookButtonDetails {
+    align-self: right !important;
+    margin-right: -10px !important;
+    width: 100px !important;
+    position: absolute;        
+    bottom: -300px;
+    right: 20% !important;
+    font-size: 18px;
+}  */
 
 /* .MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary {
     align-self: flex-end !important;
@@ -269,6 +285,14 @@ span.MuiTypography-root.MuiPickersCalendarHeader-dayLabel.MuiTypography-caption 
     src: url(Futura\ Book\ font.ttf);
   }
 
+  .newWorkingButton {
+      width: 120px;
+      position: sticky;
+      align-self: flex-end;
+      margin-right: -20px !important;
+      margin-top: -15px !important;
+  }
+
 
 
 
@@ -305,19 +329,16 @@ span.MuiTypography-root.MuiPickersCalendarHeader-dayLabel.MuiTypography-caption 
         font-size: 25px;
     }
 
-    
-
-
 
     button.bookButtonDetails {
         align-self: right !important;
         margin-right: -10px !important;
         width: 100px !important;
         position: absolute;        
-        bottom: -235px;
-        right: 15% !important;
+        bottom: -400px;
+        right: 24% !important;
         font-size: 18px;
-    }
+    }  
 
     .purpleBack {
         display: flex;
@@ -340,11 +361,11 @@ span.MuiTypography-root.MuiPickersCalendarHeader-dayLabel.MuiTypography-caption 
     
 }
 
-@media only screen and (min-width: 1025px) {
+/* @media only screen and (min-width: 1025px) {
     button.bookButtonDetails {
        
         bottom: -235px;
         right: 20% ;
     }
 
-}
+} */
