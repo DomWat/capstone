@@ -131,21 +131,24 @@ function Classes(props) {
 
     return (
       <>
-
-      <div key={tutor.tutor_id} className="tutorItem">
-        <div className="tutorContentDiv">
-          <div className="nameEmailDiv">
-            <li>
-              <span className="tutorBolds">Name:</span>{" "}
-              {capitalize.words(tutor.first_name)} {tutor.last_name}
-              <br></br>
-              <span className="tutorBolds">Email:</span> <a href={tutor.email ? 'mailto: ' + tutor.email : null} target="_blank" rel="noopener noreferrer" >{tutor.email ? tutor.email : null}</a>
-              <br></br>
-              {/* Image: {tutor.image},  */}
-              <span className="tutorBolds">Description:</span>{" "}
-              {tutor.description}
-            </li>
-
+        <div key={tutor.tutor_id} className="tutorItem">
+          <div className="tutorContentDiv">
+            <div className="nameEmailDiv">
+              <li>
+                <span className="tutorBolds">Name:</span>{" "}
+                {capitalize.words(tutor.first_name)} {tutor.last_name}
+                <br></br>
+                <span className="tutorBolds">Email:</span> <a href={tutor.email ? 'mailto: ' + tutor.email : null} target="_blank" rel="noopener noreferrer" >{tutor.email ? tutor.email : null}</a>
+                <br></br>
+                {/* Image: {tutor.image},  */}
+                <span className="tutorBolds">Description:</span>{" "}
+                {tutor.description}
+              </li>
+            </div>
+            <div className="subjectsDiv">
+              <div className="tutorBolds">Subject(s):</div>
+              {subjectItems}
+            </div>
           </div>
           <div className="buttonDiv">
             <NavLink to={"/tutor/" + tutor.tutor_id}>
@@ -154,7 +157,7 @@ function Classes(props) {
           </div>
         </div>
         <hr></hr>
-        </div>
+        {/* </div> */}
       </>
     );
   });
