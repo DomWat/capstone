@@ -1,3 +1,10 @@
 .datePickerDiv {
     margin: 0 auto;
 }
+
+.datePickerButtonDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    width: 100%;
+}

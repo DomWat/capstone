@@ -62,15 +62,24 @@ function TutorDetails(props) {
 
     return (
         <div className="detailsDateContainer">
+            <div>
             <h2 className='tutorDetailsTitle'>
                 {tutor.first_name} {tutor.last_name}
             </h2>
+            <div className='tutorDetailsEmail'>
+                <div>
+                Contact: {tutor.email}
+                </div>
+                </div>
+                
+            </div>
             <div className='detailsRow'>
+
             <div className="detailsContainer">
 
-                <ul>
+                {/* <ul>
                     <li><span className='contactBookTutor'>Contact:</span> {tutor.email}</li>
-                </ul>
+                </ul> */}
                 {/* <br />
                 <br /> */}
                 <p className='availabilityTitle'>Availability:</p>

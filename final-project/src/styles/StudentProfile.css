@@ -17,9 +17,11 @@
 
 .studentTitle {
     padding-top: 50px;
-    color: rgb(13, 19, 70);
+    /* color: rgb(13, 19, 70); */
     padding-bottom: 20px;
     align-self: center;
+    color: rgb(32, 75, 124);
+
 
 }
 
@@ -64,7 +66,9 @@
 
 .appointment-title-student {
     padding-bottom: 30px;
-    color: rgb(13, 19, 70);
+    /* color: rgb(13, 19, 70); */
+    color: rgb(32, 75, 124);
+
     align-self: center;
 }
 
@@ -111,7 +115,7 @@ border-radius: 5px;
 
 
 .studentProfileTableLabel {
-    background-color: #5a56fa1c;
+    background-color: rgb(235, 237, 243);
     /* background-color: rgb(214, 226, 241); */
     padding-left: 10px;
     font-size: 30px;
@@ -166,6 +170,8 @@ border-radius: 5px;
         padding-left: 5px;
         padding-top: 5px;
         font-size: 20px;
+        background-color: #5a56fa1c;
+
         /* border-bottom: grey;
         border-top: none;
         border-right: none;
@@ -181,6 +187,7 @@ border-radius: 5px;
         padding-left: 5px;
         font-size: 15px;
         padding-top: 10px;
+        padding-bottom: 10px;
 
     }
 
