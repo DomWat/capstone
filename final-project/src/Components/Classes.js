@@ -138,7 +138,7 @@ function Classes(props) {
               <span className="tutorBolds">Name:</span>{" "}
               {capitalize.words(tutor.first_name)} {tutor.last_name}
               <br></br>
-              <span className="tutorBolds">Email:</span> {tutor.email}
+              <span className="tutorBolds">Email:</span> <a href={tutor.email ? 'mailto: ' + tutor.email : null} target="_blank" rel="noopener noreferrer" >{tutor.email ? tutor.email : null}</a>
               <br></br>
               {/* Image: {tutor.image},  */}
               <span className="tutorBolds">Description:</span>{" "}

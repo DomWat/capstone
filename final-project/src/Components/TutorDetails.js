@@ -68,7 +68,7 @@ function TutorDetails(props) {
             </h2>
             <div className='tutorDetailsEmail'>
                 <div>
-                Contact: {tutor.email}
+                Contact: <a href={tutor.email ? 'mailto: ' + tutor.email : null} target="_blank" rel="noopener noreferrer" >{tutor.email ? tutor.email : null}</a>
                 </div>
                 </div>
                 
