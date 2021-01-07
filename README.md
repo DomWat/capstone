@@ -63,9 +63,16 @@ Why an app such as this can be helpful:
 
 
 <p>Student Account</p>
-<img src="" width=900 height=500>
+
+
+![students-account-1](https://user-images.githubusercontent.com/70726489/103911383-f5609080-50d3-11eb-9846-737d242f6899.gif)
+
+
+
 <p>Tutor's Account</p>
-<img src="">
+
+![Tutor-account-1](https://user-images.githubusercontent.com/70726489/103910802-3f954200-50d3-11eb-8b74-974e29bc38f1.gif)
+
 
 <!-- CONTACT -->
 ## Project
