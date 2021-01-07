@@ -22,13 +22,13 @@
 
 .tutor-information {
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     color: rgb(32, 75, 124);
 }
 
 .nameInformation {
-    font-size: 25px;
+    font-size: 22px;
     display: flex;
     
 }
@@ -36,7 +36,7 @@
 .nameInformation .nameBold {
     font-family: Futura;
     font-weight: bold;
-    font-size: 26px;
+    font-size: 22px;
     /* letter-spacing: 1px; */
     padding-bottom: 0 !important;
     /* text-decoration: underline; */
@@ -50,7 +50,7 @@ input {
 
 .nameInformation .nameReal {
     height: 100%;
-    padding-top: 3px;
+    /* padding-top: 3px; */
 }
 
 .tutorButtons {
@@ -58,7 +58,7 @@ input {
     display: flex;
     align-self: center;
     justify-content: space-around;
-    padding-bottom: 60px;
+    padding-bottom: 40px;
  
 }
 
@@ -116,8 +116,8 @@ input {
 .tutor-description{
 /* position: absolute; */
 flex-wrap: wrap;
-margin-top: 15px;
-margin-bottom: 25px;
+/* margin-top: 15px; */
+margin-bottom: 15px;
 font-family: Futura !important;
 }
 
@@ -126,17 +126,18 @@ font-family: Futura !important;
     margin-top: -10px;
     font-size: 20px;
     line-height: normal;
-    width: 400px !important;
-    padding-bottom: 10px;
+    width: 340px !important;
+    /* padding-bottom: 10px; */
 }
 
 .descriptionTitle{
     font-size: 35px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     text-decoration: underline;
     /* font-weight: bold; */
     font-family: Futura Bold;
     letter-spacing: 0.5px;
+    margin-bottom: 20px;
 
 }
 
@@ -215,6 +216,7 @@ span.MuiButton-label {
     font-family: Futura;
     text-align: left;
     font-size: 24px;
+    padding: 2px;
 }
 
 .scheduleTitle {
@@ -307,5 +309,11 @@ p.weekdayP {
         font-family: Futura;
         text-align: right;
         font-size: 18px;
+    }
+
+    p.weekdayP {
+       
+        text-align: right;
+       
     }
     }

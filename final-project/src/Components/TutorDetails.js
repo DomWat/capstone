@@ -24,7 +24,7 @@ function TutorDetails(props) {
     }, []);
 
     const fetchTutorById = (tutorId) => {
-        fetch(`http://localhost:3001/tutor/${tutorId}`)
+        fetch(` https://tranquil-everglades-92280.herokuapp.com/tutor/${tutorId}`)
             .then((response) => response.json())
             .then((result) => {
                 console.log(result);
@@ -82,7 +82,7 @@ function TutorDetails(props) {
                 </ul> */}
           {/* <br />
                 <br /> */}
-          <p className="availabilityTitle">Availability:</p>
+          <p className="availabilityTitle">Availability</p>
           <p className="weekday">
             <span className="weekdayName">Monday:&nbsp;</span>{" "}
             {tutor.Schedule.monday}{" "}

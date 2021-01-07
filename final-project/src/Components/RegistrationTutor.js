@@ -181,7 +181,7 @@ function RegistrationTutor(props) {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="/login" variant="body2" className="registerLink">
+              <Link href="/login/tutor" variant="body2" className="registerLink">
                 Already have a tutor account? Sign in
               </Link>
               <br></br>

@@ -3,6 +3,10 @@
     margin-bottom: 50px;
 }
 
+.makeStyles-paper-4 {
+    margin-top: 40px !important;
+}
+
 .register {
     font-family: Futura !important;
 }

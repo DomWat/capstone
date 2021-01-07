@@ -20,7 +20,9 @@ function Home2() {
 
                             <div className='homeListItem'><span className='numbersSpanStudent'>2</span><li>Choose a tutor from our 'Find Tutors' tab</li></div>
 
-                            <div className='homeListItem'><span className='numbersSpanStudent'>3</span><li>Select a date  time from the tutor's availability!</li></div>
+                            <div className='homeListItem'><span className='numbersSpanStudent'>3</span><li>Select a date  time from the tutor's availability</li></div>
+
+                            <div className='homeListItem'><span className='numbersSpanStudent'>4</span><li>Meet virtually with your tutor!</li></div>
 
                             <br></br>
                         </ul>
@@ -32,6 +34,7 @@ function Home2() {
 
                             <div className='homeListItem'><span className='numbersSpanTutor'>3</span><li>Wait for a student to find you!</li></div>
 
+                            <div className='homeListItem'><span className='numbersSpanTutor'>4</span><li>Meet virtually with your student!</li></div>
 
                             <br></br>
                         </ul>

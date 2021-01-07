@@ -5,6 +5,10 @@
 
 }
 
+.makeStyles-paper-4, .makeStyles-paper-14 {
+    margin-top: 40px !important;
+}
+
 .signinButton {
     font-family: Futura !important;
     /* background-color: rgb(90,86,250) !important; */
@@ -26,7 +30,8 @@
 .signinLink {
     font-family: Futura !important;
     padding-left: 6px !important;
-    font-size: 20px !important;
+    font-size: 18px !important;
+    color: rgb(64,81,181);
 }
 
 .MuiGrid-grid-xs-true {

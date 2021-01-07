@@ -55,7 +55,7 @@ ReactDOM.render(
                 path="/tutor-profile"
                 component={requireAuth(TutorProfile)}
               />
-              <Route exact path="/login" component={Login} />
+              <Route exact path="/login/tutor" component={Login} />
               <Route path="/login/student" component={LoginStudent} />
               <Route path="/classes" component={Classes} />
               <Route

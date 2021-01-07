@@ -1,9 +1,9 @@
 .Footer {
     width: 100%;
     display: flex;
-    /* position: fixed; */
+    /* position: sticky; */
     bottom: 0;
-    right: 0;
+    /* right: 0; */
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
