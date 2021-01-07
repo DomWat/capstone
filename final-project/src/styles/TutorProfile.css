@@ -28,7 +28,7 @@
 }
 
 .nameInformation {
-    font-size: 25px;
+    font-size: 22px;
     display: flex;
     
 }
@@ -36,7 +36,7 @@
 .nameInformation .nameBold {
     font-family: Futura;
     font-weight: bold;
-    font-size: 26px;
+    font-size: 22px;
     /* letter-spacing: 1px; */
     padding-bottom: 0 !important;
     /* text-decoration: underline; */
@@ -126,7 +126,7 @@ font-family: Futura !important;
     margin-top: -10px;
     font-size: 20px;
     line-height: normal;
-    width: 400px !important;
+    width: 340px !important;
     padding-bottom: 10px;
 }
 
@@ -215,6 +215,7 @@ span.MuiButton-label {
     font-family: Futura;
     text-align: left;
     font-size: 24px;
+    padding: 2px;
 }
 
 .scheduleTitle {
@@ -307,5 +308,11 @@ p.weekdayP {
         font-family: Futura;
         text-align: right;
         font-size: 18px;
+    }
+
+    p.weekdayP {
+       
+        text-align: right;
+       
     }
     }

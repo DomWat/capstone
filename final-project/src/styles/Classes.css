@@ -11,6 +11,10 @@
     list-style: none;
 }
 
+.browseTutors {
+    font-size: 26px;
+}
+
 .filterBox {
     font-family: Futura !important;
     
