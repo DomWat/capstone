@@ -82,7 +82,7 @@ function TutorDetails(props) {
                 </ul> */}
           {/* <br />
                 <br /> */}
-          <p className="availabilityTitle">Availability:</p>
+          <p className="availabilityTitle">Availability</p>
           <p className="weekday">
             <span className="weekdayName">Monday:&nbsp;</span>{" "}
             {tutor.Schedule.monday}{" "}

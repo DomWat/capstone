@@ -207,7 +207,7 @@ function SignIn(props) {
             onClick={handleGuestLogin}
             className="signinButton"
           >
-            Sign In as Guest
+            Sign In As Guest
           </Button>
           <Grid container>
             <Grid item xs></Grid>

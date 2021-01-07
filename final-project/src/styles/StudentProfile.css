@@ -12,7 +12,9 @@
     display: flex;
     flex-direction: column;
     /* align-items: center; */
-    height: 270px;
+    /* height: 270px; */
+    height: 100%;
+    padding-bottom: 40px;
 }
 
 .studentTitle {
@@ -29,7 +31,7 @@
     display: flex;
     flex-direction: column;
     font-size: 22px;
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
     color: rgb(13, 19, 70);
     /* padding-left: 2%; */
 
@@ -38,12 +40,15 @@
 .studentNameItem {
     display: flex;
     padding: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
 }
 
 .studentNameItem span {
     font-family: Futura;
     font-weight: bold;
     /* text-decoration: underline; */
+    padding-bottom: 10px;
 }
 
 .studentTopContent {
@@ -68,7 +73,7 @@
     padding-bottom: 30px;
     /* color: rgb(13, 19, 70); */
     color: rgb(32, 75, 124);
-
+    font-size: 35px;
     align-self: center;
 }
 
@@ -85,7 +90,7 @@
 }
 
 .appointment-title-alt .studentNav {
-white-space: nowrap;
+    white-space: nowrap;
 }
 
 
@@ -114,7 +119,7 @@ th,td,tr{
     margin-left: 3%;
     margin-right: 3%;
     border-color: rgb(171, 174, 182);
-border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 

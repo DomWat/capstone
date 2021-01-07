@@ -1,6 +1,4 @@
 
-
-
 .detailsDateContainer {
     display: flex;
     flex-direction: column;
@@ -10,46 +8,19 @@
     align-items: center;
 }
 
-.tutorDetailsEmail {
-    font-size: 18px;
-    padding-top: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.tutorDetailsTitle {
-    padding-top: 20px;
-    font-weight: bold;
-    font-size: 30px;
-}
-
 .detailsRow {
     display: flex;
-    justify-content: center;
-    /* justify-content: space-around; */
-    /* margin: 0 25% 0 25%; */
+    flex-direction: column;
     padding-top: 40px;
     padding-left: 20px;
-    padding-right: 30px;
-
+    padding-right: 20px;
     width: 100%;
     padding-bottom: 50px;
-}
-
-.availabilityTitle {
-    font-family: Futura Bold;
-    font-size: 22px;
-    letter-spacing: 0.5px;
-    /* padding-top: 10px; */
-    text-decoration: underline;
-    /* font-weight: 1000; */
 }
 
 .detailsRow li {
     font-size: 18px;
 }
-
 
 .detailsContainer {
     display: flex;
@@ -57,11 +28,11 @@
     font-family: Futura;
     list-style: none !important;
     background-color: rgb(250, 250, 250);
-    /* padding-left: 15px; */
     text-align: left;
-    /* width: 50%; */
+    width: 100%;
     height: 100%;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
+    padding-bottom: 20px;
 }
 
 .detailsContainer ul {
@@ -71,179 +42,36 @@
 .detailsContainer li {
     list-style: none;
     inset: none;
-    list-style: none;
 }
 
-div .datePicker input {
-    text-align: right !important;
+.tutorDetailsTitle {
+    padding-top: 40px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.tutorDetailsEmail {
     font-size: 18px;
-}
-
-.bookLessonTitle {
-    font-family: Futura Bold;
-    font-size: 22px !important;
-    letter-spacing: 0.5px;
-    text-decoration: underline;
-    padding-top: 0px;
-    align-self: flex-end;
-    margin-right: -25px;
-    margin-top: 0px !important;
-}
-
-div.datePicker {
-    display: flex;
-    flex-direction: column;
-    justify-content: right !important;
-    margin-right: 20px;
-    /* text-align: right; */
-    padding-top: 0px !important;
-    width: 50%;
-}
-
-div.datePicker div.MuiControl-root.makeStyles-formControl-20 {
-    margin-right: 15px !important;
-}
-
-.datePicker p {
-    margin-bottom: 6px;
-    font-size: 20px;
-    /* font-weight: bold; */
-}
-
-.MuiGrid-spacing-xs-3 {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    text-align: right;
-    justify-content: right !important; 
-    margin: 0 !important;
-
-
-} 
-
-/* .MuiGrid-spacing-xs-3 label {
-    text-align: right;
-} */
-
-.MuiInputBase-root {
-    font-family: Futura !important;
-}
-
-div.datePicker div.MuiFormControl-root.makeStyles-formControl-4 {
-    padding-right: 15px !important;
-
-} 
-
-div.datePicker div.MuiFormControl-root.makeStyles-formControl-23 {
-    padding-right: 15px !important;
-
-} 
-
-/* .MuiSelect-root.MuiSelect-select.MuiSelect-selectMenu.MuiInputBase-input.MuiInput-input {
-    width: 400px !important;
-
-} */
-
-/*  */
-/* .MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-3 {
-    text-align: right;
-    display: flex;
-    justify-content: right;
-} */
-
-div.MuiFormControl-root.makeStyles-formControl-24 {
-    margin-top: 0;
-    margin-bottom: 30px;
-}
-/* this is messing up the register page below */
-div.datePicker div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6 {
-    width: 330px !important; 
-    display: flex;
-    flex-direction: column;
-    width: 150px !important;
-    text-align: right;
-    margin-bottom: 30px !important;
-    padding-bottom: 0;
-    align-self: flex-end;
-    /* margin: 0 !important;  */
-    padding: 0;
-} 
-/* 
-div.MuiFormControl-root.MuiTextField-root.MuiFormControl-marginNormal {
-    text-align: right !important;
-}
-
-.MuiInputBase-root.MuiInput-root.MuiInput-underline.MuiInputBase-formControl.MuiInput-formControl {
-    text-align: right !important;
+    padding-top: 8px;
     width: 100%;
-} */
+    display: flex;
+    justify-content: center;
+}
 
-.contactBookTutor {
+.availabilityTitle {
     font-family: Futura Bold;
-    font-size: 22px;
+    font-size: 25px;
     letter-spacing: 0.5px;
     text-decoration: underline;
 }
-
-.dateTimeColumn {
-    display: flex;
-    flex-direction: column;
-}
-
-/* .bookButtonDiv {
-    display: flex !important;
-    flex-direction: row;
-    align-items: right !important;
-    justify-content: right !important;
-    text-align: right;
-    width: 100%;
-    
-} */
-/* 
-button.bookButtonDetails {
-    align-self: right !important;
-    margin-right: -10px !important;
-    width: 100px !important;
-    margin-left: 50%;
-    position: absolute;
-    bottom: -20px;
-    right: 20px ; 
-    font-size: 18px; 
-} */
-
-/* button.bookButtonDetails {
-    align-self: right !important;
-    margin-right: -10px !important;
-    width: 100px !important;
-    position: absolute;        
-    bottom: -300px;
-    right: 20% !important;
-    font-size: 18px;
-}  */
-
-/* .MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary {
-    align-self: flex-end !important;
-    margin-left: 430px; 
-    width: 100px !important;
-
-}   */
-
-/* .datePicker button {
-    width: 200px !important;
-} */
-
-.alert-dialog-description {
-    font-family: Futura !important;
-}
-
 
 .weekday {
-    padding-top: 10px;
+    /* padding-top: 10px; */
     padding-bottom: 10px;
     margin-bottom: 0;
-    font-size: 20px;
+    font-size: 20px !important;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .weekdayName {
@@ -251,7 +79,104 @@ button.bookButtonDetails {
     text-transform: uppercase;
     font-style: italic;
     letter-spacing: 0.5px;
-    font-size: 16px;    
+    font-size: 20px;    
+}
+
+.datePicker {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0px !important;
+    width: 100%;
+}
+
+.bookLessonTitle {
+    font-family: Futura Bold;
+    font-size: 25px !important;
+    letter-spacing: 0.5px;
+    text-decoration: underline;
+    padding-top: 0px;
+    /* align-self: flex-end; */
+    margin-top: 0px !important;
+}
+
+.datePicker input {
+    font-size: 18px !important;
+    padding: 0px;
+}
+
+/* .datePicker div.MuiControl-root.makeStyles-formControl-20 {
+    margin-right: 15px !important;
+} */
+
+.datePicker p {
+    margin-bottom: 0px;
+    font-size: 20px;
+    padding-bottom: 0px ;
+}
+
+div.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-3 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 !important;
+} 
+
+.MuiInputBase-root {
+    font-family: Futura !important;
+}
+
+div.datePicker div.MuiFormControl-root.makeStyles-formControl-4 {
+    padding-right: 15px !important;
+} 
+
+div.datePicker div.MuiFormControl-root.makeStyles-formControl-23 {
+    padding-right: 15px !important;
+} 
+
+/* this is messing up the register page below */
+div.datePicker div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6 {
+    /* width: 330px !important;  */
+    display: flex;
+    flex-direction: column;
+    /* width: 150px !important; */
+    width: 100%;
+    /* text-align: right; */
+    margin-bottom: 30px !important;
+    /* padding-bottom: 0; */
+    align-self: flex-end;
+    /* margin: 0 !important;  */
+    padding: 0;
+} 
+
+.subjectChoice {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    padding-top: 20px !important;
+}
+
+.subjectChoice p {
+    padding-bottom: 10px;
+}
+
+.datePicker .MuiInput-input {
+    font-size: 20px;
+}
+
+/* .contactBookTutor {
+    font-family: Futura Bold;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+    text-decoration: underline;
+} */
+
+/* .dateTimeColumn {
+    display: flex;
+    flex-direction: column;
+} */
+
+.alert-dialog-description {
+    font-family: Futura !important;
 }
 
 .subjectPicker {
@@ -280,31 +205,19 @@ p.MuiTypography-root.MuiTypography-body1.MuiTypography-alignCenter {
 
 span.MuiTypography-root.MuiPickersCalendarHeader-dayLabel.MuiTypography-caption {
     font-family: Futura !important;
-
 }
 
-
-@font-face {
-    font-family: Futura;
-    src: url(Futura\ Book\ font.ttf);
-  }
-
-  .newWorkingButton {
-      width: 120px;
-      position: sticky;
-      align-self: flex-end;
-      margin-right: -20px !important;
-      margin-top: -15px !important;
-  }
-
-
-
-
+.newWorkingButton {
+    width: 120px;
+    align-self: center;
+}
 
   @media only screen and (min-width: 769px) {
+
     .detailsRow {
         display: flex;
-        justify-content: center;
+        flex-direction: row;
+        /* justify-content: center; */
         padding-left: 20px;
         padding-bottom: 50px;
         width: 70%;
@@ -313,12 +226,13 @@ span.MuiTypography-root.MuiPickersCalendarHeader-dayLabel.MuiTypography-caption 
 
     .weekday {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         margin-bottom: 10px;
+        font-size: 25px !important;
     }
 
     .weekdayName {
-        font-size: 20px;
+        font-size: 25px;
     }
 
     div.datePicker {
@@ -326,15 +240,21 @@ span.MuiTypography-root.MuiPickersCalendarHeader-dayLabel.MuiTypography-caption 
     }
 
     div.datePicker p {
-        font-size: 18px;
+        font-size: 22px;
         /* font-weight: bold; */
+        text-align: right;
+        padding-top: 6px;
+    }
+
+    .datePicker input {
+        text-align: right;
     }
 
     .availabilityTitle {
         font-size: 25px;
     }
 
-
+/* 
     button.bookButtonDetails {
         align-self: right !important;
         margin-right: -10px !important;
@@ -343,7 +263,15 @@ span.MuiTypography-root.MuiPickersCalendarHeader-dayLabel.MuiTypography-caption 
         bottom: -400px;
         right: 24% !important;
         font-size: 18px;
-    }  
+    }   */
+
+    .newWorkingButton {
+        width: 170px;
+        align-self: flex-end;
+        /* margin-left: -70px !important; */
+        font-size: 22px !important;
+        margin-top: 20px !important;
+    }
 
     .purpleBack {
         display: flex;
@@ -351,8 +279,8 @@ span.MuiTypography-root.MuiPickersCalendarHeader-dayLabel.MuiTypography-caption 
     }
 
     .bookLessonTitle {
-        /* padding-top: 40px; */
         font-size: 25px !important;
+        align-self: flex-end;
 
     }  
     .tutorDetailsTitle {
@@ -363,14 +291,11 @@ span.MuiTypography-root.MuiPickersCalendarHeader-dayLabel.MuiTypography-caption 
         margin-bottom: 50px;
     }
 
-    
-}
+    @media only screen and (min-width: 946px) {
+        p.weekday {
+            display: flex;
+            flex-direction: row;
+        }
 
-/* @media only screen and (min-width: 1025px) {
-    button.bookButtonDetails {
-       
-        bottom: -235px;
-        right: 20% ;
     }
-
-} */
+}

@@ -135,8 +135,8 @@ function DateAndTimePickers(props) {
         className="dateTimeColumn"
       >
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
-            <FormControl className={classes.formControl}>
+          <Grid item xs={12} sm={6} >
+            <FormControl className={classes.formControl} className='subjectChoice'>
               {/* <InputLabel id="demo-simple-select-label">Subject</InputLabel> */}
               <p>Subject</p>
 

@@ -5,6 +5,10 @@
 
 }
 
+.makeStyles-paper-4, .makeStyles-paper-14 {
+    margin-top: 40px !important;
+}
+
 .signinButton {
     font-family: Futura !important;
     /* background-color: rgb(90,86,250) !important; */
